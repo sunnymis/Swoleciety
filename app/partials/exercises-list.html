@@ -1,0 +1,29 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <!--Sidebar content-->
+            <div class="col-md-12" id="searchSort">
+                Search: <input ng-model="exerciseQuery">
+                Sort by:
+                <select ng-model="orderExercise">
+                    <option value="name">Alphabetical</option>
+                    <option value="rank">Rank</option>
+                </select>    
+            </div>
+        </div>
+
+        <div id="exerciseGrid" class="col-md-12">
+            <ul>
+                <li ng-repeat="exercise in exercises | filter:exerciseQuery | orderBy:orderExercise">
+                    <div>
+                        <h4>{{exercise.name}}</h4>
+                        <img src="images/benchpress.jpg" alt="bench press">
+                        <p>textextexttexttextextexttext textextexttext</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+

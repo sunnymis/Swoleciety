@@ -1,0 +1,94 @@
+[
+  {
+    "name": "Close Grip Bench Press",
+    "id": "close-grip-bench-press",
+    "muscle": "tricep",
+    "category": "arms",
+    "rank": 7
+  },
+  {
+    "name": "Dumbbell Tricep Extensions",
+    "id": "dumbbell-tricep-extensions",
+    "muscle": "tricep",
+    "category": "arms",
+    "rank": 6
+  },
+  {
+    "name": "Skull Crushers",
+    "id": "skull-crushers",
+    "muscle": "tricep",
+    "category": "arms",
+    "rank": 5
+  },
+  {
+    "name": "Rope Pull Downs",
+    "id": "rope-pull-downs",
+    "muscle": "tricep",
+    "category": "arms",
+    "rank": 4
+  },
+  {
+    "name": "Dips",
+    "id": "dips",
+    "muscle": "tricep",
+    "category": "arms",
+    "rank": 3
+  },
+  {
+    "name": "EZ Bar Tricep Extensions",
+    "id": "ez-bar-tricep-extensions",
+    "muscle": "tricep",
+    "category": "arms",
+    "rank": 2
+  },
+  {
+    "name": "Bent Over Cable Extensions",
+    "id": "bent-over-cable-extensions",
+    "muscle": "tricep",
+    "category": "arms",
+    "rank": 1
+  },
+    
+    
+    
+  {
+    "name": "High Bar Squat",
+    "id": "high-bar-squat",
+    "muscle": "quads",
+    "category": "legs",
+    "rank": 8
+  },
+  {
+    "name": "Low Bar Squat",
+    "id": "low-bar-squat",
+    "muscle": "quads",
+    "category": "legs",
+    "rank": 9
+  },
+  {
+    "name": "Deadlift",
+    "id": "deadlift",
+    "muscle": "hamstring",
+    "category": "legs",
+    "rank": 10
+  },
+  {
+    "name": "Leg Extensions",
+    "id": "leg-extensions",
+    "muscle": "quads",
+    "category": "legs",
+    "rank": 11
+  },
+  {
+    "name": "Dumbbell Lunges",
+    "id": "dumbbell-lunges",
+    "muscle": "hamstring",
+    "category": "leg",
+    "rank": 12
+  }
+    
+    
+    
+    
+    
+]

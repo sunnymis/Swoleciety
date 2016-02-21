@@ -1,0 +1,108 @@
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em; 
+    
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
+
+#angularText {
+    color: red;
+}
+
+ul {
+    margin: 0 auto; 
+}
+
+#searchSort li {
+    display: inline-block;
+}
+
+#exerciseGrid li h4{
+    text-align: center;
+}
+
+#exerciseGrid li {
+    width: 200px;
+    min-height: 250px;
+    border: 1px solid #000;
+    display: inline-block;
+    display: -moz-inline-stack;
+    margin: 5px; 
+    vertical-align: top;   
+}
+
+
+.seven-cols .col-md-1 {
+    height: 800px;
+    border-right: 1px solid #000;
+}
+.seven-cols #sunday { 
+}
+
+.seven-cols #saturday {
+    border: none;
+}
+
+
+/* http://stackoverflow.com/questions/21955088/7-equal-columns-in-bootstrap */
+@media (min-width: 768px){
+  .seven-cols .col-md-1,
+  .seven-cols .col-sm-1,
+  .seven-cols .col-lg-1  {
+    width: 100%;
+    *width: 100%;
+  }
+}
+
+
+@media (min-width: 992px) {
+  .seven-cols .col-md-1,
+  .seven-cols .col-sm-1,
+  .seven-cols .col-lg-1 {
+    width: 14.285714285714285714285714285714%;
+    *width: 14.285714285714285714285714285714%;
+  }
+}
+
+
+@media (min-width: 1200px) {
+  .seven-cols .col-md-1,
+  .seven-cols .col-sm-1,
+  .seven-cols .col-lg-1 {
+    width: 14.285714285714285714285714285714%;
+    *width: 14.285714285714285714285714285714%;
+  }
+}
+
+
+
+
+
+div {
+    
+}
