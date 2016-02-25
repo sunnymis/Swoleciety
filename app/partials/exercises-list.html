@@ -15,10 +15,13 @@
         <div id="exerciseGrid" class="col-md-12">
             <ul>
                 <li ng-repeat="exercise in exercises | filter:exerciseQuery | orderBy:orderExercise">
-                    <div>
-                        <h4>{{exercise.name}}</h4>
-                        <img src="images/benchpress.jpg" alt="bench press">
-                        <p>textextexttexttextextexttext textextexttext</p>
+                    <div class="card">
+                        <h3>{{exercise.name}}</h3>
+                        <div class="rating">
+                            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                        </div>
+                        <img src="images/benchpress.jpg" alt="bench press">    
+                        <button class="btn btn-flat learn-more"> Learn More</button>
                     </div>
                 </li>
             </ul>
