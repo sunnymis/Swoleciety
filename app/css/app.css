@@ -70,6 +70,13 @@ ul {
     vertical-align: top;   
 }
 
+button.btn.btn-flat.learn-more {
+    padding: 5px 10px 5px 10px; 
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+
+
 button.btn.btn-flat.learn-more:hover {
 
     background-color: #00CAB8;
