@@ -43,17 +43,13 @@
 ========================================================================
 */
 
-ul {
-    margin: 0 auto; 
-}
-
 #searchSort li {
     display: inline-block;
 }
 
-#exerciseGrid {
-    border: 5px solid; 
-    padding-top: 40px;
+#exerciseGrid {    
+    margin: 50px;
+    
 }
 
 #exerciseGrid li h3{
@@ -63,12 +59,12 @@ ul {
 #exerciseGrid li {
     width: 200px;
     min-height: 250px;
-    border: 1px solid #000;
     display: inline-block;
     display: -moz-inline-stack;
     margin: 5px; 
     vertical-align: top;   
 }
+
 
 button.btn.btn-flat.learn-more {
     padding: 5px 10px 5px 10px; 
@@ -86,11 +82,14 @@ button.btn.btn-flat.learn-more:hover {
     font-size: 20px;
     /* We reverse the order of stars to right to left
        so we can hover and select all stars coming before
-       the hovered star
+       the hovered star. 
         https://css-tricks.com/star-ratings/
+    
+    Edit: Using google material icons might not need this
+        in the future. changed to ltr for now
     */
     unicode-bidi: bidi-override;
-    direction: rtl;
+    direction: ltr;
 }
 
 /*
@@ -102,6 +101,17 @@ button.btn.btn-flat.learn-more:hover {
     content: "\2605";
     position: absolute;
     color: gold;
+}
+
+.rating i {
+    padding: 0;
+    margin: 0;
+    width: 25px;
+    color: #00CAB8;
+}
+
+i.material-icons.material-icons-grey {
+    color: #d3d3d3;
 }
 /*
 ========================================================================
