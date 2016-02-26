@@ -120,6 +120,27 @@ i.material-icons.material-icons-grey {
 
 ========================================================================
 */
+
+
+/* div */
+.week-container {
+    border: 2px solid;    
+}
+/* ul */
+#week {
+    display: table;
+    width: 100%;
+}
+
+#week li {
+    display: table-cell;
+    width: 13%;
+    
+    
+}
+
+
+
 .seven-cols .col-md-1 {
     height: 800px;
     border-right: 1px solid #000;

@@ -10,4 +10,12 @@ swolecietyControllers.controller('MainController', ['$scope', 'Exercise',
     function ($scope, Exercise) {
         $scope.exercises = Exercise.query();
     }
-     ]);
+]);
+
+
+swolecietyControllers.controller('CalendarController', ['$scope', 
+   function($scope) {
+       $scope.days = ['Sunday', 'Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+   }
+]);
+
