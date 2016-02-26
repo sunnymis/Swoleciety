@@ -124,7 +124,6 @@ i.material-icons.material-icons-grey {
 
 /* div */
 .week-container {
-    border: 2px solid; 
     display: -webkit-box; 
     display: -webkit-flex; 
     display: -ms-flexbox; 
@@ -132,12 +131,19 @@ i.material-icons.material-icons-grey {
     -webkit-flex-wrap: nowrap; 
     -ms-flex-wrap: nowrap; 
     flex-wrap: nowrap;
+    
+    height: 500px;
 }
 
-#week li {
-    width: 100%;
-}
 
+.weekday {
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    -ms-grid-row-align: stretch;
+    align-items: stretch;
+    text-align: center;
+}
 /* ul 
 #week {
     padding: 0;
