@@ -124,10 +124,23 @@ i.material-icons.material-icons-grey {
 
 /* div */
 .week-container {
-    border: 2px solid;    
+    border: 2px solid; 
+    display: -webkit-box; 
+    display: -webkit-flex; 
+    display: -ms-flexbox; 
+    display: flex; 
+    -webkit-flex-wrap: nowrap; 
+    -ms-flex-wrap: nowrap; 
+    flex-wrap: nowrap;
 }
-/* ul */
+
+#week li {
+    width: 100%;
+}
+
+/* ul 
 #week {
+    padding: 0;
     display: table;
     width: 100%;
 }
@@ -135,9 +148,15 @@ i.material-icons.material-icons-grey {
 #week li {
     display: table-cell;
     width: 13%;
-    
+    height: 760px;
+}
+
+#week .card {
+    height: 100%;
+    text-align: center;
     
 }
+*/
 
 
 

@@ -1,3 +1,4 @@
+<!--
 
 <div class="week-container">
     <ul id="week">
@@ -9,6 +10,7 @@
     </ul>
 </div>
 
+-->
 <!--
 <div class="row seven-cols">
         <div id="sunday" class="col-md-1">Sunday</div>
@@ -20,3 +22,9 @@
         <div id="saturday" class="col-md-1">Saturday</div>
     </div>
 -->
+
+<div class="week-container">    
+    <div ng-repeat="day in days" class="card weekday">
+        <h2>{{day}}</h2>
+    </div>
+</div>
