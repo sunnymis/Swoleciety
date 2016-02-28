@@ -1,5 +1,8 @@
+
+
+
 <div class="week-container">    
-    <div ng-repeat="day in days" class="card weekday">
+    <div id="weekday" ng-repeat="day in days" class="card">
         <h2>{{day}}</h2>
     </div>
 </div>
@@ -10,23 +13,7 @@
         <h1>My Exercises</h1>    
     </div>
     <div class="my-exercises-list">
-        <div class="card">
-            <h5>Exercise</h5>
-            <img src="images/benchpress.jpg" alt="bench press">    
-        </div>
-        <div class="card">
-            <h5>Exercise</h5>
-            <img src="images/benchpress.jpg" alt="bench press">    
-        </div>
-        <div class="card">
-            <h5>Exercise</h5>
-            <img src="images/benchpress.jpg" alt="bench press">    
-        </div>
-        <div class="card">
-            <h5>Exercise</h5>
-            <img src="images/benchpress.jpg" alt="bench press">    
-        </div>
-        <div class="card">
+        <div id="exercise1" draggable="true" ondragstart="handleDragStart(event)" class="card">
             <h5>Exercise</h5>
             <img src="images/benchpress.jpg" alt="bench press">    
         </div>

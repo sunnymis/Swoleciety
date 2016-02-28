@@ -135,13 +135,17 @@ i.material-icons.material-icons-grey {
     height: 500px;
 }
 
-.weekday {
+#weekday {
     -webkit-box-align: stretch;
     -webkit-align-items: stretch;
     -ms-flex-align: stretch;
     -ms-grid-row-align: stretch;
     align-items: stretch;
     text-align: center;
+}
+
+#weekday .over {
+    border: 2px solid #000;
 }
 
 
@@ -176,7 +180,7 @@ i.material-icons.material-icons-grey {
     height: 100px;
     width: 100px;
     text-align: center;
-    
+    cursor: move;    
 }
 
 .my-exercises img {
