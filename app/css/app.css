@@ -35,6 +35,15 @@
   padding: 0;
 }
 
+.navbar-nav {
+   float: none;
+}
+
+
+#login {
+    float: right;
+}
+
 /*
 ========================================================================
 
@@ -53,10 +62,18 @@
 }
 
 #exerciseGrid li h3{
+    /* save for future to try to make all cardss same size
+    height: 100px;
+      overflow: hidden;
+      white-space: nowrap;
+
+    text-overflow: ellipsis;
+    */
     text-align: center;
 }
 
 #exerciseGrid li {
+    text-overflow: ellipsis;
     width: 200px;
     min-height: 250px;
     display: inline-block;
@@ -187,4 +204,20 @@ i.material-icons.material-icons-grey {
     max-height: 500%;
     max-width: 100%;
     margin: auto;
+}
+
+
+
+/*
+========================================================================
+
+                    Log In Page CSS                                        
+
+========================================================================
+*/
+
+
+#login-form {
+    width: 300px;
+    margin: 0 auto;
 }

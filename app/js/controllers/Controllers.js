@@ -28,7 +28,6 @@ swolecietyControllers.controller('CalendarController', ['$scope',
             ev.dataTransfer.dropEffect = 'move';
         };
         $scope.handleDragEnter = function(ev) {
-            alert('over');
             this.classList.add('over');
         };
         $scope.handleDragLeave = function(ev) {
@@ -49,6 +48,10 @@ swolecietyControllers.controller('CalendarController', ['$scope',
         
    }
 ]);
+
+swolecietyControllers.controller('LogInController',['$scope',function($scope) {
+    $scope.pass = "";
+}]);
 
 /*
         $scope.weekday.addEventListener('dragover', $scope.handleDragOver, false);
