@@ -15,9 +15,9 @@
 
         <div id="exerciseGrid" class="col-md-12">
             <ul>
-                <li ng-repeat="exercise in exercises | filter:exerciseQuery | orderBy:orderExercise">
+                <li ng-repeat="exercise in vm.exercises | filter:exerciseQuery | orderBy:orderExercise">
                     <div class="card">
-                        <h3>{{exercise | json}}</h3>
+                        <h3>{{ exercise }}</h3>
                         <div class="rating">
 <!--                            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>-->
                             <i class="material-icons">stars</i>

@@ -2,7 +2,7 @@
 <!--[if lt IE 7]>      <html lang="en" ng-app="SwolecietyApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html lang="en" ng-app="SwolecietyApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html lang="en" ng-app="SwolecietyApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="SwolecietyApp" class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="swoleciety" class="no-js"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,23 +23,47 @@
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="css/app.css">
+    
+    
+      <!----------------------- SCRIPTS ---------------------->     
+    
+<!--    Angular JS   -->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
 
+<!--    HTML5 Boilerplate   -->
+    <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+
+<!--    Firebase    -->
+    <script src="bower_components/firebase/firebase.js"></script>
+
+<!--    Angular Fire    -->
+    <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
+
+<!--    Bootstrap Material Design   -->
+    <script src="bower_components/bootstrap-material-design/dist/js/material.min.js"></script>
+
+<!--    Main Level Module   -->
+    <script src="js/app.js"></script>    
     
-  <!----------------------- SCRIPTS ---------------------->     
-  <!-- Angular JS --> 
-  <script src="bower_components/angular/angular.min.js"></script>
-  <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+<!--    Browse  -->
+    <script src="browse/browse.module.js"></script>
+    <script src="browse/browse.js"></script>
     
-  <!-- HTML 5 Boilerplate -->     
-  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+<!--    Calendar    -->
+    <script src="calendar/calendar.module.js"></script>
+    <script src="calendar/calendar.js"></script>
     
-  <!-- Firebase -->     
-  <script src="bower_components/firebase/firebase.js"></script>
+<!--    Login   -->
+    <script src="login/login.module.js"></script>
+    <script src="login/login.js"></script>
     
-  <!-- AngularFire -->     
-  <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
-  
-  
+<!--    Versioning  -->
+    <script src="components/version/version.js"></script>
+    <script src="components/version/version-directive.js"></script>
+    <script src="components/version/interpolate-filter.js"></script>
 </head>
 <body>
 
@@ -57,10 +81,10 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="#/exercises">Browse</a></li>
+                    <li><a href="#browse">Browse</a></li>
                     <li><a href="#calendar">Calendar</a></li>
                     <li><a href="#">Stats</a></li>
-                    <li id="login"><a href="#/login">Log In</a></li>
+                    <li id="login"><a href="#login">Log In</a></li>
                 </ul>
             </div>
         </div>
@@ -68,14 +92,6 @@
     <div ng-view=""></div>
         
     
-  <script src="bower_components/bootstrap-material-design/dist/js/material.min.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="bower_components/angular-resource/angular-resource.js"></script>
-  <script src="js/app.js"></script>    
-  <script src="js/controllers/Controllers.js"></script>
-  <script src="js/services/Services.js"></script>
-  <script src="components/version/version.js"></script>
-  <script src="components/version/version-directive.js"></script>
-  <script src="components/version/interpolate-filter.js"></script>
+
 </body>
 </html>

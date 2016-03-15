@@ -2,31 +2,40 @@
     'use strict';
 
     // Declare app level module which depends on views, and components
-    angular.module('SwolecietyApp', [
-        'ngRoute',
-        'SwolecietyControllers',
-        'SwolecietyServices',
-        'firebase'
-    ]).
-    config(configFunction); 
+    angular
+        .module('swoleciety', [
+            'ngRoute',
+            'swoleciety.browse',
+            'swoleciety.calendar',
+            'swoleciety.login',
+            'SwolecietyServices'
+            
+        ])
+        .config(configFunction)
+        .run(function() {
+        console.log('main');
+    });
 
     configFunction.$inject = ['$routeProvider'];
 
     function configFunction($routeProvider) {
-        $routeProvider.when('/exercises', {
-            templateUrl: 'partials/exercises-list.html',
-            controller: 'MainController'
+        $routeProvider.when('/browse', {
+            templateUrl: 'browse/browse.html',
+            controller: 'BrowseController',
+            controllerAs: 'vm'
             })
             .when('/calendar', {
-            templateUrl: 'partials/calendar.html',
-            controller: 'CalendarController'
+            templateUrl: 'calendar/calendar.html',
+            controller: 'CalendarController',
+            controllerAs: 'vm'
            })
             .when('/login', {
-            templateUrl: 'partials/login.html',
-            controller: 'LoginController'
+            templateUrl: 'login/login.html',
+            controller: 'LoginController',
+            controllerAs: 'vm'
             })    
           .otherwise( {
-            redirectTo: '/exercises'
+            redirectTo: '/browse'
           });
     }
 })();
