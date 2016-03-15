@@ -4,7 +4,8 @@
 angular.module('SwolecietyApp', [
     'ngRoute',
     'SwolecietyControllers',
-    'SwolecietyServices'
+    'SwolecietyServices',
+    'firebase'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/exercises', {

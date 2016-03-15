@@ -17,7 +17,7 @@
             <ul>
                 <li ng-repeat="exercise in exercises | filter:exerciseQuery | orderBy:orderExercise">
                     <div class="card">
-                        <h3>{{exercise.name}}</h3>
+                        <h3>{{exercise | json}}</h3>
                         <div class="rating">
 <!--                            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>-->
                             <i class="material-icons">stars</i>

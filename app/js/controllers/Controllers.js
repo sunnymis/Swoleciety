@@ -6,9 +6,17 @@
 var swolecietyControllers = angular.module('SwolecietyControllers', []);
 
 
-swolecietyControllers.controller('MainController', ['$scope', 'Exercise',
-    function ($scope, Exercise) {
-        $scope.exercises = Exercise.query();
+swolecietyControllers.controller('MainController', ['$scope', '$firebaseObject',
+    function ($scope, $firebaseObject) {
+        var exerciseRef = new Firebase('https://swoleciety.firebaseio.com/exercises');
+        $scope.exercises = {};
+        
+        exerciseRef.once("value",function(categorySnapshot) {
+            categorySnapshot.forEach(function(exerciseSnapshot) {
+                
+            });
+        });
+        
     }
     ]);
 
@@ -18,7 +26,6 @@ swolecietyControllers.controller('CalendarController', ['$scope',
         $scope.days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         
         
-
         $scope.handleDragStart = function(ev) {
             this.style.opacity = '0.4';
             ev.dataTransfer.setData("text", ev.target.id);                                           
