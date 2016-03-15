@@ -8,8 +8,9 @@
             'swoleciety.browse',
             'swoleciety.calendar',
             'swoleciety.login',
-            'SwolecietyServices'
-            
+            'swoleciety.core',
+            'ngRoute',
+            'firebase'  
         ])
         .config(configFunction)
         .run(function() {

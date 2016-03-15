@@ -25,7 +25,36 @@
   <link rel="stylesheet" href="css/app.css">
     
     
-      <!----------------------- SCRIPTS ---------------------->     
+
+</head>
+<body>
+
+   <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse">
+                    <span class="icon-bar">Home</span>
+                    <span class="icon-bar">Browse</span>
+                    <span class="icon-bar">Calendar</span>
+                    <span class="icon-bar">Stats</span>
+                    <span class="icon-bar">Profile</span>
+                </button>
+                <a class="navbar-brand" href="#/exercises"><img alt="Swoleciety"></a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#browse">Browse</a></li>
+                    <li><a href="#calendar">Calendar</a></li>
+                    <li><a href="#">Stats</a></li>
+                    <li id="login"><a href="#login">Log In</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div ng-view=""></div>
+        
+    
+          <!----------------------- SCRIPTS ---------------------->     
     
 <!--    Angular JS   -->
     <script src="bower_components/angular/angular.min.js"></script>
@@ -60,38 +89,16 @@
     <script src="login/login.module.js"></script>
     <script src="login/login.js"></script>
     
+<!--    Core    -->
+    <script src="core/core.module.js"></script>
+    <script src="core/firebaseData.service.js"></script>
+    <script src="core/exercise.service.js"></script>
+    <script src="core/constants.js"></script>
+    
 <!--    Versioning  -->
     <script src="components/version/version.js"></script>
     <script src="components/version/version-directive.js"></script>
     <script src="components/version/interpolate-filter.js"></script>
-</head>
-<body>
-
-   <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse">
-                    <span class="icon-bar">Home</span>
-                    <span class="icon-bar">Browse</span>
-                    <span class="icon-bar">Calendar</span>
-                    <span class="icon-bar">Stats</span>
-                    <span class="icon-bar">Profile</span>
-                </button>
-                <a class="navbar-brand" href="#/exercises"><img alt="Swoleciety"></a>
-            </div>
-            <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="#browse">Browse</a></li>
-                    <li><a href="#calendar">Calendar</a></li>
-                    <li><a href="#">Stats</a></li>
-                    <li id="login"><a href="#login">Log In</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <div ng-view=""></div>
-        
-    
 
 </body>
 </html>

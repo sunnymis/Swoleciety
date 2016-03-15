@@ -14,6 +14,7 @@
 
 
         <div id="exerciseGrid" class="col-md-12">
+            {{vm.exercises}}
             <ul>
                 <li ng-repeat="exercise in vm.exercises | filter:exerciseQuery | orderBy:orderExercise">
                     <div class="card">

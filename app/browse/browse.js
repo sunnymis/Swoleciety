@@ -3,15 +3,12 @@
     
     angular
         .module('swoleciety.browse')
-        .controller('BrowseController',BrowseController)
-        .run(function() {
-            console.log('browsejs');
-        });
+        .controller('BrowseController',BrowseController);
     
-    BrowseController.$inject = ['Exercise'];
+    BrowseController.$inject = ['exerciseService'];
     
-    function BrowseController(Exercise) {
+    function BrowseController(exerciseService) {
         var vm = this; 
-        vm.exercises = Exercise.query();
+        vm.exercises = exerciseService.exercises;
     }
 })();
