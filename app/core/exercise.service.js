@@ -8,14 +8,20 @@
     exerciseService.$inject = ['$firebaseArray', 'firebaseDataService'];
     
     function exerciseService($firebaseArray, firebaseDataService) {
-        
+
         var service = {
-            exercises:  $firebaseArray(firebaseDataService.exercises)
+            exercise:  Exercise
         };
         
+        function Exercise() {
+            var ref = firebaseDataService.exercises;
+            ref.on("value", function (snapshot) {
+                console.log(snapshot.val());
+            });
+        }
+        
+        
         return service;
-        
-        
         
     }
 })();

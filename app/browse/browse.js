@@ -5,10 +5,10 @@
         .module('swoleciety.browse')
         .controller('BrowseController',BrowseController);
     
-    BrowseController.$inject = ['exerciseService'];
+    BrowseController.$inject = ['$firebaseArray', 'firebaseExerciseService'];
     
-    function BrowseController(exerciseService) {
+    function BrowseController($firebaseArray, firebaseExerciseService) {
         var vm = this; 
-        vm.exercises = exerciseService.exercises;
+        vm.exercises = $firebaseArray(firebaseExerciseService.getByType('arms'));
     }
 })();

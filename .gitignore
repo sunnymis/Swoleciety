@@ -5,6 +5,3 @@ bower_components/
 tmp
 .DS_Store
 .idea
-.jshintrc
-.bowerrc
-.travis.yml
