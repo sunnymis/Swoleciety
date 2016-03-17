@@ -9,6 +9,16 @@
     
     function BrowseController($firebaseArray, firebaseExerciseService) {
         var vm = this; 
-        vm.exercises = $firebaseArray(firebaseExerciseService.getByType('arms'));
+        vm.exercises = [];
+        
+        firebaseExerciseService.getAll().on('value', function(snapshot) {
+            snapshot.forEach(function(type) {
+                type.forEach(function(exercise) {
+                    console.log(exercise.val().name);
+                    vm.exercises.push(exercise.val().name);    
+                });
+            }); 
+        });
+        return vm;
     }
 })();
