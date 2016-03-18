@@ -19,10 +19,19 @@
         function register(newUser) {
           return firebaseAuthService.auth.$createUser(newUser)
             .then(function(registeredUser) {
-              console.log('Registered ' + registeredUser + ' uid: ' + registeredUser.uid);
+              vm.response = 'Successfully created user account with uid: ' +  userData.uid;
           })
             .catch(function(error) {
-              console.log(error);
+              switch(error.code) {
+                  case "EMAIL_TAKEN":
+                    vm.response = 'The new user account cannot be created because the email is already in use.';
+                    break;
+                  case "INVALID_EMAIL":
+                    vm.response = 'The specified email is not a valid email.';
+                    break;
+                  default:
+                    vm.response = 'Error creating user: ' + error;
+              }
           })
         };
     }
