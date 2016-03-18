@@ -1,0 +1,23 @@
+<div class="container-fluid">
+    <h1>Sign Up</h1>
+    <form id="login-form" ng-submit="vm.register(vm.newUser)">
+        Username: <br>
+        <input type="text" ng-model="vm.newUser.email" name="username"><br>
+        Password <br>
+        <input type="password" ng-model="vm.newUser.password"><br>
+        Email <br>
+        <input type="email" ng-model="vm.newUser.email"><br>
+        Confirm Email <br>
+        <input type="email" ng-model="vm.newUser.emailConfirm"><br>
+        Date Of Birth <br>
+        <input type="date" ng-model="vm.newUser.dateOfBirth"><br><br>
+        
+        <input type="radio" id="maleRadio" name="gender" value="Male" checked>Male    
+        <input type="radio" id="maleRadio" name="gender" value="Female">Female    <br><br>
+        
+        <button type="submit" value="Submit">Submit</button>
+        <p id="error-message" >{{vm.response}}</p>
+        
+        <p>Already have an account? </p> <a href="#login">Log In</a>
+    </form>
+</div>

@@ -9,7 +9,7 @@
             'swoleciety.calendar',
             'swoleciety.login',
             'swoleciety.core',
-            'ngRoute',
+            'swoleciety.signup',
             'firebase'  
         ])
         .config(configFunction)
@@ -33,6 +33,11 @@
             .when('/login', {
             templateUrl: 'login/login.html',
             controller: 'LoginController',
+            controllerAs: 'vm'
+            })
+            .when('/signup', {
+            templateUrl: 'signup/signup.html',
+            controller: 'SignupController',
             controllerAs: 'vm'
             })    
           .otherwise( {
