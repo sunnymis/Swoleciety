@@ -1,13 +1,14 @@
 (function() {
-    'use strict'
+    'use strict';
     
     angular
         .module('swoleciety.core')
-        .controller('firebaseUserService', firebaseUserService);
+        .factory('firebaseAuthService', firebaseAuthService)
+        
     
-    firebaseUserService.$inject = ['FIREBASE_URL', '$firebaseAuth'];
+    firebaseAuthService.$inject = ['FIREBASE_URL', '$firebaseAuth'];
     
-    function firebaseUserService(FIREBASE_URL, $firebaseAuth) {
+    function firebaseAuthService(FIREBASE_URL, $firebaseAuth) {
         var reference = new Firebase(FIREBASE_URL);
         var auth = $firebaseAuth(reference);
         var service = {
@@ -16,4 +17,4 @@
         }
         return service; 
     }
-})
+})();

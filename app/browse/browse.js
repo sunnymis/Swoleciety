@@ -15,8 +15,9 @@
             .then(function() {
                 angular.forEach(allExercises, function(type) {
                     angular.forEach(type, function(exercise) {
-                        if (exercise instanceof Object)
+                        if (exercise instanceof Object) {
                             vm.exercises.push(exercise.name);
+                        }
                     });
                 });
         });
