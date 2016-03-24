@@ -76,7 +76,7 @@
     text-align: center;
 }
 
-#exerciseGrid li {
+#exerciseGrid li#exercise-card {
     text-overflow: ellipsis;
     width: 200px;
     min-height: 250px;
@@ -88,16 +88,27 @@
 
 
 button.btn.btn-flat.learn-more {
-    padding: 5px 10px 5px 10px; 
+    padding: 5px  5px 10px; 
     margin-bottom: 5px;
     margin-left: 5px;
 }
 
+button.btn.add {
+    padding: 0px 10px 0px 10px; 
+    margin-left: 5px;
+    font-size: 20px;
+}
+
 
 button.btn.btn-flat.learn-more:hover {
-
     background-color: #00CAB8;
 }
+
+
+button.btn.btn-default.add:hover {
+    background-color: #00CAB8;
+}
+
 
 .rating {
     font-size: 20px;
