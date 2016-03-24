@@ -22,6 +22,10 @@
                 });
         });
         
+        vm.addExerciseToDay = function(exercise) {
+            
+        }
+        
         return vm;
     }
 })();

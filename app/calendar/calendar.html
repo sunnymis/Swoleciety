@@ -2,12 +2,13 @@
 
 
 <div class="week-container">    
-    <div id="weekday" ng-repeat="day in vm.days" class="card">
+    <div class="weekday" id={{$index}} ng-repeat="day in vm.days">
         <h2>{{day}}</h2>
     </div>
 </div>
 
 
+<!--
 <div class="my-exercises">
     <div class="my-exercises-title">
         <h1>My Exercises</h1>    
@@ -18,4 +19,4 @@
             <img src="images/benchpress.jpg" alt="bench press">    
         </div>
     </div>
-</div>
+</div>-->

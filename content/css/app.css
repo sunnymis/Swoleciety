@@ -153,8 +153,6 @@ i.material-icons.material-icons-grey {
 ========================================================================
 */
 
-
-
 .week-container {
     display: -webkit-box; 
     display: -webkit-flex; 
@@ -167,13 +165,18 @@ i.material-icons.material-icons-grey {
     height: 500px;
 }
 
-#weekday {
+.weekday {
     -webkit-box-align: stretch;
     -webkit-align-items: stretch;
     -ms-flex-align: stretch;
     -ms-grid-row-align: stretch;
     align-items: stretch;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
     text-align: center;
+    border: 1px solid #000;
 }
 
 #weekday .over {
