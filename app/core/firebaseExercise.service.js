@@ -15,6 +15,9 @@
             },
             getAll: function() {
                 return ref; 
+            },
+            addForUser: function(exercise, user) {
+                
             }
         }
         return service; 

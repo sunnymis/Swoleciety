@@ -1,9 +1,10 @@
 
 
 
-<div class="week-container">    
-    <div class="weekday" id={{$index}} ng-repeat="day in vm.days">
+<div class="week-container" data-ng-init="vm.loadExercisesForDay()">    
+    <div class="weekday" ng-repeat="day in vm.days">
         <h2>{{day}}</h2>
+        <p>{{ vm.a }}</p>
     </div>
 </div>
 
