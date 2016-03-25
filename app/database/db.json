@@ -12,7 +12,7 @@
 				"deadlift": true,
 				"squat": true,
 				"bench": true,
-				"overHeadPress": true
+				"overHeadPress": false
 			}
 		}
 	},
