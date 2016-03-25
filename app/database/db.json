@@ -1,0 +1,162 @@
+{
+	"users": {
+		"smistry": {
+			"firstName": "sunny",
+			"lastName": "mistry",
+			"age": 22,
+			"programs": {
+				"startingStrength": true,
+				"custom": true
+			},
+			"exercises": {
+				"deadlift": true,
+				"squat": true,
+				"bench": true,
+				"overHeadPress": false
+			}
+		}
+	},
+	"programs": {
+		"startingStrength": {
+			"name": "Starting Strength",
+			"type": "strength",
+			"rating": 0,
+			"exercises": {
+				"back": {
+					"deadlift": true
+				},
+				"legs": {
+					"squat": true,
+					"deadlift": true
+				},
+				"chest": {
+					"bench": true
+				},
+				"shoulder": {
+					"overHeadPress": true
+				},
+				"all": {
+					"powerClean": true
+				}
+			}
+		},
+		"strongLifts5x5": {
+			"name": "StrongLifts 5x5",
+			"type": "strength",
+			"rating": 0,
+			"exercises": {
+				"back": {
+					"deadlift": true,
+					"barbellRow": true
+				},
+				"legs": {
+					"squat": true,
+					"deadlift": true
+				},
+				"chest": {
+					"bench": true
+				},
+				"shoulder": {
+					"overHeadPress": true
+				},
+				"all": {
+					"powerClean": true
+				}
+			}
+		},
+		"shortcutToSize": {
+			"name": "Shortcut To Size",
+			"type": "bodybuilding",
+			"rating": 0,
+			"exercises": {
+				"back": {
+					"deadlift": true,
+					"barbellRow": true
+				},
+				"legs": {
+					"squat": true,
+					"deadlift": true
+				},
+				"chest": {
+					"bench": true,
+					"inclineBench": true,
+					"cableCrossOver": true
+				},
+				"shoulder": {
+					"overHeadPress": true
+				},
+				"all": {
+					"powerClean": true
+				}
+			}
+		}
+	},
+	"exercises": {
+		"arms": {
+			"dumbbellCurl": {
+				"name": "Dumbbell Curl",
+				"muscle": "bicep"
+			},
+			"hammerCurl": {
+				"name": "Hammer Curl",
+				"muscle": "bicep"
+			},
+			"closeGripBench": {
+				"name": "Close Grip Bench Press",
+				"muscle": "tricep"
+			},
+			"skullCrusher": {
+				"name": "Skull Crusher",
+				"muscle": "tricep"
+			}
+		},
+		"shoulders": {
+			"overHeadPress": {
+				"name": "Over Head Press",
+				"muscle": "anteriorDeltoid"
+			},
+			"dumbbellLateralRaise": {
+				"name": "Dumbbell Lateral Raise",
+				"muscle": "lateralDeltoid"
+			},
+			"cableFacePulls": {
+				"name": "Cable Face Pulls",
+				"muscle": "posteriorDeltoid"
+			}
+		},
+		"chest": {
+			"benchPress": {
+				"name": "Bench Press",
+				"muscle": "pectoralis"
+			},
+			"inclineBenchPress": {
+				"name": "Incline Bench Press",
+				"muscle": "upperPectoralis"
+			}
+		},
+		"abs": {
+
+		},
+		"legs": {
+			"squat": {
+				"name": "Squat",
+				"muscle": "quadricep"
+			},
+			"barbellLunge": {
+				"name": "Barbell Lunge",
+				"muscle": "glute"
+			}
+		},
+		"back": {
+			"deadlift": {
+				"name": "Deadlift",
+				"muscle": "lats"
+			},
+			"barbellRow": {
+				"name": "Barbell Row",
+				"muscle": "lats"
+			}
+		}
+	}
+
+}
