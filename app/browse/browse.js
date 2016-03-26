@@ -5,9 +5,17 @@
         .module('swoleciety.browse')
         .controller('BrowseController',BrowseController);
     
-    BrowseController.$inject = ['$firebaseArray', 'firebaseExerciseService', 'firebaseUserService', 'FIREBASE_URL'];
+    BrowseController.$inject = ['$firebaseArray', 
+                                'firebaseExerciseService', 
+                                'firebaseUserService', 
+                                'firebaseUserExerciseService',
+                                'FIREBASE_URL'];
     
-    function BrowseController($firebaseArray, firebaseExerciseService, firebaseUserService, FIREBASE_URL) {
+    function BrowseController($firebaseArray, 
+                               firebaseExerciseService, 
+                               firebaseUserService, 
+                               firebaseUserExerciseService,
+                               FIREBASE_URL) {
         var vm = this; 
         vm.exercises = [];
         var allExercises = $firebaseArray(firebaseExerciseService.getAll());
@@ -26,7 +34,7 @@
             // Possibly inject a user service, get current user
             var exerciseRef = new Firebase(FIREBASE_URL).child('users').child('smistry').child('exercises');
             firebaseUserService.addExercise('smistry',exercise);
-            
+            firebaseUserExerciseService.addUserExercise('smistry',exercise,day);
             
             
             //var exercisesForDay = $firebaseArray(exerciseRef.child(day));

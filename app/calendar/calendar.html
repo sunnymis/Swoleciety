@@ -1,11 +1,11 @@
 
 
 
-<div class="week-container" data-ng-init="vm.loadExercisesForDay()">    
+<div class="week-container" data-ng-init="vm.loadExercisesForWeek()">    
     <div class="weekday" ng-repeat="day in vm.days">
         <h2>{{day}}</h2>
         <div ng-repeat="ex in vm.weeklyExercises[day]">
-            <p>{{ ex.value  }}</p>    
+            <p>{{ ex }}</p>    
         </div>
         
     </div>

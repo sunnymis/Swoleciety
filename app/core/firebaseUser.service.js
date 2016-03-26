@@ -11,10 +11,10 @@
         var usersRef = new Firebase(FIREBASE_URL + '/users');
         var service = {
             getProfile: function(user) {
-                return new Firebase(userRef + '/' + user); 
+                return usersRef.child(user); 
             },
             addExercise: function(user,exercise) {     
-                var userRef = new Firebase(usersRef + '/' + user);
+                var userRef = usersRef.child(user);
                 var userExercises = userRef.child('exercises');
                 var exerciseObject = {};
                 exerciseObject[exercise] = true;

@@ -8,17 +8,23 @@
     firebaseUserExerciseService.$inject = ['FIREBASE_URL'];
     
     function firebaseUserExerciseService(FIREBASE_URL) {
-        var usersRef = new Firebase(FIREBASE_URL + '/users');
+        var userExerciseRef = new Firebase(FIREBASE_URL + '/userExercises');
         var service = {
-            getProfile: function(user) {
-                return new Firebase(userRef + '/' + user); 
+            getUserExercises: function(user) { 
+                return userExerciseRef.child(user);
             },
-            addExercise: function(user,exercise) {     
-                var userRef = new Firebase(usersRef + '/' + user);
-                var userExercises = userRef.child('exercises');
+            addUserExercise: function(user,exercise,day) { 
+                var ref = userExerciseRef.child(user).child(exercise);
                 var exerciseObject = {};
-                exerciseObject[exercise] = true;
-                userExercises.update(exerciseObject);
+                exerciseObject["name"] = exercise;
+                exerciseObject["day"] = day; 
+                ref.update(exerciseObject);
+                
+                var setRef = ref.child("sets");
+                setRef.push({
+                    "reps": 1,
+                    "weight": 1
+                });
             }
         }
         return service; 
