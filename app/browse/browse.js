@@ -26,22 +26,35 @@
             // Possibly inject a user service, get current user
             var ref = new Firebase(FIREBASE_URL).child('users').child('smistry').child('exercises');
             var exercisesForDay = $firebaseArray(ref.child(day));
-            
+            var i = ref.push(); 
+            console.log($firebaseArray(i));
             ref.child(day).once('value', function(snapshot) {
                 if (snapshot.val() !== null) {
                     // The day exists under exercises in json tree
-                    console.log('day exists');
-                    exercisesForDay.$add(exercise);
+                    exercisesForDay.$add({
+                       "exercise": exercise,
+                       "sets": {
+                           "reps": 1,
+                           "weight": 10
+                       }
+                   });
                 }
                else {
                    console.log(day + ' doesnt exist');
                    // day doesnt exist, use set/update to make day value true
                    var dayRef = ref.child(day);
-                   dayRef.push(exercise);
+                   dayRef.push({
+                       "exercise": exercise
+                   }).push({
+                       "sets": {
+                           "reps": 1,
+                           "weight": 10
+                       }
+                   });
                    
                }
             });
-            console.log(exercisesForDay);
+            
             
         }
         
