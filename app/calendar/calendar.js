@@ -22,7 +22,7 @@
                 allExercises.$loaded()
                 .then(function() { 
                     angular.forEach(allExercises, function(value) {
-                        vm.weeklyExercises[day].push(value.$id); 
+                        vm.weeklyExercises[day].push({"id": value.$id, "value": value.$value}); 
                     });
                 }); 
             });

@@ -25,16 +25,23 @@
         vm.addToWeekday = function(exercise, day) {
             // Possibly inject a user service, get current user
             var ref = new Firebase(FIREBASE_URL).child('users').child('smistry').child('exercises');
+            var exercisesForDay = $firebaseArray(ref.child(day));
+            
             ref.child(day).once('value', function(snapshot) {
                 if (snapshot.val() !== null) {
                     // The day exists under exercises in json tree
-                    console.log(day + ' exists');
+                    console.log('day exists');
+                    exercisesForDay.$add(exercise);
                 }
                else {
-                   // day doesnt exist, use set/update to make day value true 
                    console.log(day + ' doesnt exist');
+                   // day doesnt exist, use set/update to make day value true
+                   var dayRef = ref.child(day);
+                   dayRef.push(exercise);
+                   
                }
             });
+            console.log(exercisesForDay);
             
         }
         
