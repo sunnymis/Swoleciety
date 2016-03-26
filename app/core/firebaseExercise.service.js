@@ -16,8 +16,7 @@
             getAll: function() {
                 return ref; 
             },
-            addForUser: function(exercise, user) {
-                
+            addForUser: function(exercise, user) {       
             }
         }
         return service; 

@@ -3,11 +3,11 @@
     
     angular
         .module('swoleciety.core')
-        .factory('firebaseUserService', firebaseUserService);
+        .factory('firebaseUserExerciseService', firebaseUserExerciseService);
     
-    firebaseUserService.$inject = ['FIREBASE_URL'];
+    firebaseUserExerciseService.$inject = ['FIREBASE_URL'];
     
-    function firebaseUserService(FIREBASE_URL) {
+    function firebaseUserExerciseService(FIREBASE_URL) {
         var usersRef = new Firebase(FIREBASE_URL + '/users');
         var service = {
             getProfile: function(user) {
