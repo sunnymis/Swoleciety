@@ -2,14 +2,15 @@
     <div class="weekday" ng-repeat="day in vm.days">
         <h2>{{day}}</h2>
         <div class="single-exercise" ng-repeat="ex in vm.weeklyExercises[day]">
+            <a id="editButton" href="" ng-click="vm.openCalendarEditModal()">
+                <i class="material-icons">mode_edit</i>
+            </a>
             <h4>{{ ex.name }}</h4>
             <div ng-repeat="set in ex.sets">
                 <p>{{$index+1}}x{{set.reps}} {{set.weight}}lbs</p>
             </div>
-            <a href="" ng-click="vm.openCalendarEditModal()">
-                <i class="material-icons">mode_edit</i>
-            </a>
-            <br style="clear: both">
+            <!-- This makes the container expand with its elements -->
+            <br style="clear: both"> 
         </div>
         
     </div>
