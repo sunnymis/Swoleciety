@@ -8,12 +8,14 @@
     CalendarController.$inject = ['$firebaseArray', 
                                   '$firebaseObject', 
                                   'firebaseUserExerciseService',
-                                  'FIREBASE_URL'];
+                                  'FIREBASE_URL',
+                                  '$uibModal'];
     
     function CalendarController($firebaseArray, 
                                  $firebaseObject, 
                                  firebaseUserExerciseService,
-                                 FIREBASE_URL) {
+                                 FIREBASE_URL,
+                                 $uibModal) {
         var vm = this; 
         vm.days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
         vm.weeklyExercises = {}; 
@@ -30,28 +32,18 @@
                     console.log(vm.weeklyExercises);
                 });
             });
-            
         }
         
-//        
-//        vm.days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
-//        vm.weeklyExercises = {};
-//        angular.forEach(vm.days, function(day) {
-//            vm.weeklyExercises[day] = [];
-//        });
-//            
-//        vm.loadExercisesForDay = function() {
-//            angular.forEach(vm.days, function(day) {
-//                var ref = new Firebase(FIREBASE_URL + '/users/smistry/exercises/').child(day);
-//                var allExercises = $firebaseArray(ref);
-//                allExercises.$loaded()
-//                .then(function() { 
-//                    angular.forEach(allExercises, function(value) {
-//                        vm.weeklyExercises[day].push({"id": value.$id, "value": value.$value}); 
-//                    });
-//                }); 
-//            });
-//        }
+        vm.openCalendarEditModal = function() { 
+            $uibModal.open({
+                templateUrl: 'calendar/calendarEdit.html',
+                controller: 'CalendarController',
+                size: 'md'
+            });
+        }
+        
+        
+        
     }
     
 })();

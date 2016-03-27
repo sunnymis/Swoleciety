@@ -10,7 +10,8 @@
             'swoleciety.login',
             'swoleciety.core',
             'swoleciety.signup',
-            'firebase'  
+            'firebase',
+            'ui.bootstrap'
         ])
         .config(configFunction)
         .run(function() {

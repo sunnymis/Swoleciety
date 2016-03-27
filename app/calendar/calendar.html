@@ -1,6 +1,3 @@
-
-
-
 <div class="week-container" data-ng-init="vm.loadExercisesForWeek()">    
     <div class="weekday" ng-repeat="day in vm.days">
         <h2>{{day}}</h2>
@@ -9,23 +6,11 @@
             <div ng-repeat="set in ex.sets">
                 <p>{{$index+1}}x{{set.reps}} {{set.weight}}lbs</p>
             </div>
-            <i class="material-icons">mode_edit</i>
+            <a href="" ng-click="vm.openCalendarEditModal()">
+                <i class="material-icons">mode_edit</i>
+            </a>
             <br style="clear: both">
         </div>
         
     </div>
 </div>
-
-
-<!--
-<div class="my-exercises">
-    <div class="my-exercises-title">
-        <h1>My Exercises</h1>    
-    </div>
-    <div class="my-exercises-list">
-        <div id="exercise1" draggable="true" ondragstart="handleDragStart(event)" class="card">
-            <h5>Exercise</h5>
-            <img src="images/benchpress.jpg" alt="bench press">    
-        </div>
-    </div>
-</div>-->
