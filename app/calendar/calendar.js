@@ -36,9 +36,12 @@
         
         vm.openCalendarEditModal = function() { 
             $uibModal.open({
-                templateUrl: 'calendar/calendarEdit.html',
-                controller: 'CalendarController',
+                animation: true,
+                templateUrl: 'calendar/calendarEditModal.html',
+                controller: 'CalendarEditModalController',
+                controllerAs: 'vm',
                 size: 'md'
+                
             });
         }
         

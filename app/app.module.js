@@ -5,6 +5,7 @@
     angular
         .module('swoleciety', [
             'ngRoute',
+            'ngResource',
             'swoleciety.browse',
             'swoleciety.calendar',
             'swoleciety.login',
