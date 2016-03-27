@@ -26,7 +26,7 @@
             exercises.$loaded()
             .then(function() {
                 angular.forEach(exercises, function(exercise) {
-                    vm.weeklyExercises[exercise.day].push(exercise.name);
+                    vm.weeklyExercises[exercise.day].push(exercise);
                     console.log(vm.weeklyExercises);
                 });
             });

@@ -4,8 +4,11 @@
 <div class="week-container" data-ng-init="vm.loadExercisesForWeek()">    
     <div class="weekday" ng-repeat="day in vm.days">
         <h2>{{day}}</h2>
-        <div ng-repeat="ex in vm.weeklyExercises[day]">
-            <p>{{ ex }}</p>    
+        <div class="single-exercise" ng-repeat="ex in vm.weeklyExercises[day]">
+            <h4>{{ ex.name }}</h4>
+            <div ng-repeat="set in ex.sets">
+                <p>{{$index+1}}x{{set.reps}} {{set.weight}}lbs</p>
+            </div>
         </div>
         
     </div>

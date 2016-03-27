@@ -179,10 +179,14 @@ i.material-icons.material-icons-grey {
     border: 1px solid #000;
 }
 
-#weekday .over {
-    border: 2px solid #000;
+.single-exercise {
+    border: 1px solid blue; 
+    margin-bottom: 10px;
 }
 
+.single-exercise p {
+    line-height: 10px;
+}
 
 .my-exercises {
     height: 300px;
