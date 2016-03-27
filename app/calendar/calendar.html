@@ -2,7 +2,7 @@
     <div class="weekday" ng-repeat="day in vm.days">
         <h2>{{day}}</h2>
         <div class="single-exercise" ng-repeat="ex in vm.weeklyExercises[day]">
-            <a id="editButton" href="" ng-click="vm.openCalendarEditModal()">
+            <a id="editButton" href="" ng-click="vm.openCalendarEditModal(ex,day)">
                 <i class="material-icons">mode_edit</i>
             </a>
             <h4>{{ ex.name }}</h4>

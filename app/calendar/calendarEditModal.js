@@ -5,13 +5,16 @@
         .module('swoleciety.calendar')
         .controller('CalendarEditModalController',CalendarEditModalController);
     
-    CalendarEditModalController.$inject = ['$uibModalInstance'];
+    CalendarEditModalController.$inject = ['$uibModalInstance','exerciseDetails'];
     
-    function CalendarEditModalController($uibModalInstance) {
+    function CalendarEditModalController($uibModalInstance, exerciseDetails) {
         var vm = this; 
                
+        vm.ed = exerciseDetails;
+        console.log(vm.ed);
+        
         vm.cancel = function() {
-            console.log('here');
+            console.log(exerciseDetails);
             $uibModalInstance.dismiss('cancel');
         }
     }

@@ -23,27 +23,39 @@
             vm.weeklyExercises[day] = [];
         });
         
+        vm.singleExercise; 
+        
         vm.loadExercisesForWeek = function() {
             var exercises = $firebaseArray(firebaseUserExerciseService.getUserExercises('smistry'));
             exercises.$loaded()
             .then(function() {
                 angular.forEach(exercises, function(exercise) {
                     vm.weeklyExercises[exercise.day].push(exercise);
-                    console.log(vm.weeklyExercises);
                 });
             });
-        }
+        };
         
-        vm.openCalendarEditModal = function() { 
+        vm.openCalendarEditModal = function(exercise,day) { 
             $uibModal.open({
                 animation: true,
                 templateUrl: 'calendar/calendarEditModal.html',
                 controller: 'CalendarEditModalController',
                 controllerAs: 'vm',
-                size: 'md'
+                size: 'md',
+                resolve: {
+                    exerciseDetails: function() {
+                        angular.forEach(vm.weeklyExercises[day], function(ex) {
+                            if (ex.name === exercise.name) {
+                                console.log('returned ' + ex.name);
+                                vm.singleExercise = exercise;         
+                            }
+                        }); 
+                        return vm.singleExercise; 
+                    }
+                }
                 
             });
-        }
+        };
         
         
         
