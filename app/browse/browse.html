@@ -17,7 +17,7 @@
             <ul>
                 <li id="exercise-card" ng-repeat="exercise in vm.exercises">
                     <div class="card">
-                        <h3>{{ exercise }}</h3>
+                        <h3>{{ exercise.name }}</h3>
                         <div class="rating">
 <!--                            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>-->
                             <i class="material-icons">stars</i>
@@ -27,7 +27,7 @@
                             <i class="material-icons material-icons-grey">stars</i>
                         </div>
                         <img src="images/benchpress.jpg" alt="bench press">    
-                        <button class="btn btn-flat learn-more">Learn More</button>
+                        <button class="btn btn-flat learn-more" ng-click="vm.openExerciseDetailsModal(exercise)">Learn More</button>
                         <div class="btn-group" ng-class='{open: open}'>
                             <button class="btn dropdown-toggle" data-toggle="dropdown" ng-click='open=!open'>+</button>
                             <ul class="dropdown-menu">

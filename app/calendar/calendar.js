@@ -25,7 +25,6 @@
             vm.weeklyExercises[day] = [];
         });
         
-        vm.singleExercise; 
         
         vm.loadExercisesForWeek = function() {
             var exercises = $firebaseArray(firebaseUserExerciseService.getUserExercises('smistry'));
@@ -37,6 +36,7 @@
             });
         };
         
+        
         vm.openCalendarEditModal = function(exercise,day) { 
             $uibModal.open({
                 animation: true,
@@ -46,13 +46,7 @@
                 size: 'md',
                 resolve: {
                     exerciseDetails: function() {
-                        angular.forEach(vm.weeklyExercises[day], function(ex) {
-                            if (ex.name === exercise.name) {
-                                console.log('returned ' + ex.name);
-                                vm.singleExercise = exercise;         
-                            }
-                        }); 
-                        return vm.singleExercise; 
+                        return exercise; 
                     }
                 }
                 
