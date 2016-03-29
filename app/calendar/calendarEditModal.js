@@ -13,7 +13,7 @@
         /*
             TODO: 
             1. There should be 3 input boxes, sets, reps and weight
-            BUG: 
+            BUG:  
             2. Every time you add a new row, all input boxes reset to 1
         */
         vm.exercise = exerciseDetails;

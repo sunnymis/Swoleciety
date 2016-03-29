@@ -21,7 +21,8 @@
                 userExercises.update(exerciseObject);
             },
             removeExercise: function(user,exercise) {
-                
+                var userRef = usersRef.child(user);
+                var exerciseRef = userRef.child(exercise);
             }
         }
         return service; 

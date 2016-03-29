@@ -3,22 +3,21 @@
         <h3 class="modal-title">{{vm.exercise.name}}</h3>
     </div>
     <div class="modal-body">
-        <ul class="set-rep-weight-list">
-            <li ng-repeat="(key,set) in vm.exercise.sets">
-                <div class="set-rep-weight-list-group">
-                    <strong>Set: {{$index+1}}</strong>
-                    <input type="number" name="repsInput" ng-model="set.reps" min="0">
-                    <input type="number" name="weightInput" ng-model="set.weight" min="0">   
-                    <a href="" ng-click="vm.addSet(vm.exercise.name)">
-                       <i class="material-icons">add_circle</i>
-                    </a>
-                    <a href="" ng-click="vm.removeSet(vm.exercise.name,key)">
-                        <i class="material-icons">remove_circle</i>
-                    </a>
-                    
-                </div>
-            </li>
-        </ul>
+        <div class="container-fluid">
+            <div class="col-md-4">
+                <h1>Description</h1>
+                <img src="images/benchpress.jpg" alt="bench press">
+                <p>
+                The deadlift is a weight training exercise.With a loaded barbell a neutral spine and a braced core you lift it off the floor then when the bar reaches at knee level you thrust your hips in to complete the movement then lower the barbell back to the ground. It is one of the three powerlifting exercises, along with the squat and bench press.
+                </p>
+            </div>
+            <div class="col-md-4">
+                <h1>Top Resources</h1>
+            </div>
+            <div class="col-md-4">
+                <h1>Comments</h1>     
+            </div>
+        </div>
     </div>
     <div class="modal-footer">
         <button class="btn btn-primary" type="button" ng-click="vm.ok()">OK</button>
