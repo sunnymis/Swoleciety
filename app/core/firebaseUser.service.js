@@ -19,6 +19,9 @@
                 var exerciseObject = {};
                 exerciseObject[exercise] = true;
                 userExercises.update(exerciseObject);
+            },
+            removeExercise: function(user,exercise) {
+                
             }
         }
         return service; 

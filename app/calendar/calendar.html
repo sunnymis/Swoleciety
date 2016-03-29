@@ -5,6 +5,10 @@
             <a id="editButton" href="" ng-click="vm.openCalendarEditModal(ex,day)">
                 <i class="material-icons">mode_edit</i>
             </a>
+            <a id="editButton" href="" ng-click="vm.deleteExercise(ex)">
+                <i class="material-icons">delete</i>
+            </a>
+                
             <h4>{{ ex.name }}</h4>
             <div ng-repeat="set in ex.sets">
                 <p>{{$index+1}}x{{set.reps}} {{set.weight}}lbs</p>

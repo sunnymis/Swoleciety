@@ -8,12 +8,14 @@
     CalendarController.$inject = ['$firebaseArray', 
                                   '$firebaseObject', 
                                   'firebaseUserExerciseService',
+                                  'firebaseUserService',
                                   'FIREBASE_URL',
                                   '$uibModal'];
     
     function CalendarController($firebaseArray, 
                                  $firebaseObject, 
                                  firebaseUserExerciseService,
+                                 firebaseUserService,
                                  FIREBASE_URL,
                                  $uibModal) {
         var vm = this; 
@@ -56,6 +58,11 @@
                 
             });
         };
+        
+        vm.deleteExercise = function(exercise) {
+            firebaseUserExerciseService.deleteExercise(exercise);
+            
+        }
         
         
         

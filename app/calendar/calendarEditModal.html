@@ -1,17 +1,27 @@
 <div>
     <div class="modal-header">
-        <h3 class="modal-title">I'm a modal!</h3>
+        <h3 class="modal-title">{{vm.exercise.name}}</h3>
     </div>
     <div class="modal-body">
-        <ul>
-            <li ng-repeat="item in items">
-                <a href="#" ng-click="$event.preventDefault(); selected.item = item">{{ item }}</a>
+        <ul class="set-rep-weight-list">
+            <li ng-repeat="(key,set) in vm.exercise.sets">
+                <div class="set-rep-weight-list-group">
+                    <strong>Set: {{$index+1}}</strong>
+                    <input type="number" name="repsInput" ng-model="set.reps" min="0">
+                    <input type="number" name="weightInput" ng-model="set.weight" min="0">   
+                    <a href="" ng-click="vm.addSet(vm.exercise.name)">
+                       <i class="material-icons">add_circle</i>
+                    </a>
+                    <a href="" ng-click="vm.removeSet(vm.exercise.name,key)">
+                        <i class="material-icons">remove_circle</i>
+                    </a>
+                    
+                </div>
             </li>
         </ul>
-        Selected: <b>{{ vm.details }}</b>
     </div>
     <div class="modal-footer">
-        <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+        <button class="btn btn-primary" type="button" ng-click="vm.ok()">OK</button>
         <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Cancel</button>
     </div>
 </div>

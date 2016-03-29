@@ -193,6 +193,28 @@ i.material-icons.material-icons-grey {
 }
 
 
+/*
+========================================================================
+
+                    Calendar Modal CSS                                        
+
+========================================================================
+*/
+
+.set-rep-weight-list {
+    margin: 0;
+    padding: 0;
+}
+
+.set-rep-weight-list li {
+    display: inline;
+    list-style: none;
+}
+
+.set-rep-weight-list-group p {
+    display: inline;    
+}
+
 
 /*
 ========================================================================

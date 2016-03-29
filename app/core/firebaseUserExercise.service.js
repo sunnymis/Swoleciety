@@ -25,7 +25,23 @@
                     "reps": 1,
                     "weight": 1
                 });
+            },
+            deleteExercise: function(exercise) {
+                var exerciseRef = userExerciseRef.child('smistry').child(exercise);
+                exerciseRef.remove(); 
+            },
+            addSet: function(exercise){
+                var setRef = userExerciseRef.child('smistry').child(exercise).child("sets");
+                setRef.push({
+                    "reps": 1,
+                    "weight": 1
+                });
+            },
+            removeSet: function(exercise,key) {
+                var setRef = userExerciseRef.child('smistry').child(exercise).child("sets").child(key);
+                setRef.remove();
             }
+            
         }
         return service; 
     }

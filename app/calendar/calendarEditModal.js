@@ -5,16 +5,25 @@
         .module('swoleciety.calendar')
         .controller('CalendarEditModalController',CalendarEditModalController);
     
-    CalendarEditModalController.$inject = ['$uibModalInstance','exerciseDetails'];
+    CalendarEditModalController.$inject = ['$uibModalInstance','exerciseDetails', 'firebaseUserExerciseService'];
     
-    function CalendarEditModalController($uibModalInstance, exerciseDetails) {
+    function CalendarEditModalController($uibModalInstance, exerciseDetails, firebaseUserExerciseService) {
         var vm = this; 
                
-        vm.ed = exerciseDetails;
-        console.log(vm.ed);
+        vm.exercise = exerciseDetails;
         
+        vm.addSet = function(exercise) { 
+            firebaseUserExerciseService.addSet(exercise);
+        }
+        
+        vm.removeSet = function(exercise,key) {
+            firebaseUserExerciseService.removeSet(exercise,key);
+        }
+        
+        vm.ok = function() { 
+            $uibModalInstance.close();
+        }
         vm.cancel = function() {
-            console.log(exerciseDetails);
             $uibModalInstance.dismiss('cancel');
         }
     }
