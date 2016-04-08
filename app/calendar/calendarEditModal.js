@@ -29,8 +29,10 @@
         vm.ok = function() { 
             $uibModalInstance.close();
         }
+        
         vm.cancel = function() {
             $uibModalInstance.dismiss('cancel');
         }
+        
     }
 })();

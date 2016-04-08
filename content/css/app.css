@@ -229,3 +229,130 @@ i.material-icons.material-icons-grey {
     width: 300px;
     margin: 0 auto;
 }
+
+
+/*
+========================================================================
+
+                    Responsive Media Queries                                         
+
+========================================================================
+*/
+
+
+/* ----------- Galaxy S5 ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) {
+      
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: portrait) {
+
+
+    #exerciseGrid {    
+        margin: 0;
+        padding: 0;
+    }
+
+    #exerciseGrid li h3{
+        padding: 0;
+        font-size: 20px;
+        float: right;
+        overflow: auto;
+    }
+
+    #exerciseGrid ul {
+          margin: 0;
+          padding: 0;
+    }
+      
+    #exerciseGrid li {
+        max-height: 5px;
+    }
+      
+    .card {
+        height: 100px;  
+        
+    }
+      
+    #exerciseGrid li#exercise-card {
+        width: 100%;
+        display: inline-block;
+        display: -moz-inline-stack;
+    }
+      
+      #exerciseGrid img {
+          height: 100px;
+          width: 100px;
+      }
+
+
+    button.btn.btn-flat.learn-more {
+        padding: 5px  5px 10px; 
+        margin-bottom: 5px;
+        margin-left: 5px;
+    }
+
+    button.btn.add {
+        padding: 0px 10px 0px 10px; 
+        margin-left: 5px;
+        font-size: 20px;
+    }
+
+
+    button.btn.btn-flat.learn-more:hover {
+        background-color: #00CAB8;
+    }
+
+
+    button.btn.btn-default.add:hover {
+        background-color: #00CAB8;
+    }
+
+      .rating {
+          display: none;
+      }
+/*
+    .rating {
+        font-size: 5px;
+        unicode-bidi: bidi-override;
+        direction: ltr;
+        float: right;
+    }
+
+    .rating > span:hover:before,
+    .rating > span:hover ~ span:before{
+        content: "\2605";
+        position: absolute;
+        color: gold;
+    }
+
+    .rating i {
+        padding: 0;
+        margin: 0;
+        width: 25px;
+        color: #00CAB8;
+    }
+*/
+    i.material-icons.material-icons-grey {
+        color: #d3d3d3;
+    } 
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: landscape) {
+
+}
