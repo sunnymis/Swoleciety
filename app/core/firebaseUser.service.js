@@ -17,7 +17,7 @@
                 var userRef = usersRef.child(user);
                 var userExercises = userRef.child('exercises');
                 var exerciseObject = {};
-                exerciseObject[exercise] = true;
+                exerciseObject[exercise.name] = true;
                 userExercises.update(exerciseObject);
             },
             removeExercise: function(user,exercise) {

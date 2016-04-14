@@ -14,10 +14,12 @@
                 return userExerciseRef.child(user);
             },
             addUserExercise: function(user,exercise,day) { 
-                var ref = userExerciseRef.child(user).child(exercise);
-                var exerciseObject = {};
-                exerciseObject["name"] = exercise;
-                exerciseObject["day"] = day; 
+                
+                var ref = userExerciseRef.child(user).child(exercise.name);
+                var exerciseObject = {
+                    "name": exercise.name,
+                    "day": day
+                };
                 ref.update(exerciseObject);
                 
                 var setRef = ref.child("sets");
@@ -25,6 +27,7 @@
                     "reps": 1,
                     "weight": 1
                 });
+                
             },
             deleteExercise: function(exercise) {
                 var exerciseRef = userExerciseRef.child('smistry').child(exercise);

@@ -32,7 +32,7 @@
                         
                         <button class="btn btn-flat learn-more" ng-click="vm.openExerciseDetailsModal(exercise)">Learn More</button>
                         <div class="btn-group" ng-class='{open: open}'>
-                            <button class="btn dropdown-toggle" data-toggle="dropdown" ng-click='open=!open'>+</button>
+                            <button id="add-button" class="btn dropdown-toggle" data-toggle="dropdown" ng-click='open=!open'>+</button>
                             <ul class="dropdown-menu">
                                 <li ng-click="vm.addToWeekday(exercise,'sunday')"><a href="#">Sunday</a></li>
                                 <li ng-click="vm.addToWeekday(exercise,'monday')"><a href="#">Monday</a></li>
