@@ -157,6 +157,10 @@ i.material-icons.material-icons-grey {
     visibility: hidden;
 }
 
+.weekday-container {
+    visibility: hidden;
+}
+
 .week-container {
     display: -webkit-box; 
     display: -webkit-flex; 
@@ -167,7 +171,10 @@ i.material-icons.material-icons-grey {
     flex-wrap: nowrap;
     
     height: auto;
+    visibility: visible;
 }
+
+
 
 .weekday {
     -webkit-box-align: stretch;
@@ -280,6 +287,9 @@ i.material-icons.material-icons-grey {
             Browse                                         
 ----------------------------
 */
+    #searchSort { 
+        display: none;
+    }
       
     #exerciseGrid {    
         margin: 0;
@@ -359,6 +369,14 @@ i.material-icons.material-icons-grey {
 */
     #calendar-mobile-select {
         visibility: visible;
+    }
+      
+    .weekday-container {
+        visibility: visible;
+    }
+      
+    .week-container {
+        display: none;
     }
       
     #weekday-dropdown {

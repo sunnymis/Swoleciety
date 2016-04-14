@@ -1,8 +1,8 @@
 
 <div id="calendar-mobile-select">
-    <select id="weekday-dropdown">
-        <option ng-repeat="day in vm.days" value="{{day}}" >{{day}}</option>
+    <select id="weekday-dropdown" ng-options="day for day in vm.days" value="{{day}}" ng-model="vm.selectedDay" ng-change="vm.loadSingleDay(vm.selectedDay)" ng-init="vm.selectedDay=vm.days[0]">
     </select>
+    
 </div>
 
 <div class="week-container" data-ng-init="vm.loadExercisesForWeek()">    
@@ -23,5 +23,24 @@
             <!-- This makes the container expand with its elements -->
             <br style="clear: both"> 
         </div>
+    </div>
+</div>
+
+<!-- Mobile View -->
+<div class="weekday-container" data-ng-init="vm.loadSingleDay(vm.selectedDay)">
+    <div class="single-exercise" ng-repeat="ex in vm.singleDayExercises[vm.selectedDay]">
+            <a id="editButton" href="" ng-click="vm.openCalendarEditModal(ex,vm.selectedDay)">
+                <i class="material-icons">mode_edit</i>
+            </a>
+            <a id="editButton" href="" ng-click="vm.deleteExercise(ex)">
+                <i class="material-icons">delete</i>
+            </a>
+                
+            <h4>{{ ex.name }}</h4>
+            <div ng-repeat="set in ex.sets">
+                <p>{{$index+1}}x{{set.reps}} {{set.weight}}lbs</p>
+            </div>
+            <!-- This makes the container expand with its elements -->
+            <br style="clear: both"> 
     </div>
 </div>

@@ -24,10 +24,10 @@
         angular.forEach(vm.days, function(day) {
             vm.weeklyExercises[day] = [];
         });
-        
+        vm.singleDayExercises = {};
+        vm.selectedDay = "";
         
         vm.loadExercisesForWeek = function() {
-            console.log('here');
             var exercises = $firebaseArray(firebaseUserExerciseService.getUserExercises('smistry'));
             exercises.$loaded()
             .then(function() {
@@ -57,7 +57,24 @@
         vm.deleteExercise = function(exercise) {
             firebaseUserExerciseService.deleteExercise(exercise);
             
-        }
+        };
+        
+        
+        vm.loadSingleDay = function(day) {
+            console.log(day);
+            var exercises = $firebaseArray(firebaseUserExerciseService.getUserExercises('smistry'));
+            exercises.$loaded()
+            .then(function() {
+                vm.singleDayExercises[day] = [];
+                angular.forEach(exercises, function(exercise) {
+                    if (exercise.day == day) {
+                        vm.singleDayExercises[day].push(exercise);
+                    }
+                });
+                console.log(vm.singleDayExercises);
+            });
+            
+        }; 
         
         
         
