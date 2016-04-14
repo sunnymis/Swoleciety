@@ -16,7 +16,6 @@
         ])
         .config(configFunction)
         .run(function() {
-        console.log('main');
     });
 
     configFunction.$inject = ['$routeProvider'];

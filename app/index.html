@@ -14,43 +14,68 @@
   <!-- HTML 5 Boilerplate -->
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
-    
+
   <!-- Bootstrap -->
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     
   <!-- Bootstrap Material Design -->
   <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.min.css">
+            
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="../content/css/app.css">
     
-    
+      
+
 </head>
 <body>
-
-   <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse">
-                    <span class="icon-bar">Home</span>
-                    <span class="icon-bar">Browse</span>
-                    <span class="icon-bar">Calendar</span>
-                    <span class="icon-bar">Stats</span>
-                    <span class="icon-bar">Profile</span>
-                </button>
-                <a class="navbar-brand" href="#/exercises"><img alt="Swoleciety"></a>
-            </div>
-            <div class="collapse navbar-collapse">
+<!--
+    <nav class="navbar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span> 
+          </button>
+          <a class="navbar-brand" href="#browse">Swoleciety</a>
+        </div>
+            <div class="collapse navbar-collapse navbar-responsive-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="#browse">Browse</a></li>
+                    <li class="active"><a href="#browse">Browse</a></li>
                     <li><a href="#calendar">Calendar</a></li>
                     <li><a href="#">Stats</a></li>
                     <li id="login"><a href="#login">Log In</a></li>
-                    <li id="login"><a href="#signup">Sign Up</a></li>
+                    <li id="signup"><a href="#signup">Sign Up</a></li>
                 </ul>
             </div>
         </div>
     </nav>
+-->
+<nav class="navbar">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"
+>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Swoleciety</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#browse">Browse</a></li>
+        <li><a href="#calendar">Calendar</a></li>
+        <li><a href="#">Stats</a></li>
+      </ul>
+        <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
     <div ng-view=""></div>
         
     
@@ -74,16 +99,22 @@
 <!--    Angular Fire    -->
     <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
 
-<!--    Bootstrap Material Design   -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!--    Bootstrap Material Design   
     <script src="bower_components/bootstrap-material-design/dist/js/material.min.js"></script>
+-->
+      
+     
 
 <!--    Main Level Module   -->
     <script src="app.module.js"></script>    
     
 <!--    Core    -->
     <script src="core/core.module.js"></script>
-    <script src="core/firebaseAuth.service.js"></script>
-    <script src="core/exercise.service.js"></script>
+    <script src="core/firebaseAuth.service.js"></script>    
     <script src="core/firebaseUser.service.js"></script>
     <script src="core/firebaseExercise.service.js"></script>
     <script src="core/firebaseUserExercise.service.js"></script>
