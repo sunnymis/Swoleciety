@@ -1,7 +1,9 @@
 
-<select id="weekday-dropdown">
-    <option class="dropdown-content" ng-repeat="day in vm.days">{{day}}</option>
-</select>
+<div id="calendar-mobile-select">
+    <select id="weekday-dropdown">
+        <option ng-repeat="day in vm.days" value="{{day}}" >{{day}}</option>
+    </select>
+</div>
 
 <div class="week-container" data-ng-init="vm.loadExercisesForWeek()">    
     <div class="weekday" ng-repeat="day in vm.days">
@@ -21,6 +23,5 @@
             <!-- This makes the container expand with its elements -->
             <br style="clear: both"> 
         </div>
-        
     </div>
 </div>

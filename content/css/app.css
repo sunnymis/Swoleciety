@@ -153,8 +153,8 @@ i.material-icons.material-icons-grey {
 ========================================================================
 */
 
-#weekdayDropdown {
-    display: none;
+#calendar-mobile-select {
+    visibility: hidden;
 }
 
 .week-container {
@@ -357,6 +357,10 @@ i.material-icons.material-icons-grey {
             Calendar                                         
 ----------------------------
 */
+    #calendar-mobile-select {
+        visibility: visible;
+    }
+      
     #weekday-dropdown {
         display: block;
         width: 100%;
@@ -369,12 +373,9 @@ i.material-icons.material-icons-grey {
         font-size: 20px;
         border: 1px solid #ccc;
         text-indent: 150px;
-
     }
       
-    .dropdown-content {
-        
-    }
+    
 }
 
 /* Landscape */

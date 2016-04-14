@@ -27,6 +27,7 @@
         
         
         vm.loadExercisesForWeek = function() {
+            console.log('here');
             var exercises = $firebaseArray(firebaseUserExerciseService.getUserExercises('smistry'));
             exercises.$loaded()
             .then(function() {
