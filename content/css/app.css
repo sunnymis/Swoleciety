@@ -153,6 +153,10 @@ i.material-icons.material-icons-grey {
 ========================================================================
 */
 
+#weekdayDropdown {
+    display: none;
+}
+
 .week-container {
     display: -webkit-box; 
     display: -webkit-flex; 
@@ -257,7 +261,26 @@ i.material-icons.material-icons-grey {
   and (-webkit-device-pixel-ratio: 3) 
   and (orientation: portrait) {
 
+/*
+----------------------------
+            Nav                                         
+----------------------------
+*/
 
+    #login {
+        float: none;
+    }
+
+    #signup {
+        float: none;
+    }
+      
+/*
+----------------------------
+            Browse                                         
+----------------------------
+*/
+      
     #exerciseGrid {    
         margin: 0;
         padding: 0;
@@ -272,8 +295,8 @@ i.material-icons.material-icons-grey {
     }
 
     #exerciseGrid ul {
-          margin: 0;
-          padding: 0;
+        margin: 0;
+        padding: 0;
     }
       
     #exerciseGrid li#exercise-card {
@@ -293,11 +316,11 @@ i.material-icons.material-icons-grey {
         display: -moz-inline-stack;
     }
       
-      #exerciseGrid img {
-          float: left;
-          height: 100px;
-          width: 30%;
-      }
+    #exerciseGrid img {
+        float: left;
+        height: 100px;
+        width: 30%;
+    }
 
 
     button.btn.btn-flat.learn-more {
@@ -322,34 +345,36 @@ i.material-icons.material-icons-grey {
         background-color: #00CAB8;
     }
 
-      .rating {
-          display: none;
-      }
-/*
     .rating {
-        font-size: 5px;
-        unicode-bidi: bidi-override;
-        direction: ltr;
-        float: right;
+        display: none;
     }
-
-    .rating > span:hover:before,
-    .rating > span:hover ~ span:before{
-        content: "\2605";
-        position: absolute;
-        color: gold;
-    }
-
-    .rating i {
-        padding: 0;
-        margin: 0;
-        width: 25px;
-        color: #00CAB8;
-    }
-*/
     i.material-icons.material-icons-grey {
         color: #d3d3d3;
-    } 
+    }
+      
+/*
+----------------------------
+            Calendar                                         
+----------------------------
+*/
+    #weekday-dropdown {
+        display: block;
+        width: 100%;
+        height: 50px;
+        margin-bottom: 20px;;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        font-size: 20px;
+        border: 1px solid #ccc;
+        text-indent: 150px;
+
+    }
+      
+    .dropdown-content {
+        
+    }
 }
 
 /* Landscape */

@@ -1,3 +1,8 @@
+
+<select id="weekday-dropdown">
+    <option class="dropdown-content" ng-repeat="day in vm.days">{{day}}</option>
+</select>
+
 <div class="week-container" data-ng-init="vm.loadExercisesForWeek()">    
     <div class="weekday" ng-repeat="day in vm.days">
         <h2>{{day}}</h2>
