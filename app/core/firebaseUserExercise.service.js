@@ -20,9 +20,9 @@
                     "name": exercise.name,
                     "day": day
                 };
-                ref.update(exerciseObject);
+                var pushedExercise = ref.push(exerciseObject);
                 
-                var setRef = ref.child("sets");
+                var setRef = ref.child(pushedExercise.key()).child("sets");
                 setRef.push({
                     "reps": 1,
                     "weight": 1

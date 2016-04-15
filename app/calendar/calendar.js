@@ -32,7 +32,9 @@
             exercises.$loaded()
             .then(function() {
                 angular.forEach(exercises, function(exercise) {
-                    vm.weeklyExercises[exercise.day].push(exercise);
+                    angular.forEach(exercise, function(e) {
+                        vm.weeklyExercises[e.day].push(e);    
+                    });
                 });
             });
         };
