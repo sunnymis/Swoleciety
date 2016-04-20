@@ -170,7 +170,7 @@ i.material-icons.material-icons-grey {
     -ms-flex-wrap: nowrap; 
     flex-wrap: nowrap;
     
-    height: auto;
+    
     visibility: visible;
 }
 
@@ -187,11 +187,13 @@ i.material-icons.material-icons-grey {
     -ms-flex: 1;
     flex: 1;
     text-align: center;
-    border: 1px solid #000;
+    border-right: 1px solid #000;
+    min-height: 100vh;
 }
 
 .single-exercise {
-    margin-bottom: 10px;
+    margin-bottom: 10px;    
+    width: 95%
 }
 
 .single-exercise p {
@@ -200,6 +202,14 @@ i.material-icons.material-icons-grey {
 
 #editButton {
     float: right;
+}
+
+.single-exercise h4 {
+    float: left;
+}
+
+.weekday h2::first-letter {
+    text-transform: capitalize;
 }
 
 
