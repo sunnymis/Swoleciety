@@ -157,6 +157,20 @@ i.material-icons.material-icons-grey {
     visibility: hidden;
 }
 
+.calendar-navigation {
+    padding-bottom: 30px;
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+.calendar-navigation #backArrow {
+    float: left;
+}
+
+.calendar-navigation #forwardArrow {
+    float: right;
+}
+
 .weekday-container {
     visibility: hidden;
 }
@@ -205,7 +219,7 @@ i.material-icons.material-icons-grey {
 }
 
 .single-exercise h4 {
-    float: left;
+    
 }
 
 .weekday h2::first-letter {

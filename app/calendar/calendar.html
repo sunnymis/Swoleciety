@@ -4,8 +4,15 @@
     </select>
     
 </div>
-
-<div class="week-container" data-ng-init="vm.loadExercisesForWeek()">    
+<div class="calendar-navigation">
+    <a id="backArrow" ng-click="vm.getPreviousWeek()">
+        <i class="material-icons">arrow_back</i>
+    </a>
+    <a id="forwardArrow" ng-click="vm.getNextWeek()">
+        <i class="material-icons">arrow_forward</i>
+    </a>
+</div>
+<div class="week-container" data-ng-init="vm.loadExercisesForWeek()">
     <div class="weekday" ng-repeat="day in vm.weekDates">
         <h2>{{day.day}}</h2><h4> {{day.date | date: 'MM/dd/yy'}}</h4>
         <div class="card single-exercise" ng-repeat="ex in vm.weeklyExercises[day.day]">
