@@ -20,6 +20,7 @@
                                  $uibModal) {
         var vm = this; 
         vm.days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+        vm.weekDates = [];
         vm.weeklyExercises = {}; 
         angular.forEach(vm.days, function(day) {
             vm.weeklyExercises[day] = [];
@@ -36,6 +37,16 @@
             return startDate.toLocaleDateString().replace(/\//g,'-');
         }
         
+        vm.updateWeekDates = function() {
+            var startDate = new Date(vm.getWeek());
+            vm.weekDates = vm.days.map(function(value, index) {
+                return {
+                    day: value,
+                    date: new Date(startDate.setDate(startDate.getDate() + index))
+                }
+            });
+        }
+        
         vm.loadExercisesForWeek = function() {
             var currentWeek = vm.getWeek(); 
             var exercises = $firebaseArray(firebaseUserExerciseService.getUserExercises('smistry',currentWeek));
@@ -44,13 +55,14 @@
                 angular.forEach(exercises, function(exercise) {
                     if (exercise instanceof Object) {
                         angular.forEach(exercise, function(e) {
-                            if (e.day !== undefined) {
                                 vm.weeklyExercises[e.day].push(e);        
-                            }
                         });    
                     }
                 });
             });
+            vm.updateWeekDates();
+            console.log(vm.weekDates);
+            console.log(vm.weeklyExercises);
         };
         
         

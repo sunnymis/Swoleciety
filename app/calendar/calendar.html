@@ -6,9 +6,9 @@
 </div>
 
 <div class="week-container" data-ng-init="vm.loadExercisesForWeek()">    
-    <div class="weekday" ng-repeat="day in vm.days">
-        <h2>{{day}}</h2>
-        <div class="card single-exercise" ng-repeat="ex in vm.weeklyExercises[day]">
+    <div class="weekday" ng-repeat="day in vm.weekDates">
+        <h2>{{day.day}}</h2><h4> {{day.date | date: 'MM/dd/yy'}}</h4>
+        <div class="card single-exercise" ng-repeat="ex in vm.weeklyExercises[day.day]">
             <a id="editButton" href="" ng-click="vm.openCalendarEditModal(ex,day)">
                 <i class="material-icons">mode_edit</i>
             </a>
