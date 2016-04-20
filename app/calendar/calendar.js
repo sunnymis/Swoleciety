@@ -53,16 +53,15 @@
             exercises.$loaded()
             .then(function() {
                 angular.forEach(exercises, function(exercise) {
-                    if (exercise instanceof Object) {
-                        angular.forEach(exercise, function(e) {
-                                vm.weeklyExercises[e.day].push(e);        
-                        });    
-                    }
+                    angular.forEach(exercise, function(e) {
+                        if (e instanceof Object) {
+                            vm.weeklyExercises[e.day].push(e);
+                        }
+                    });    
+                    
                 });
             });
             vm.updateWeekDates();
-            console.log(vm.weekDates);
-            console.log(vm.weeklyExercises);
         };
         
         
