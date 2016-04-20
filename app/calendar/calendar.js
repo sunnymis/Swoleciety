@@ -27,14 +27,28 @@
         vm.singleDayExercises = {};
         vm.selectedDay = "";
         
+        vm.getWeek = function() {
+            var today = new Date();
+            var day = today.getDay();
+            var date = today.getDate() - day;
+            var startDate = new Date(today.setDate(date));
+            var endDate = new Date(today.setDate(date + 6));
+            return startDate.toLocaleDateString().replace(/\//g,'-');
+        }
+        
         vm.loadExercisesForWeek = function() {
-            var exercises = $firebaseArray(firebaseUserExerciseService.getUserExercises('smistry'));
+            var currentWeek = vm.getWeek(); 
+            var exercises = $firebaseArray(firebaseUserExerciseService.getUserExercises('smistry',currentWeek));
             exercises.$loaded()
             .then(function() {
                 angular.forEach(exercises, function(exercise) {
-                    angular.forEach(exercise, function(e) {
-                        vm.weeklyExercises[e.day].push(e);    
-                    });
+                    if (exercise instanceof Object) {
+                        angular.forEach(exercise, function(e) {
+                            if (e.day !== undefined) {
+                                vm.weeklyExercises[e.day].push(e);        
+                            }
+                        });    
+                    }
                 });
             });
         };
@@ -63,8 +77,8 @@
         
         
         vm.loadSingleDay = function(day) {
-            console.log(day);
-            var exercises = $firebaseArray(firebaseUserExerciseService.getUserExercises('smistry'));
+            var currentWeek = vm.getWeek(); 
+            var exercises = $firebaseArray(firebaseUserExerciseService.getUserExercises('smistry',currentWeek));
             exercises.$loaded()
             .then(function() {
                 vm.singleDayExercises[day] = [];
@@ -73,7 +87,6 @@
                         vm.singleDayExercises[day].push(exercise);
                     }
                 });
-                console.log(vm.singleDayExercises);
             });
             
         }; 
