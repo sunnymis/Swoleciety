@@ -9,7 +9,7 @@
 
 Technologies
 -----
-
+**
 * Framework:    AngularJS
 * Database:     Firebase
 * CSS:          Bootstrap Material Design
