@@ -132,9 +132,8 @@
      */   
         
         vm.getPreviousWeek = function() {
-            var currentStartOfWeek = new Date(vm.getWeek());
+            var currentStartOfWeek = vm.currentStartOfWeek;
             var lastWeek = vm.getWeek(new Date(currentStartOfWeek.setDate(currentStartOfWeek.getDate() - 7)));
-            vm.updateWeekDates(new Date(lastWeek));
             vm.loadExercisesForWeek(lastWeek);
         }
         
