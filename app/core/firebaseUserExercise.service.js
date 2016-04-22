@@ -38,9 +38,18 @@
                 });
                 
             },
-            deleteExercise: function(exercise) {
-                var exerciseRef = userExerciseRef.child('smistry').child(getWeek()).child(exercise);
-                exerciseRef.remove(); 
+            deleteExercise: function(exercise,day) {
+                var exerciseRef = userExerciseRef.child('smistry').child(getWeek());
+                exerciseRef.once('value').then(function(snapshot) {
+                    
+                    snapshot.forEach(function(firstChild) {
+                        firstChild.forEach(function(secondChild) { 
+                            if (secondChild.val().day == day.day) {
+                                exerciseRef.child(firstChild.key()).child(secondChild.key()).remove();
+                            }
+                        });
+                    });
+                });
             },
             
             addSet: function(exercise){
