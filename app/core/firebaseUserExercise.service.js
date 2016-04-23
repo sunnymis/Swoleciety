@@ -62,6 +62,22 @@
             removeSet: function(exercise,key) {
                 var setRef = userExerciseRef.child('smistry').child(getWeek()).child(exercise).child("sets").child(key);
                 setRef.remove();
+            },
+            saveSet: function(exercise,set,key) {
+                var exerciseRef = userExerciseRef.child('smistry').child(getWeek()).child(exercise.name);
+                exerciseRef.once('value').then(function(snapshot) {
+                    snapshot.forEach(function(snapChild) {
+                        snapChild.child('sets').forEach(function(aSet) {
+                           if(aSet.key() == key) {
+                               exerciseRef.child(snapChild.key()).child('sets').child(key).update({
+                                    "reps": set.reps, 
+                                    "weight": set.weight
+                               });;
+                           }
+                        });
+                    });
+                });
+                
             }
             
         }
