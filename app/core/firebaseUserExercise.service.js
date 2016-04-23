@@ -5,9 +5,9 @@
         .module('swoleciety.core')
         .factory('firebaseUserExerciseService', firebaseUserExerciseService);
     
-    firebaseUserExerciseService.$inject = ['FIREBASE_URL'];
+    firebaseUserExerciseService.$inject = ['FIREBASE_URL','$firebaseArray'];
     
-    function firebaseUserExerciseService(FIREBASE_URL) {
+    function firebaseUserExerciseService(FIREBASE_URL,$firebaseArray) {
         var userExerciseRef = new Firebase(FIREBASE_URL + '/userExercises');
         var getWeek = function() {
             var today = new Date();
@@ -52,24 +52,30 @@
                 });
             },
             
-            addSet: function(exercise){
-                var setRef = userExerciseRef.child('smistry').child(getWeek()).child(exercise).child("sets");
-                setRef.push({
-                    "reps": 1,
-                    "weight": 1
+            addSet: function(exercise,key){
+                var setRef = userExerciseRef.child('smistry').child(getWeek()).child(exercise.name);
+                setRef.once('value').then(function(snapshot) {
+                    snapshot.forEach(function(snapChild) {
+                        if (snapChild.val().day == exercise.day) {
+                            setRef.child(snapChild.key()).child('sets').push({
+                                "reps": 1,
+                                "weight": 1
+                            });
+                        }                        
+                    });
                 });
             },
             removeSet: function(exercise,key) {
-                var setRef = userExerciseRef.child('smistry').child(getWeek()).child(exercise).child("sets").child(key);
+                var setRef = userExerciseRef.child('smistry').child(getWeek()).child(exercise.name);
                 setRef.remove();
             },
             saveSet: function(exercise,set,key) {
-                var exerciseRef = userExerciseRef.child('smistry').child(getWeek()).child(exercise.name);
-                exerciseRef.once('value').then(function(snapshot) {
+                var setRef = userExerciseRef.child('smistry').child(getWeek()).child(exercise.name);
+                setRef.once('value').then(function(snapshot) {
                     snapshot.forEach(function(snapChild) {
                         snapChild.child('sets').forEach(function(aSet) {
                            if(aSet.key() == key) {
-                               exerciseRef.child(snapChild.key()).child('sets').child(key).update({
+                               setRef.child(snapChild.key()).child('sets').child(key).update({
                                     "reps": set.reps, 
                                     "weight": set.weight
                                });;
@@ -77,9 +83,19 @@
                         });
                     });
                 });
-                
-            }
-            
+            },
+            getSets: function(exercise) {
+                var setRef = userExerciseRef.child('smistry').child(getWeek()).child(exercise.name);
+                setRef.once('value').then(function(snapshot) {
+                    snapshot.forEach(function(snapChild) {
+                        if (snapChild.val().day == exercise.day) {
+                            snapChildVar = snapChild.key(); 
+                            //console.log($firebaseArray(setRef.child(snapChild.key()).child('sets')));
+                        }                        
+                    });
+                });
+                console.log(snapChildVar);
+            }            
         }
         return service; 
     }

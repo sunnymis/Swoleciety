@@ -13,6 +13,14 @@
         vm.exercise = exerciseDetails;
         vm.editedSet = null; 
         vm.originalSet = null;
+        vm.sets = null;
+        
+        vm.getSetsRef = function(exercise) {
+            var sets = firebaseUserExerciseService.getSets(exercise);
+            console.log(sets);
+            vm.sets = sets; 
+            return sets; 
+        }
         
         vm.addSet = function(exercise) { 
             firebaseUserExerciseService.addSet(exercise);
