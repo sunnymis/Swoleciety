@@ -8,6 +8,6 @@
     function AuthController() {
         var vm = this;
         
-        vm.loginTitle = "Log In";
+        
     }
 })();
