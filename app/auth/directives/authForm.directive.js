@@ -7,15 +7,15 @@
     
     function authForm() {
         return {
-            templateUrl: 'app/auth/authForm.html',
+            templateUrl: 'auth/directives/authForm.html',
             restrict: 'E',
-            controller: 'AuthFormController',
+            controller: AuthFormController,
             controllerAs: 'vm',
             bindToController: true,
             scope: {
                 error: '=',
                 formTitle: '@',
-                submitForm: '&'
+                submitAction: '&'
             }
         };
     }
