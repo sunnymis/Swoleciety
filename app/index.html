@@ -46,7 +46,7 @@
         <li class="active"><a href="#browse" data-toggle="collapse" data-target="#myNavbar">Browse</a></li>
         <li><a href="#calendar" data-toggle="collapse" data-target="#myNavbar">Calendar</a></li>
         <li><a href="#" data-toggle="collapse" data-target="#myNavbar">Stats</a></li>
-        <li id="login"><a href="#login" data-toggle="collapse" data-target="#myNavbar">Log In</a></li>
+        <li id="login"><a href="#/login" data-toggle="collapse" data-target="#myNavbar">Log In</a></li>
         <li id="signup"><a href="#signup" data-toggle="collapse" data-target="#myNavbar">Sign Up</a></li>
       </ul>
     </div>
@@ -107,13 +107,12 @@
     <script src="calendar/calendarEditModal.js"></script>
     <script src="calendar/calendarMobile.directive.js"></script>
     
-<!--    Login   -->
-    <script src="login/login.module.js"></script>
-    <script src="login/login.js"></script>
-    
-<!--    Signup  -->
-    <script src="signup/signup.module.js"></script>
-    <script src="signup/signup.js"></script>
+<!--    Auth   -->
+    <script src="auth/auth.module.js"></script>
+    <script src="auth/auth.controller.js"></script>
+    <script src="auth/config.route.js"></script>
+    <script src="auth/directives/authForm.directive.js"></script>
+
     
 <!--    Versioning  -->
     <script src="components/version/version.js"></script>

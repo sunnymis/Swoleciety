@@ -8,9 +8,7 @@
             'ngResource',
             'swoleciety.browse',
             'swoleciety.calendar',
-            'swoleciety.login',
             'swoleciety.core',
-            'swoleciety.signup',
             'swoleciety.auth',
             'firebase',
             'ui.bootstrap'
@@ -32,16 +30,6 @@
             controller: 'CalendarController',
             controllerAs: 'vm'
            })
-            .when('/login', {
-            templateUrl: 'login/login.html',
-            controller: 'LoginController',
-            controllerAs: 'vm'
-            })
-            .when('/signup', {
-            templateUrl: 'signup/signup.html',
-            controller: 'SignupController',
-            controllerAs: 'vm'
-            })    
           .otherwise( {
             redirectTo: '/browse'
           });

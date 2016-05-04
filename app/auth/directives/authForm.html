@@ -1,0 +1,35 @@
+<form name="authForm" ng-submit="submitForm({user: vm.user}) && authForm.$valid" class="form-signin">
+
+    <h2>{{vm.formTitle}}</h2>
+    
+    <p ng-show="vm.error">{{vm.error}}</p>
+    
+    <input ng-model="vm.user.email"
+           ng-model-options="{ updateOn: 'default blur', debounce: 1000}"
+           type="email"
+           name="email"
+           class="form-control"
+           placeholder="Email address" 
+           required autofocus>
+    
+    <div ng-show="authForm.$submitted">
+        <p ng-show="authForm.email.$error.required" class="text-danger">Email Required</p>
+        <p ng-show="authForm.email.$error.email" class="text-danger">Please Enter a valid email.</p>
+    </div>
+
+    <input ng-model="vm.user.password"
+           type="password"
+           name="password"
+           class="form-control"
+           placeholder="Password"
+           required>
+    
+    <div ng-show="authForm.$submitted">
+        <p ng-show="authForm.password.$error.required" class="text-danger">Password required</p>
+    </div>
+    
+    <button class="btn btn-lg btn-primary btn-block"
+            type="submit">
+        {{vm.formTitle}}
+    </button>
+</form>
