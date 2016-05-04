@@ -11,6 +11,7 @@
             'swoleciety.login',
             'swoleciety.core',
             'swoleciety.signup',
+            'swoleciety.auth',
             'firebase',
             'ui.bootstrap'
         ])
