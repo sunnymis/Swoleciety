@@ -13,13 +13,13 @@
         var reference = new Firebase(FIREBASE_URL),
             authObject = $firebaseAuth(reference),
             service = {
-            reference: reference,
-            authObject: authObject,
-            login: login,
-            register: register,
-            isLoggedIn: isLoggedIn,
-            logout: logout
-        };
+                reference: reference,
+                authObject: authObject,
+                login: login,
+                register: register,
+                isLoggedIn: isLoggedIn,
+                logout: logout
+            };
         
         return service; 
         
@@ -43,16 +43,22 @@
          * Registers a user
          * @param - user - object containing email and password attributes
          */
-        function register() {
-            
+        function register(user) {
+            authObject.$createUser(user)
+                .then(function(userData) {
+                    console.log('Registered user ' + userData.uid + ' successfully');
+                })
+                .catch(function(error) {
+                  console.error("Registration Error: ", error);
+                });
         }
         
         function isLoggedIn() {
-            
+            return authObject.$getAuth();
         }
         
         function logout() {
-            
+            authObject.$unauth(); 
         }
         
     }

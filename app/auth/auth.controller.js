@@ -5,50 +5,25 @@
     .module('swoleciety.auth')
     .controller('AuthController', AuthController);
 
-  AuthController.$inject = ['$location'];
+  AuthController.$inject = ['$location', 'firebaseAuthService'];
 
-  function AuthController($location) {
+  function AuthController($location, firebaseAuthService) {
     var vm = this;
 
     vm.error = null;
 
-
     vm.login = login;
+    vm.register = register; 
 
     function login(user) {
-     console.log('here');
+        firebaseAuthService.login(user);
+        $location.path('/browse');
+    }
+      
+    function register(user) {
+        firebaseAuthService.register(user);
     }
   }
 
 })();
-
-/*(function() {
-    'use strict';
-    
-    angular
-        .module('swoleciety.auth')
-        .controller('AuthController',AuthController);
-    
-    AuthController.$inject = ['firebaseAuthService', '$location'];
-    
-    function AuthController(firebaseAuthService, $location) {
-        var vm = this;
-        vm.error = null; 
-        
-        function login(user) {
-            console.log('here');
-            /*
-            return firebaseAuthService.login(user)
-                .then(function() {
-                console.log('her2e');
-                    $location.path('/browse');
-            })
-            .catch(function(error) {
-                vm.error = error;
-            });
-            *
-        }
-        
-    }
-})();*/
 

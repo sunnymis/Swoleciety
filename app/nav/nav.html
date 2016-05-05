@@ -14,37 +14,40 @@
         <li class="active">
             <a href="#browse" 
                data-toggle="collapse" 
-               data-target="#myNavbar">Browse</a>
+               data-target="#myNavbar"
+               ng-show="vm.isLoggedIn()">Browse</a>
         </li>
         <li>
             <a href="#calendar" 
                data-toggle="collapse" 
-               data-target="#myNavbar">Calendar</a>
+               data-target="#myNavbar"
+               ng-show="vm.isLoggedIn()">Calendar</a>
         </li>
         <li>
             <a href="#" 
                data-toggle="collapse" 
-               data-target="#myNavbar">Stats</a>
+               data-target="#myNavbar"
+               ng-show="vm.isLoggedIn()">Stats</a>
         </li>
         <li id="login">
             <a href="#login" 
                data-toggle="collapse" 
                data-target="#myNavbar"
-               ng-hide="vm.isLoggedIn">Log In</a>
+               ng-hide="vm.isLoggedIn()">Log In</a>
         </li>
         <li id="signup">
             <a href="#register" 
                data-toggle="collapse" 
                data-target="#myNavbar"
-               ng-hide="vm.isLoggedIn">Sign Up</a>
+               ng-hide="vm.isLoggedIn()">Sign Up</a>
         </li>
         <li id="login">
             <a href="#landing" 
                data-toggle="collapse" 
                data-target="#myNavbar"
-               ng-show="vm.isLoggedIn">Log Out</a>
+               ng-show="vm.isLoggedIn()"
+               ng-click="vm.logout()">Log Out</a>
         </li>
-          
           
       </ul>
     </div>

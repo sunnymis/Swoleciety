@@ -16,17 +16,19 @@
         };
     }
     
-    NavbarController.$inject = ['$location','firebaseAuthService','$timeout'];
+    NavbarController.$inject = ['$location','firebaseAuthService'];
     
     function NavbarController($location, firebaseAuthService,$timeout) {
         var vm = this; 
         
-        vm.isLoggedIn = false; 
+        vm.isLoggedIn = firebaseAuthService.isLoggedIn; 
         vm.logout = logout; 
         
         function logout() {
-            firebaseAuthService.logout; 
+            console.log('here in directive');
+            firebaseAuthService.logout(); 
             $location.path('/landing');
         }
+
     }
 })();
