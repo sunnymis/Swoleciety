@@ -6,6 +6,7 @@
         .module('swoleciety', [
             'ngRoute',
             'ngResource',
+            'swoleciety.nav',
             'swoleciety.browse',
             'swoleciety.calendar',
             'swoleciety.core',
