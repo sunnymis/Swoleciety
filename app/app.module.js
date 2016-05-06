@@ -12,6 +12,7 @@
             'swoleciety.core',
             'swoleciety.auth',
             'swoleciety.landing',
+            'swoleciety.stats',
             'firebase',
             'ui.bootstrap'
         ])
