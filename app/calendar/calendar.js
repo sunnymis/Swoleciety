@@ -9,6 +9,7 @@
                                   '$firebaseObject', 
                                   'firebaseUserExerciseService',
                                   'firebaseUserService',
+                                  'firebaseAuthService',
                                   'FIREBASE_URL',
                                   '$uibModal'];
     
@@ -16,9 +17,11 @@
                                  $firebaseObject, 
                                  firebaseUserExerciseService,
                                  firebaseUserService,
+                                 firebaseAuthService,
                                  FIREBASE_URL,
                                  $uibModal) {
         var vm = this; 
+        var authedUser = firebaseAuthService.getAuth(); 
         vm.days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
         vm.weekDates = [];
         vm.weeklyExercises = {}; 
@@ -83,7 +86,7 @@
                 });
             }
             
-            var exercises = $firebaseArray(firebaseUserExerciseService.getUserExercises('smistry',currentWeek));
+            var exercises = $firebaseArray(firebaseUserExerciseService.getUserExercises(authedUser.uid,currentWeek));
             exercises.$loaded()
             .then(function() {
                 angular.forEach(exercises, function(exercise) {
