@@ -18,7 +18,8 @@
                 login: login,
                 register: register,
                 isLoggedIn: isLoggedIn,
-                logout: logout
+                logout: logout,
+                getAuth: getAuth
             };
         
         return service; 
@@ -59,6 +60,10 @@
         
         function logout() {
             authObject.$unauth(); 
+        }
+        
+        function getAuth() {
+            return authObject.$getAuth();
         }
         
     }

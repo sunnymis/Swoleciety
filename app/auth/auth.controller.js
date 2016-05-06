@@ -5,9 +5,9 @@
     .module('swoleciety.auth')
     .controller('AuthController', AuthController);
 
-  AuthController.$inject = ['$location', 'firebaseAuthService'];
+  AuthController.$inject = ['$location', 'firebaseAuthService','firebaseUserService'];
 
-  function AuthController($location, firebaseAuthService) {
+  function AuthController($location, firebaseAuthService, firebaseUserService) {
     var vm = this;
 
     vm.error = null;

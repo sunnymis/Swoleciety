@@ -9,6 +9,7 @@
                                 'firebaseExerciseService', 
                                 'firebaseUserService', 
                                 'firebaseUserExerciseService',
+                                'firebaseAuthService',
                                 '$uibModal',
                                 'FIREBASE_URL'];
     
@@ -16,6 +17,7 @@
                                firebaseExerciseService, 
                                firebaseUserService, 
                                firebaseUserExerciseService,
+                               firebaseAuthService,
                                $uibModal,
                                FIREBASE_URL) {
         var vm = this; 
@@ -34,6 +36,7 @@
         
         vm.addToWeekday = function(exercise, day) {
             // Possibly inject a user service, get current user
+            console.log(firebaseAuthService.getAuth());
             var exerciseRef = new Firebase(FIREBASE_URL).child('users').child('smistry').child('exercises');
             firebaseUserService.addExercise('smistry',exercise);
             firebaseUserExerciseService.addUserExercise('smistry',exercise,day);
