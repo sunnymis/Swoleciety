@@ -23,9 +23,6 @@
         vm.editedSet = null; 
         vm.originalSet = null;
         vm.sets = firebaseSetService.getSets(vm.exercise);
-        vm.sets.$loaded(function() {
-           console.log(vm.sets); 
-        });
         
         vm.addSet = function(exercise) { 
             vm.sets.$add({
@@ -39,7 +36,6 @@
         };
         
         vm.saveSet = function(exercise,set,key) {
-            console.log('here');
             vm.sets.$save(vm.sets[key]);
         };
         

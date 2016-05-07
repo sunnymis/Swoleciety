@@ -124,7 +124,7 @@
          * @day - The day the exercise falls on. Is this param necessary?
          */
         vm.openCalendarEditModal = function(exercise,day) { 
-            $uibModal.open({
+            var modalInstance = $uibModal.open({
                 animation: true,
                 templateUrl: 'calendar/calendarEditModal.html',
                 controller: 'CalendarEditModalController',
@@ -135,6 +135,9 @@
                         return exercise; 
                     }
                 }
+            });
+            modalInstance.result.then(function() {
+                vm.loadExercisesForWeek(vm.getWeek());
             });
         };
         
