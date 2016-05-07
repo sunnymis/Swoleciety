@@ -43,11 +43,6 @@
             vm.sets.$save(vm.sets[key]);
         };
         
-        vm.editSet = function(set) {
-            vm.editedSet = set; 
-            vm.originalSet = angular.extend({},vm.editedSet);
-        };
-        
         vm.ok = function() { 
             $uibModalInstance.close();
         };

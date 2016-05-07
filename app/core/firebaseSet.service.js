@@ -12,8 +12,7 @@
         var ref = new Firebase(FIREBASE_URL + '/userExercises'),
             authedUser = firebaseAuthService.getAuth(),
             service = {
-                getSets: getSets,
-                getTest: getTest
+                getSets: getSets
             };
             return service;     
         
@@ -31,12 +30,7 @@
             })
             return $firebaseArray(retVal);
         }
-        
-        function getTest(exercise) {
-            var newref = null;
-            
-        }
-        
+
         function getWeek() {
             var today = new Date(),
                 day = today.getDay(),

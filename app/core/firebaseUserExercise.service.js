@@ -15,11 +15,7 @@
         var service = {
             getUserExercises: getUserExercises,
             addUserExercise: addUserExercise,
-            deleteExercise: deleteExercise,
-            addSet: addSet,
-            removeSet: removeSet, 
-            saveSet: saveSet,
-            getSets: getSets
+            deleteExercise: deleteExercise
         };
         
         return service; 
@@ -71,53 +67,5 @@
                 });
             });
         }
-            
-        function addSet(exercise,key){
-            var setRef = userExerciseRef.child(authedUser.uid).child(getWeek()).child(exercise.name);
-            setRef.once('value').then(function(snapshot) {
-                snapshot.forEach(function(snapChild) {
-                    if (snapChild.val().day == exercise.day) {
-                        setRef.child(snapChild.key()).child('sets').push({
-                            "reps": 1,
-                            "weight": 1
-                        });
-                    }                        
-                });
-            });
-        }
-            
-        function removeSet(exercise,key) {
-            var setRef = userExerciseRef.child(authedUser.uid).child(getWeek()).child(exercise.name);
-            setRef.remove();
-        }
-            
-        function saveSet(exercise,set,key) {
-            var setRef = userExerciseRef.child(authedUser.uid).child(getWeek()).child(exercise.name);
-            setRef.once('value').then(function(snapshot) {
-                snapshot.forEach(function(snapChild) {
-                    snapChild.child('sets').forEach(function(aSet) {
-                       if(aSet.key() == key) {
-                           setRef.child(snapChild.key()).child('sets').child(key).update({
-                                "reps": set.reps, 
-                                "weight": set.weight
-                           });;
-                       }
-                    });
-                });
-            });
-        }
-        
-        function getSets(exercise) {
-            var setRef = userExerciseRef.child(authedUser.uid).child(getWeek()).child(exercise.name);
-            setRef.once('value').then(function(snapshot) {
-                snapshot.forEach(function(snapChild) {
-                    if (snapChild.val().day == exercise.day) {
-                        snapChildVar = snapChild.key(); 
-                        //console.log($firebaseArray(setRef.child(snapChild.key()).child('sets')));
-                    }                        
-                });
-            });
-            console.log(snapChildVar);
-        }            
     }
 })();
