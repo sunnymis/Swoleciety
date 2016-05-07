@@ -25,7 +25,6 @@
         vm.logout = logout; 
         
         function logout() {
-            console.log('here in directive');
             firebaseAuthService.logout(); 
             $location.path('/landing');
         }

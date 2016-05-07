@@ -33,7 +33,7 @@
         function login(user) {
             authObject.$authWithPassword(user)
                 .then(function(authData) { 
-                    console.log('Logged In as: ', authData.uid);
+                    //console.log('Logged In as: ', authData.uid);
                 })
                 .catch(function(error) {
                     console.error('Authentication Failed: ',error);

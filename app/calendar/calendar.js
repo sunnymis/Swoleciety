@@ -146,7 +146,7 @@
          */
         vm.deleteExercise = function(exercise,day) {
             firebaseUserExerciseService.deleteExercise(exercise,day);
-            //need to make this a promise, then reload the page
+            
         };
         
        
