@@ -11,8 +11,8 @@
                 <div class="set-rep-weight-list-group">
                     <strong>Set: {{$index+1}}</strong>
                     <form>
-                        <input ng-model="set.reps">
-                        <input ng-model="set.weight">
+                        <input ng-model="set.reps" ng-change="vm.saveSet(vm.exercise,set,key)">
+                        <input ng-model="set.weight" ng-change="vm.saveSet(vm.exercise,set,key)">
                         <a href="" ng-click="vm.removeSet(vm.exercise,key)">
                             <i class="material-icons">remove_circle</i>
                         </a>

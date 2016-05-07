@@ -39,7 +39,8 @@
         };
         
         vm.saveSet = function(exercise,set,key) {
-            firebaseUserExerciseService.saveSet(exercise,set,key);
+            console.log('here');
+            vm.sets.$save(vm.sets[key]);
         };
         
         vm.editSet = function(set) {
