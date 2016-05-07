@@ -35,7 +35,7 @@
         };
         
         vm.removeSet = function(exercise,key) {
-            firebaseUserExerciseService.removeSet(exercise,key);
+            vm.sets.$remove(vm.sets[key]);
         };
         
         vm.saveSet = function(exercise,set,key) {
