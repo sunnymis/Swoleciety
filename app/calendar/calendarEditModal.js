@@ -27,16 +27,11 @@
            console.log(vm.sets); 
         });
         
-        
-        vm.getSetsRef = function(exercise) {
-            var sets = firebaseUserExerciseService.getSets(exercise);
-            console.log(sets);
-            vm.sets = sets; 
-            return sets; 
-        };
-        
         vm.addSet = function(exercise) { 
-            firebaseUserExerciseService.addSet(exercise);
+            vm.sets.$add({
+                "reps": 1,
+                "weight": 1
+            });
         };
         
         vm.removeSet = function(exercise,key) {

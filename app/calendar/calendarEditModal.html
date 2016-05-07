@@ -4,15 +4,15 @@
     </div>
     <div class="modal-body">
         <ul class="set-list">
+            <a href="" ng-click="vm.addSet(vm.exercise)">
+               <i class="material-icons">add_circle</i>
+            </a>
             <li ng-repeat="(key,set) in vm.sets">
                 <div class="set-rep-weight-list-group">
                     <strong>Set: {{$index+1}}</strong>
-                    <form ng-submit="doneEditing(set)">
-                        <input ng-click="vm.editSet(set)" ng-model="set.reps" ng-change="vm.saveSet(vm.exercise,set,key)">
-                        <input ng-click="vm.editWeight(set)" ng-model="set.weight" ng-change="vm.saveSet(vm.exercise,set,key)">
-                        <a href="" ng-click="vm.addSet(vm.exercise)">
-                           <i class="material-icons">add_circle</i>
-                        </a>
+                    <form>
+                        <input ng-model="set.reps">
+                        <input ng-model="set.weight">
                         <a href="" ng-click="vm.removeSet(vm.exercise,key)">
                             <i class="material-icons">remove_circle</i>
                         </a>
@@ -23,6 +23,6 @@
     </div>
     <div class="modal-footer">
         <button class="btn btn-primary" type="button" ng-click="vm.ok()">OK</button>
-        <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Cancel</button>
+        <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Cancel </button>
     </div>
 </div>
