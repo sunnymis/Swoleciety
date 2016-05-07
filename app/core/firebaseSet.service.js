@@ -5,29 +5,45 @@
         .module('swoleciety.core')
         .factory('firebaseSetService', firebaseSetService);
     
-    firebaseSetService.$inject = ['FIREBASE_URL'];
+    firebaseSetService.$inject = ['FIREBASE_URL','$firebaseArray','firebaseAuthService'];
     
-    function firebaseSetService(FIREBASE_URL) {
-         var getWeek = function() {
-            var today = new Date();
-            var day = today.getDay();
-            var date = today.getDate() - day;
-            var startDate = new Date(today.setDate(date));
-            var endDate = new Date(today.setDate(date + 6));
+    function firebaseSetService(FIREBASE_URL,$firebaseArray,firebaseAuthService) {
+        
+        var ref = new Firebase(FIREBASE_URL + '/userExercises'),
+            authedUser = firebaseAuthService.getAuth(),
+            service = {
+                getSets: getSets,
+                getTest: getTest
+            };
+            return service;     
+        
+        ////////////////
+        
+        function getSets(exercise) {
+            var retVal = null; 
+            var exRef = ref.child(authedUser.uid).child(getWeek()).child(exercise.name);
+            exRef.once("value",function(snapshot) {
+                snapshot.forEach(function(ex) {
+                    if (ex.val().day == exercise.day) {
+                        retVal = exRef.child(ex.key()).child('sets'); 
+                    }
+                })
+            })
+            return $firebaseArray(retVal);
+        }
+        
+        function getTest(exercise) {
+            var newref = null;
+            
+        }
+        
+        function getWeek() {
+            var today = new Date(),
+                day = today.getDay(),
+                date = today.getDate() - day,
+                startDate = new Date(today.setDate(date)),
+                endDate = new Date(today.setDate(date + 6));
             return startDate.toLocaleDateString().replace(/\//g,'-');
-        };
-       var retVal = null; 
-       var ref = new Firebase(FIREBASE_URL + '/userExercises/smistry'); 
-        var setRef  = ref.child(getWeek()).child(exercise.name);
-        setRef.once('value').then(function(snapshot) {
-            snapshot.forEach(function(snapChild) {
-                if (snapChild.val().day == exercise.day) {
-                    var ref = setRef.child(snapChild.key()).child('sets');
-                    var reff = ref.toString();
-                    retVal = ref;
-                }                        
-            });
-        });
-        return $firebaseArray(retVal); 
+        }
     }
 })();

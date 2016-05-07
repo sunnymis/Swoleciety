@@ -97,7 +97,6 @@
                     });    
                 });
             });
-            
             vm.updateWeekDates(vm.currentStartOfWeek);
         };
         
