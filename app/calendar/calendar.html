@@ -16,7 +16,7 @@
     <div class="weekday" ng-repeat="day in vm.weekDates">
         <h2>{{day.day}}</h2><h4> {{day.date | date: 'MM/dd/yy'}}</h4>
         <div class="card single-exercise" ng-repeat="ex in vm.weeklyExercises[day.day]"> 
-            <a id="editButton" href="" ng-click="vm.openCalendarEditModal(ex,day)">
+            <a id="editButton" href="" ng-click="vm.openCalendarEditModal(ex,day.day)">
                 <i class="material-icons">mode_edit</i>
             </a>
             <a id="editButton" href="" ng-click="vm.deleteExercise(ex,day.day)">

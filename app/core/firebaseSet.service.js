@@ -20,14 +20,14 @@
         
         function getSets(exercise) {
             var retVal = null; 
-            var exRef = ref.child(authedUser.uid).child(getWeek()).child(exercise.name);
+            var exRef = ref.child(authedUser.uid).child(getWeek());
             exRef.once("value",function(snapshot) {
                 snapshot.forEach(function(ex) {
                     if (ex.val().day == exercise.day) {
                         retVal = exRef.child(ex.key()).child('sets'); 
                     }
                 })
-            })
+            });
             return $firebaseArray(retVal);
         }
 
