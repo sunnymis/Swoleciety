@@ -15,7 +15,7 @@
 <div class="week-container" data-ng-init="vm.loadExercisesForWeek()">
     <div class="weekday" ng-repeat="day in vm.weekDates">
         <h2>{{day.day}}</h2><h4> {{day.date | date: 'MM/dd/yy'}}</h4>
-        <div class="card single-exercise" ng-repeat="ex in vm.weeklyExercises[day.day]">
+        <div class="card single-exercise" ng-repeat="ex in vm.exerciseList | filter:{day: day.day}:true">            
             <a id="editButton" href="" ng-click="vm.openCalendarEditModal(ex,day.day)">
                 <i class="material-icons">mode_edit</i>
             </a>
@@ -27,12 +27,11 @@
             <div ng-repeat="set in ex.sets">
                 <p>{{$index+1}}x{{set.reps}} {{set.weight}}lbs</p>
             </div>
-            <!-- This makes the container expand with its elements -->
+<!--             This makes the container expand with its elements -->
             <br style="clear: both"> 
         </div>
     </div>
 </div>
-
 <!-- Mobile View -->
 <div class="weekday-container" data-ng-init="vm.loadSingleDay(vm.selectedDay)">
     <div class="single-exercise" ng-repeat="ex in vm.singleDayExercises[vm.selectedDay]">

@@ -22,19 +22,21 @@
                                  dateService,
                                  FIREBASE_URL,
                                  $uibModal) {
-        var vm = this; 
-        var authedUser = firebaseAuthService.getAuth(); 
+        
+        var vm = this,
+            authedUser = firebaseAuthService.getAuth(); 
         vm.days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
         vm.weekDates = [];
-        vm.weeklyExercises = {}; 
-        angular.forEach(vm.days, function(day) {
-            vm.weeklyExercises[day] = null;
-        });
-        vm.singleDayExercises = {};
-        vm.selectedDay = ""; // this is ngmodel for mobile view. eventually move out to a mobile controller
         vm.currentStartOfWeek = ""; 
-        
         vm.exerciseList = $firebaseArray(firebaseUserExerciseService.getUserExercises(authedUser.uid,dateService.getWeek()));
+        
+        
+        //////////////////////////////////////////////////////// 
+        //this is ngmodel for mobile view. eventually move out to a mobile controller
+        vm.singleDayExercises = {};
+        vm.selectedDay = ""; 
+        ////////////////////////////////////////////////////////
+        
         
         
         /**
@@ -68,23 +70,9 @@
             
             var currentWeek = week || dateService.getWeek();
             vm.currentStartOfWeek = new Date(currentWeek);
-            if (currentWeek == week) {
-                // Reset the lists for each day because we are looking at a new week
-                vm.weeklyExercises = {};
-                angular.forEach(vm.days, function(day) {
-                    vm.weeklyExercises[day] = null;
-                });
-            }
-            var testArray = [];
-            var exercises = $firebaseArray(firebaseUserExerciseService.getUserExercises(authedUser.uid,currentWeek));
-            exercises.$loaded()
-            .then(function() {
-                angular.forEach(exercises, function(exercise) {
-                    if (exercise instanceof Object && exercise != undefined) {
-                        vm.weeklyExercises[exercise.day] =($firebaseArray(firebaseUserExerciseService.getUserExercises(authedUser.uid,dateService.getWeek(),exercise.day)));
-                    }
-                });
-            });
+
+            vm.exerciseList = $firebaseArray(firebaseUserExerciseService
+                                             .getUserExercises(authedUser.uid,currentWeek));
             
             vm.updateWeekDates(vm.currentStartOfWeek);
         };
@@ -103,7 +91,7 @@
          */
         vm.getNextWeek = function() {
             var currentStartOfWeek = vm.currentStartOfWeek;
-            var nextWeek = dateService.getWeek()(new Date(currentStartOfWeek.setDate(currentStartOfWeek.getDate() + 7)));
+            var nextWeek = dateService.getWeek(new Date(currentStartOfWeek.setDate(currentStartOfWeek.getDate() + 7)));
             vm.loadExercisesForWeek(nextWeek);
         }
         
@@ -134,11 +122,8 @@
          * Deletes the exercise from the database. 
          */
         vm.deleteExercise = function(exercise,day) {
-            vm.weeklyExercises[day].$remove(vm.weeklyExercises[day].$getRecord(exercise.$id));
-            //firebaseUserExerciseService.deleteExercise(exercise,day);
-            
+            vm.exerciseList.$remove(vm.exerciseList.$getRecord(exercise.$id));    
         };
-
-
+        
     }    
 })();

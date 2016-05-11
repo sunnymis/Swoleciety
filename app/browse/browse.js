@@ -37,7 +37,6 @@
         
         vm.addToWeekday = function(exercise, day) {
             // Possibly inject a user service, get current user
-            console.log(authedUser);
             var exerciseRef = new Firebase(FIREBASE_URL).child('users').child(authedUser.uid).child('exercises');
             firebaseUserService.addExercise(authedUser.uid,exercise);
             firebaseUserExerciseService.addUserExercise(authedUser.uid,exercise,day);
@@ -45,7 +44,6 @@
         
         
         vm.openExerciseDetailsModal = function(exercise) { 
-            console.log('here');
             $uibModal.open({
                 animation: true,
                 templateUrl: 'browse/browseExerciseDetailsModal.html',
