@@ -35,8 +35,14 @@
             return startDate.toLocaleDateString().replace(/\//g,'-');
         }
         
-        function getUserExercises(user,week) { 
-            return userExerciseRef.child(user).child(week);
+        function getUserExercises(user,week,day) {
+            if (day != null) {
+                return userExerciseRef.child(user).child(week).orderByChild('day').equalTo(day);    
+            }
+            else {
+                return userExerciseRef.child(user).child(week);
+            }
+            
         }
             
         function addUserExercise(user,exercise,day) {     
