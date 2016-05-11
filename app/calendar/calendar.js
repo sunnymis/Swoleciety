@@ -34,7 +34,7 @@
         vm.selectedDay = ""; // this is ngmodel for mobile view. eventually move out to a mobile controller
         vm.currentStartOfWeek = ""; 
         
-
+        vm.exerciseList = $firebaseArray(firebaseUserExerciseService.getUserExercises(authedUser.uid,dateService.getWeek()));
         
         /**
          * Updates the 7 dates for the week. Uses the current week if no parameter is passed
@@ -73,16 +73,15 @@
                     vm.weeklyExercises[day] = [];
                 });
             }
-            
+            var testArray = [];
             var exercises = $firebaseArray(firebaseUserExerciseService.getUserExercises(authedUser.uid,currentWeek));
             exercises.$loaded()
             .then(function() {
+                console.log(exercises);
                 angular.forEach(exercises, function(exercise) {
-                    angular.forEach(exercise, function(e) {
-                        if (e instanceof Object && e != undefined) {
-                            vm.weeklyExercises[e.day].push(e);
-                        }
-                    });    
+                    if (exercise instanceof Object && exercise != undefined) {
+                        vm.weeklyExercises[exercise.day].push(exercise);
+                    }
                 });
             });
             vm.updateWeekDates(vm.currentStartOfWeek);
@@ -141,20 +140,3 @@
 
     }    
 })();
-
-/*        
-        vm.loadSingleDay = function(day) {
-            var currentWeek = vm.getWeek(); 
-            var exercises = $firebaseArray(firebaseUserExerciseService.getUserExercises('smistry',currentWeek));
-            exercises.$loaded()
-            .then(function() {
-                vm.singleDayExercises[day] = [];
-                angular.forEach(exercises, function(exercise) {
-                    if (exercise.day == day) {
-                        vm.singleDayExercises[day].push(exercise);
-                    }
-                });
-            });
-            
-        }; 
-     */   

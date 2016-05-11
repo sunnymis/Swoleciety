@@ -14,8 +14,8 @@
         
         var service = {
             getUserExercises: getUserExercises,
-            addUserExercise: addUserExercise,
-            deleteExercise: deleteExercise
+            addUserExercise: addUserExercise
+            //deleteExercise: deleteExercise
         };
         
         return service; 
@@ -40,7 +40,7 @@
         }
             
         function addUserExercise(user,exercise,day) {     
-            var ref = userExerciseRef.child(user).child(getWeek()).child(exercise.name),
+            var ref = userExerciseRef.child(user).child(getWeek()),
                 exerciseObject = {
                     "name": exercise.name,
                     "day": day
