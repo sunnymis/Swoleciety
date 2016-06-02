@@ -65,7 +65,6 @@
          * @returns - A populated object containing a list of exercises for each day
          */
         vm.loadExercisesForWeek = function(week) {
-            console.log(vm.getExercisesForDay('friday'));
             var currentWeek = week || dateService.getWeek();
             vm.currentStartOfWeek = new Date(currentWeek);
             if (currentWeek == week) {
@@ -84,9 +83,12 @@
                         vm.weeklyExercises[exercise.day] =($firebaseArray(firebaseUserExerciseService.getUserExercises(authedUser.uid,dateService.getWeek(),exercise.day)));
                     }
                 });
-            });
+                vm.updateWeekDates(vm.currentStartOfWeek);
+
+                console.log(vm.currentStartOfWeek);
             console.log(vm.weeklyExercises);
-            vm.updateWeekDates(vm.currentStartOfWeek);
+            });
+            
         };
         
         /*
@@ -103,7 +105,7 @@
          */
         vm.getNextWeek = function() {
             var currentStartOfWeek = vm.currentStartOfWeek;
-            var nextWeek = dateService.getWeek()(new Date(currentStartOfWeek.setDate(currentStartOfWeek.getDate() + 7)));
+            var nextWeek = dateService.getWeek(new Date(currentStartOfWeek.setDate(currentStartOfWeek.getDate() + 7)));
             vm.loadExercisesForWeek(nextWeek);
         }
         

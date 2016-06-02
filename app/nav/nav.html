@@ -1,49 +1,52 @@
-<nav class="navbar">
+<nav class="navbar navbar-dark bg-primary">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"
->
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
+      <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#myNavbar">
+          &#9776;                      
       </button>
       <a class="navbar-brand" href="#" ng-hide="vm.isLoggedIn()">Swoleciety</a>
       <a class="navbar-brand" href="#browse" ng-show="vm.isLoggedIn()">Swoleciety</a>
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
+    <div class="collapse navbar-toggleable-xs" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active">
+        <li class="nav-item active">
             <a href="#browse" 
+               class="nav-link"
                data-toggle="collapse" 
                data-target="#myNavbar"
                ng-show="vm.isLoggedIn()">Browse</a>
         </li>
-        <li>
+        <li class="nav-item">
             <a href="#calendar" 
+               class="nav-link"
                data-toggle="collapse" 
                data-target="#myNavbar"
                ng-show="vm.isLoggedIn()">Calendar</a>
         </li>
-        <li>
+        <li class="nav-item">
             <a href="#stats" 
+               class="nav-link"
                data-toggle="collapse" 
                data-target="#myNavbar"
                ng-show="vm.isLoggedIn()">Stats</a>
         </li>
-        <li id="login">
+        <li class="nav-item" id="login">
             <a href="#login" 
+               class="nav-link"
                data-toggle="collapse" 
                data-target="#myNavbar"
                ng-hide="vm.isLoggedIn()">Log In</a>
         </li>
-        <li id="signup">
-            <a href="#register" 
+        <li class="nav-item" id="signup">
+            <a href="#register"
+               class="nav-link"
                data-toggle="collapse" 
                data-target="#myNavbar"
                ng-hide="vm.isLoggedIn()">Sign Up</a>
         </li>
-        <li id="login">
+        <li class="nav-item" id="login">
             <a href="#landing" 
+               class="nav-link"
                data-toggle="collapse" 
                data-target="#myNavbar"
                ng-show="vm.isLoggedIn()"
