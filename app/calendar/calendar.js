@@ -30,11 +30,13 @@
         angular.forEach(vm.days, function(day) {
             vm.weeklyExercises[day] = null;
         });
+        vm.currentStartOfWeek = ""; 
+        vm.exerciseList = $firebaseArray(firebaseUserExerciseService.getUserExercises(authedUser.uid,dateService.getWeek()));
+        
+        
         vm.singleDayExercises = {};
         vm.selectedDay = ""; // this is ngmodel for mobile view. eventually move out to a mobile controller
-        vm.currentStartOfWeek = ""; 
         
-        vm.exerciseList = $firebaseArray(firebaseUserExerciseService.getUserExercises(authedUser.uid,dateService.getWeek()));
         
         
         /**
@@ -88,8 +90,12 @@
                 console.log(vm.currentStartOfWeek);
             console.log(vm.weeklyExercises);
             });
+        };
+        
+        vm.loadExercisesForSingleDay = function(day) {
             
         };
+        
         
         /*
          * Loads the previous week

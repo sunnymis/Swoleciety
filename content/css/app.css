@@ -317,6 +317,23 @@ i.material-icons.material-icons-grey {
 ----------------------------
 */
 
+    .navbar-header button {
+        float: right;
+    }
+    
+      .navbar-brand {
+          float: none; 
+      }
+      
+      .navbar-nav .nav-item {
+          float: none;
+      }
+      
+      .navbar-divider, 
+      .navbar-nav .nav-item + .nav-item,
+      .navbar-nav .nav-link + .nav-link {
+          margin-left: 0;
+      }
     #login {
         float: none;
     }
@@ -445,5 +462,7 @@ i.material-icons.material-icons-grey {
   and (device-height: 640px) 
   and (-webkit-device-pixel-ratio: 3) 
   and (orientation: landscape) {
-
+      
 }
+
+@

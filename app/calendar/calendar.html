@@ -1,17 +1,21 @@
-
-<div id="calendar-mobile-select">
-    <select id="weekday-dropdown" ng-options="day for day in vm.days" value="{{day}}" ng-model="vm.selectedDay" ng-change="vm.loadSingleDay(vm.selectedDay)" ng-init="vm.selectedDay=vm.days[0]">
-    </select>
-    
-</div>
 <div class="calendar-navigation">
     <a id="backArrow" ng-click="vm.getPreviousWeek()">
         <i class="material-icons">arrow_back</i>
     </a>
+    <span>{{vm.currentStartOfWeek | date: 'MM/dd/yy'}}</span>
     <a id="forwardArrow" ng-click="vm.getNextWeek()">
         <i class="material-icons">arrow_forward</i>
     </a>
 </div>
+
+
+<div id="calendar-mobile-select">
+    <select id="weekday-dropdown" ng-options="day for day in vm.days" value="{{day}}" ng-model="vm.selectedDay" ng-change="vm.loadSingleDay(vm.selectedDay)" ng-init="vm.selectedDay=vm.days[0]">
+    </select>
+</div>
+
+
+
 <div class="week-container" data-ng-init="vm.loadExercisesForWeek()">
     <div class="weekday" ng-repeat="day in vm.weekDates">
         <h2>{{day.day}}</h2><h4> {{day.date | date: 'MM/dd/yy'}}</h4>
@@ -35,6 +39,7 @@
 
 <!-- Mobile View -->
 <div class="weekday-container" data-ng-init="vm.loadSingleDay(vm.selectedDay)">
+    
     <div class="single-exercise" ng-repeat="ex in vm.singleDayExercises[vm.selectedDay]">
             <a id="editButton" href="" ng-click="vm.openCalendarEditModal(ex,vm.selectedDay)">
                 <i class="material-icons">mode_edit</i>
