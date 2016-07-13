@@ -12,10 +12,13 @@
     "angular-mocks": "~1.4.0",
     "angular-resource": "1.4.x",
     "angular-animate": "~1.4.0",
-    "html5-boilerplate": "~5.2.0", 
-    "bootstrap-material-design": "~0.5.8",  
+    "html5-boilerplate": "~5.2.0",
+    "bootstrap-material-design": "~0.5.8",
     "jquery": "2.2.0",
     "firebase": "~2.4.x",
     "angularfire": "~1.1.4"
+  },
+  "resolutions": {
+    "bootstrap": "v4.0.0-alpha.2"
   }
 }
