@@ -10,7 +10,4 @@
 Technologies
 -----
 
-* Framework:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AngularJS
-* Database:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Firebase
-* CSS:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bootstrap Material Design
 
