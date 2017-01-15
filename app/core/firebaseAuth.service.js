@@ -7,9 +7,9 @@
         .factory('firebaseAuthService', firebaseAuthService);
         
     
-    firebaseAuthService.$inject = ['FIREBASE_URL', '$firebaseAuth'];
+    firebaseAuthService.$inject = ['FIREBASE_URL', '$firebaseAuth','$rootScope'];
     
-    function firebaseAuthService(FIREBASE_URL, $firebaseAuth) {
+    function firebaseAuthService(FIREBASE_URL, $firebaseAuth,$rootScope) {
         var reference = new Firebase(FIREBASE_URL),
             authObject = $firebaseAuth(reference),
             service = {
@@ -33,11 +33,11 @@
         function login(user) {
             authObject.$authWithPassword(user)
                 .then(function(authData) { 
-                    //console.log('Logged In as: ', authData.uid);
+                    $rootScope.user = authData;
                 })
                 .catch(function(error) {
                     console.error('Authentication Failed: ',error);
-                }); 
+                });
         }
         
         /**
