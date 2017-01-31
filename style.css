@@ -1,0 +1,16 @@
+* {
+    background-color: #1BB0F4;
+}
+
+.container {
+    width: 50%;
+    margin: 25vh auto 0 auto;
+}
+
+h1 {
+    color: white;
+    font-family: 'Abril Fatface', sans-serif;
+    letter-spacing: 3px;
+    text-align: center;
+    margin-right: 50px;
+}
