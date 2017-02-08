@@ -5,7 +5,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const nodeExternals = require('webpack-node-externals');
+
 
 module.exports = (options) => ({
   // This is the base directory for resolving entry, loaders etc.
