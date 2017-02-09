@@ -3,7 +3,7 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import {expect} from 'chai';
 
-import App from './App';
+import App from './app';
 
 describe('<App/>', function () {
   it('should have an image to display the gravatar', function () {
