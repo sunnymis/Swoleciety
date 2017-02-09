@@ -9,7 +9,7 @@
   "scripts": {
     "start": "webpack --config webpack/webpack.dev.js",
     "dev": "webpack-dev-server --config webpack/webpack.dev.js --open",
-    "test": "mocha -w test/browser.js ./app/**/*.test.js"
+    "test": "mocha test/browser.js ./app/**/*.test.js"
   },
   "dependencies": {
     "react": "^15.4.2",
