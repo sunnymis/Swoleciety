@@ -45,6 +45,9 @@ module.exports = (options) => ({
   },
   // Creates a simple source map
   devtool: "cheap-eval-source-map",
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
   performance: {
     // Shows warning message if assets too large
     hints: "warning",
@@ -74,6 +77,16 @@ module.exports = (options) => ({
         options: {
           presets: ['babel-preset-es2015','babel-preset-react']
         }
+      },
+      {
+        test: /\.html$/,
+        loader: 'html-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader',
+        exclude: /node_modules/
       }
     ]
   },
