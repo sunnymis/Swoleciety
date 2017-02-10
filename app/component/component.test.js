@@ -14,7 +14,7 @@ describe('<App/>', function () {
      // console.log(wrapper.find('img'));
      //expect(wrapper.find('img')).not.toBeEmpty();
      //expect(wrapper.find('img').length).toEqual(1);
-    expect(a(6)).toBe(500);
+    expect(a(6)).toBe(5);
      expect(1).toBe(1);
   });
 
