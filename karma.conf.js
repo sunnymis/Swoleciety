@@ -1,43 +1,13 @@
 // Karma configuration
 // Generated on Thu Feb 09 2017 20:30:48 GMT-0500 (EST)
 var webpackConfig = require('./webpack/webpack.dev');
+var webpack = require('webpack');
+
 module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
-    // frameworks to use
-    // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine'],
-    // list of files / patterns to load in the browser
-    files: [
-      'tests.index.js'
-    ],
-    // list of files to exclude
-    exclude: [
-    ],
-    // preprocess matching files before serving them to the browser
-    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors: {
-        'tests.index.js': ['webpack', 'sourcemap']
-    },
-    // Webpack. Can't use the dev webpack file because
-    // it looks like karma.conf doesn't support webpack 2 syntax 
-    // of module rules
-    webpack: {
-        module: {
-            loaders: [
-              { test: /\.js$/, loader: 'babel-loader' }
-            ]
-        }
-    },
-    webpackServer: {
-        noInfo: true
-    },
-    // test results reporter to use
-    // possible values: 'dots', 'progress'
-    // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
     // web server port
     port: 9876,
     // enable / disable colors in the output (reporters and logs)
@@ -53,8 +23,70 @@ module.exports = function(config) {
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
     singleRun: true,
-    // Concurrency level
-    // how many browser should be started simultaneous
-    concurrency: Infinity
+    plugins: [ 
+        'karma-chrome-launcher', 
+        'karma-jasmine',
+        'karma-spec-reporter',
+        'karma-sourcemap-loader', 
+        'karma-webpack',
+        'karma-coverage'
+    ],
+    // frameworks to use
+    // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
+    frameworks: ['jasmine'],
+    // list of files / patterns to load in the browser
+    files: [
+      'tests.index.js'      
+    ],
+    // list of files to exclude
+    exclude: [
+        './node_modules'
+    ],
+    // preprocess matching files before serving them to the browser
+    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
+    preprocessors: {
+        'tests.index.js': ['webpack', 'sourcemap'],
+        'app/component/*.js': ['coverage', 'webpack']
+    },
+    // Webpack. Can't use the dev webpack file because
+    // it looks like karma.conf doesn't support webpack 2 syntax 
+    // of module rules
+    webpack: {
+        module: {
+            loaders: [
+              { 
+                test: /\.js$/, 
+                loader: 'babel-loader',
+                exclude: /node_modules/
+              },
+              {
+                test: /\.js$/,
+                loader: 'istanbul-instrumenter-loader',
+                exclude: /node_modules/,
+                enforce: "post"
+              }
+            ]
+        },
+        externals: {
+            'cheerio': 'window',
+            'react/addons': true,
+            'react/lib/ExecutionEnvironment': true,
+            'react/lib/ReactContext': true
+        }
+    },
+    webpackServer: {
+        noInfo: true
+    },
+    // test results reporter to use
+    // possible values: 'dots', 'progress'
+    // available reporters: https://npmjs.org/browse/keyword/karma-reporter
+    reporters: ['spec', 'coverage'],
+    coverageReporter: {
+        type: 'text'
+    },
+    
   })
 }
+
+
+
