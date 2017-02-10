@@ -24,7 +24,8 @@ module.exports = function(config) {
     // if true, Karma captures browsers, runs the tests and exits
     singleRun: true,
     plugins: [ 
-        'karma-chrome-launcher', 
+        'karma-chrome-launcher',
+        'karma-firefox-launcher',
         'karma-jasmine',
         'karma-spec-reporter',
         'karma-sourcemap-loader', 
