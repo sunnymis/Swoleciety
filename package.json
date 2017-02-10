@@ -9,7 +9,8 @@
   "scripts": {
     "start": "webpack --config webpack/webpack.dev.js",
     "dev": "webpack-dev-server --config webpack/webpack.dev.js --open",
-    "test": "mocha test/browser.js ./app/**/*.test.js"
+    "test": "mocha test/browser.js ./app/**/*.test.js",
+    "coverage": "istanbul cover _mocha -- -u exports -R spec"
   },
   "dependencies": {
     "react": "^15.4.2",
@@ -31,6 +32,7 @@
     "babel-preset-react": "^6.22.0",
     "chai": "^3.5.0",
     "enzyme": "^2.7.1",
+    "istanbul": "^0.4.5",
     "jsdom": "^9.10.0",
     "mocha": "^3.2.0",
     "react-addons-test-utils": "^15.4.2",
