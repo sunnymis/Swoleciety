@@ -84,6 +84,20 @@ module.exports = (options) => ({
         exclude: /node_modules/
       },
       {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: 'style-loader' // Create Style node from JS strings
+          },
+          {
+            loader: 'css-loader' // Translate CSS into CommmonJS
+          },
+          {
+            loader: 'sass-loader' // Compile to Sass to CSS
+          }
+        ]
+      },
+      {
         test: /\.json$/,
         loader: 'json-loader',
         exclude: /node_modules/

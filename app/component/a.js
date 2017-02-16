@@ -1,8 +1,10 @@
 function a(num) {
+  const abc = 'some variabl';
   if (num > 5) {
-    return 5; 
-  } else {
-    return 10;
+    console.log(abc);
+    return 5;
   }
+  return 10;
 }
-export default a; 
+export default a;
+

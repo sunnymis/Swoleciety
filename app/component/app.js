@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-
+require('./style.scss');
 
 export default class App extends React.Component {
   render() {
