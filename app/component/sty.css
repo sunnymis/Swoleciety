@@ -1,6 +1,9 @@
 * {
   background-color: yellow;
 }
+App {
+  border: 5px solid black;
+}
 
 .app-container {
   background-color:  green;

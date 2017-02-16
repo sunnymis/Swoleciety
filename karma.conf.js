@@ -65,8 +65,13 @@ module.exports = function(config) {
                 loader: 'istanbul-instrumenter-loader',
                 exclude: /node_modules/,
                 enforce: "post"
-              }
-            ]
+              },
+              {
+                test: /\.scss$/,
+                loaders: ['raw-loader', 'sass-loader'], // sass-loader not scss-loader
+                exclude: /node_modules/,
+              },
+            ],
         },
         externals: {
             'cheerio': 'window',
