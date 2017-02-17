@@ -22,7 +22,7 @@ module.exports = function(config) {
     browsers: [process.env.CONTINUOUS_INTEGRATION ? 'Firefox' : 'Chrome'],
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: true,
+    singleRun: false,
     plugins: [ 
         'karma-chrome-launcher',
         'karma-firefox-launcher',
@@ -73,6 +73,7 @@ module.exports = function(config) {
               },
             ],
         },
+        // This is for enzyme to work
         externals: {
             'cheerio': 'window',
             'react/addons': true,
