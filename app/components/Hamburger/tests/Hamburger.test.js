@@ -1,9 +1,6 @@
-import React from 'react';
-import ReactDom from 'react-dom';
-
 import jasmineEnzyme from 'jasmine-enzyme';
 import { shallow } from 'enzyme';
-
+import React from 'react';
 import Hamburger from '../Hamburger';
 
 describe('<Hamburger />', () => {
@@ -15,3 +12,4 @@ describe('<Hamburger />', () => {
     expect(wrapper.find('div')).toBePresent();
   });
 });
+

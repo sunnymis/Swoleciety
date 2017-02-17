@@ -3,18 +3,24 @@ import React, { PropTypes } from 'react';
 require('./app.scss');
 
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <div className="app-container">
-        <h1>{this.props.title}</h1>
-        <img src={this.props.src} alt="logo" />
-      </div>
-    );
-  }
-}
+const App = (props) => {
+  return (
+    <div className="app-container">
+      <h1>{props.title}</h1>
+      <img src={props.src} alt="logo" />
+    </div>
+  );
+};
+
+App.defaultProps = {
+  title: 'Swoleciety',
+  src: '',
+};
 
 App.propTypes = {
   title: PropTypes.string.isRequired,
   src: PropTypes.string,
 };
+
+
+export default App;
