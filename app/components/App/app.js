@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-require('./style.scss');
+require('./app.scss');
 
 
 export default class App extends React.Component {

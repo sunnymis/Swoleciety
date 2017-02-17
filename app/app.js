@@ -1,8 +1,9 @@
-import App from './component/app'; 
+import App from './components/App/app';
+
 ReactDOM.render(
   <div>
     Hello World!!
-    <App 
+    <App
       title="Swoleciety"
       src="../img/Swoleciety-Logo-1x.png"/>
   </div>,
