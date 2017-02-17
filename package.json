@@ -9,7 +9,8 @@
   "scripts": {
     "start": "webpack --config webpack/webpack.dev.js",
     "dev": "webpack-dev-server --config webpack/webpack.dev.js --open",
-    "test": "karma start",
+    "test": "karma start --single-run",
+    "test:dev": "karma start",
     "coveralls": "cat ./coverage/report-lcov/lcov.info | node node_modules/.bin/coveralls"
   },
   "dependencies": {
