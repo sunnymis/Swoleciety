@@ -1,0 +1,36 @@
+@import '../../style/colors';
+
+.exercise-card {
+  width: 90%;
+  background-color: $white;
+  position: relative;
+  margin: 20px auto;
+  font-family: 'Work Sans', sans-serif;
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3);
+  border-radius: 2px;
+  
+  .title {
+      display: inline-block;
+      position: relative;
+      left: 20px;
+      color: $card-title-color;
+      font-weight: 500;
+      width: 50%;
+    }
+
+    .icons {
+      display: inline-block;
+      position: relative;
+      right: 1em;
+      width: 50%;
+      text-align: right;
+
+      :first-child {
+        margin-right: 20px;
+      }
+
+      i {
+        font-size: 32px;
+      }
+    }
+}

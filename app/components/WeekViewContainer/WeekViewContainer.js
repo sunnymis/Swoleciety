@@ -1,5 +1,6 @@
 import React from 'react';
 import DayCard from '../DayCard/DayCard';
+import ExerciseCard from '../ExerciseCard/ExerciseCard';
 
 require('./WeekViewContainer.scss');
 
@@ -15,6 +16,7 @@ const WeekViewContainer = () => {
           day: "01",
         }}
       />
+      <ExerciseCard title="Deadlift" />
     </div>
   );
 };
