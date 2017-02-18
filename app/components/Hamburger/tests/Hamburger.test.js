@@ -7,9 +7,10 @@ describe('<Hamburger />', () => {
   beforeEach(() => {
     jasmineEnzyme();
   });
-  it('should see this test', () => {
+  it('exists', () => {
     const wrapper = shallow(<Hamburger />);
-    expect(wrapper.find('div')).toBePresent();
+    expect(wrapper.find('span')).toBePresent();
+    expect(wrapper.find('span.hamburger')).toBePresent();
   });
 });
 

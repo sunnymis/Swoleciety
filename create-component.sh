@@ -21,7 +21,9 @@ $1.propTypes = {
 
 export default $1;" >> app/components/$1/$1.js
 
-echo ".$1 {
+echo "@import '../../style/colors';
+
+.$1 {
 }" >> app/components/$1/$1.scss
 
 echo "import jasmineEnzyme from 'jasmine-enzyme';

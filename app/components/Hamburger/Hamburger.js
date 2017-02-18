@@ -1,10 +1,10 @@
 import React from 'react';
 
+require('./Hamburger.scss');
+
 const Hamburger = () => {
   return (
-    <div className="Hamburger">
-      <h1>hamburger</h1>
-    </div>
+    <span className="hamburger">&#9776;</span>
   );
 };
 

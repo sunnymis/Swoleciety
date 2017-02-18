@@ -1,0 +1,25 @@
+@import '../../style/colors';
+
+.nav-bar {
+  background-color: $secondary-color;
+  color: $white;
+
+  .hamburger {
+    display: inline-block;
+    width: 30px;
+    position: relative;
+    left: 1em;
+    font-size: 30px;
+  }
+
+  h1 {
+    display: inline-block;
+    width: calc(100% - 30px);
+    text-align: center;
+    font-family: 'Abril Fatface', cursive;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 30px;
+    font-weight: 100;
+  }
+}

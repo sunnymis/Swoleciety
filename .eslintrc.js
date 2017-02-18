@@ -16,6 +16,6 @@ module.exports = {
     "rules": {
       "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
       "arrow-body-style": ["error", "always"],
-      "padded-blocks": ["never"],
+      "padded-blocks": ["error", "never"],
     }
 };
