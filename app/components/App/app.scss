@@ -1,5 +1,7 @@
+@import '../../style/colors';
+
 * {
-  background-color: yellow;
+  background-color: $primary-color;
 }
 
 .app-container {

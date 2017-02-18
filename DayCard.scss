@@ -1,10 +1,8 @@
-import React from 'react';
-import DayCard from '../DayCard/DayCard';
+import React, { PropTypes } from 'react';
 
-require('./app.scss');
+require('./day-card.scss');
 
-
-const WeekViewContainer = () => {
+const DayCard = () => {
   return (
     <div className="week-view-container">
       <DayCard />
