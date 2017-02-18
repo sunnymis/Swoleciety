@@ -1,3 +1,43 @@
+@import '../../style/colors';
+
 .day-card {
-  font-size: 20px;
+  width: 90%;
+  background-color: $white;
+  position: relative;
+  margin: 20px auto;
+  font-family: 'Work Sans', sans-serif;
+
+  .day-title {
+    display: inline-block;
+    h1 {
+      position: relative;
+      left: 20px;
+      color: $card-title-color;
+      font-weight: 500;
+    }
+
+    p.title {
+      color: #A2A2A2;
+      position: relative;
+      left: 20px;
+      font-size: 1.2em;
+      font-weight: 400;
+    }
+  }
+  
+
+  .date-container {
+    display: inline-block;
+    float: right;
+    position: relative;
+    top: 20px;
+    right: 20px;
+    color: $secondary-color; 
+
+    .day {
+      letter-spacing: 4px;
+    }
+
+  }
+
 }

@@ -6,13 +6,18 @@ require('./daycard.scss');
 const DayCard = (props) => {
   return (
     <div className="day-card">
-      <h1>{props.day}</h1>
-      <p className="title">{props.title}</p>
-      <div className="date-container">
-        <p className="month">{props.date.month}</p>
-        <p className="day">{props.date.day}</p>
-      </div>
-    </div>
+      
+        <div className="day-title">
+          <h1>{props.day}</h1>
+          <p className="title">{props.title}</p>
+        </div>    
+        <div className="date-container">
+          <p className="month">{props.date.month}</p>
+          <p className="day">{props.date.day}</p>
+        </div>
+      
+    </div>  
+      
   );
 };
 

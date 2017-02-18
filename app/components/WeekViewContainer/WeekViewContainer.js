@@ -1,7 +1,7 @@
 import React from 'react';
 import DayCard from '../DayCard/DayCard';
 
-require('./app.scss');
+require('./WeekViewContainer.scss');
 
 
 const WeekViewContainer = () => {
