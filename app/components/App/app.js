@@ -7,7 +7,14 @@ require('./app.scss');
 const WeekViewContainer = () => {
   return (
     <div className="week-view-container">
-      <DayCard />
+      <DayCard 
+        day = "Monday"
+        title = "Chest"
+        date = {{
+          month: "JAN",
+          day: "01",
+        }}
+      />
     </div>
   );
 };
