@@ -19,4 +19,5 @@ describe('<Input />', () => {
     const wrapper = shallow(<Input value="Deadlift" />);
     expect(wrapper.find('input')).toHaveValue('Deadlift');
   });
+
 });

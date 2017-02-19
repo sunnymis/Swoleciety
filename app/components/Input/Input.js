@@ -5,6 +5,7 @@ require('./Input.scss');
 const Input = (props) => {
   return (
     <input
+      className="input"
       type="text"
       value={props.value}
     />
@@ -16,7 +17,10 @@ Input.defaultProps = {
 };
 
 Input.propTypes = {
-  value: React.PropTypes.string,
+  value: React.PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.number,
+  ]),
 };
 
 export default Input;
