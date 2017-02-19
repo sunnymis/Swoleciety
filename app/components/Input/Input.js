@@ -6,7 +6,7 @@ const Input = (props) => {
   return (
     <input
       className="input"
-      type="text"
+      type={props.type}
       value={props.value}
     />
   );
@@ -14,6 +14,7 @@ const Input = (props) => {
 
 Input.defaultProps = {
   value: '',
+  type: 'text',
 };
 
 Input.propTypes = {
@@ -21,6 +22,7 @@ Input.propTypes = {
     React.PropTypes.string,
     React.PropTypes.number,
   ]),
+  type: React.PropTypes.string,
 };
 
 export default Input;

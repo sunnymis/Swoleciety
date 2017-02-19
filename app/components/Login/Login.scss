@@ -1,0 +1,70 @@
+@import '../../style/colors';
+
+.login {
+  position: relative;
+  height: 100vh;
+  .image-container {
+    box-sizing: border-box;
+    position: relative;
+    height: 200px;
+    padding-top: 50px;
+    img {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+    }
+  }
+
+  .form {
+    height: 325px;
+    input {
+      margin: 0 auto;
+      background-color: transparent;
+      width: 90%;
+      padding-left: 60px;
+      color: #D3D3D3;
+      border-color: #D3D3D3;
+      margin-bottom: 20px;
+      font-size: 32px;
+      
+    }
+
+    .signin {
+      background-color: $ternary-color;
+      border: none;
+      border-radius: 25px;
+      padding: 10px 30px;
+      width: 90%;
+      margin: 50px auto 0 auto;
+      display: block;
+      color: $white;
+      font-size: 24px;
+    }
+
+    i {
+      position: relative;
+      top: 40px;
+      left: 30px;
+      color: #D3D3D3;
+      font-size: 32px;
+
+      &.person {
+        top: 50px;
+      }
+    }
+  }
+
+  .signup {
+    dislay: inline-block;
+    //margin: 10px auto 0 auto;
+    text-align: center;
+    width: 90%;
+    color: #D3D3D3;
+
+    span {
+      color: $white;
+      margin-left: 10px;
+    }
+  }
+
+}

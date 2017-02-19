@@ -20,4 +20,10 @@ describe('<Input />', () => {
     expect(wrapper.find('input')).toHaveValue('Deadlift');
   });
 
+  it('renders a password input field from type prop', () => {
+    const wrapper = shallow(<Input type="password" />);
+    expect(wrapper.find('input').matchesElement(
+      <input type="password" />)).toBe(true);
+  });
+
 });
