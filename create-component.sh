@@ -32,11 +32,14 @@ import React from 'react';
 import $1 from '../$1';
 
 describe('<$1 />', () => {
+
   beforeEach(() => {
     jasmineEnzyme();
   });
-  it('should exist', () => {
+
+  it('exists', () => {
     const wrapper = shallow(<$1 />);
     expect(wrapper.find('div')).toBePresent();
   });
+  
 });" >> app/components/$1/tests/$1.test.js
