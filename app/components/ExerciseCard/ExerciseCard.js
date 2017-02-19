@@ -12,9 +12,19 @@ const ExerciseCard = (props) => {
         <i className="material-icons">delete</i>
       </div>
 
-      <ExerciseDetail />
-      <ExerciseDetail />
-      <ExerciseDetail />
+      <ExerciseDetail
+        type='Set'
+        value={1}
+      />
+      <ExerciseDetail
+        type='Reps'
+        value={10}
+      />
+      <ExerciseDetail
+        type='Weight'
+        value={135}
+        units='lbs'
+      />
     </div>
   );
 };

@@ -1,4 +1,8 @@
 @import '../../style/colors';
 
-.ExerciseDetail {
+.exercise-detail {
+  display: inline-block;
+  width: 33%;
+  text-align: center;
+  color: $card-title-color;
 }
