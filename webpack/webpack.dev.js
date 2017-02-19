@@ -32,7 +32,7 @@ module.exports = {
   devServer: {
     // Port number to listen for requests
     port: 4000,
-    host: 'localhost',
+    host: '0.0.0.0',
     // Enables gzip compression
     compress: true,
     // This is where the server should send content from
