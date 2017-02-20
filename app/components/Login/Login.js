@@ -7,7 +7,7 @@ const Login = () => {
   return (
     <div className="login">
       <div className="image-container">
-        <img src="../../img/Swoleciety-Logo-1x-White.png" />
+        <img src="../../img/Swoleciety-Logo-1x-White.png" alt="logo" />
       </div>
       <div className="form">
         <i className="material-icons person">person</i>

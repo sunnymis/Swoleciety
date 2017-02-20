@@ -3,6 +3,10 @@
 .login {
   position: relative;
   height: 100vh;
+  @media screen and (min-width: 480px) {
+    width: 50%;
+    margin: 0 auto;
+  }
   .image-container {
     box-sizing: border-box;
     position: relative;
@@ -17,13 +21,18 @@
 
   .form {
     height: 325px;
+    @media screen and (min-width: 480px) {
+      margin-top: 20%;
+    }
+
+
     input {
       margin: 0 auto;
       background-color: transparent;
       width: 90%;
       padding-left: 60px;
-      color: #D3D3D3;
-      border-color: #D3D3D3;
+      color: $light-gray;
+      border-color: $light-gray;
       margin-bottom: 20px;
       font-size: 32px;
       
@@ -45,7 +54,7 @@
       position: relative;
       top: 40px;
       left: 30px;
-      color: #D3D3D3;
+      color: $light-gray;
       font-size: 32px;
 
       &.person {
@@ -56,10 +65,9 @@
 
   .signup {
     dislay: inline-block;
-    //margin: 10px auto 0 auto;
     text-align: center;
     width: 90%;
-    color: #D3D3D3;
+    color: $light-gray;
 
     span {
       color: $white;
