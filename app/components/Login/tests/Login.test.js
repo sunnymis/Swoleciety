@@ -17,7 +17,7 @@ describe('<Login />', () => {
   it('displays the logo', () => {
     const wrapper = shallow(<Login />);
     expect(wrapper.find('img').contains(
-      <img src="../../img/Swoleciety-Logo-1x-White.png" />)).toBe(true);
+      <img src="../../img/Swoleciety-Logo-1x-White.png" alt="logo"/>)).toBe(true);
   });
 
   it('displays two Input components', () => {
