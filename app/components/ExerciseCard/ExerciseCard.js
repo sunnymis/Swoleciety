@@ -13,17 +13,17 @@ const ExerciseCard = (props) => {
       </div>
 
       <ExerciseDetail
-        type='Set'
+        type="Set"
         value={1}
       />
       <ExerciseDetail
-        type='Reps'
+        type="Reps"
         value={10}
       />
       <ExerciseDetail
-        type='Weight'
+        type="Weight"
         value={135}
-        units='lbs'
+        units="lbs"
       />
     </div>
   );

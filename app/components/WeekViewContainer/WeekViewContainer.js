@@ -1,7 +1,5 @@
 import React from 'react';
 import DayCard from '../DayCard/DayCard';
-import ExerciseCard from '../ExerciseCard/ExerciseCard';
-import AddEditExerciseForm from '../AddEditExerciseForm/AddEditExerciseForm';
 import 'whatwg-fetch';
 
 require('./WeekViewContainer.scss');
@@ -24,14 +22,15 @@ class WeekViewContainer extends React.Component {
           weekData: json.week,
         });
       }).catch((ex) => {
-        console.log('parsing failed', ex);
+        console.error('parsing failed', ex);
       });
   }
 
   renderDays() {
     return this.state.weekData.map((day) => {
       return (
-        <DayCard 
+        <DayCard
+          Link to="/exercise"
           day={day.day}
           title={day.title}
           date={day.date}
@@ -40,7 +39,7 @@ class WeekViewContainer extends React.Component {
     });
   }
   render() {
-    let days = this.renderDays(); 
+    const days = this.renderDays();
     return (
       <div className="week-view-container">
         {days}

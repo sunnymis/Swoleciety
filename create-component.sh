@@ -41,5 +41,5 @@ describe('<$1 />', () => {
     const wrapper = shallow(<$1 />);
     expect(wrapper.find('div')).toBePresent();
   });
-  
+
 });" >> app/components/$1/tests/$1.test.js
