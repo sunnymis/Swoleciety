@@ -25,11 +25,17 @@ export default class ExerciseCardContainer extends React.Component {
       <div>
         <ExerciseCard
           title="Deadlift"
+          set={1}
+          reps={10}
+          weight={135}
           onEdit={this.handleOnEdit}
         />
         {this.state.showExerciseEdit ?
           <AddEditExerciseForm
             title="Deadlift"
+            set={1}
+            reps={10}
+            weight={135}
             onOutsideClick={this.handleOnEdit}
           /> :
           null

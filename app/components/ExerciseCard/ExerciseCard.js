@@ -14,15 +14,15 @@ const ExerciseCard = (props) => {
 
       <ExerciseDetail
         type="Set"
-        value={1}
+        value={props.set}
       />
       <ExerciseDetail
         type="Reps"
-        value={10}
+        value={props.reps}
       />
       <ExerciseDetail
         type="Weight"
-        value={135}
+        value={props.weight}
         units="lbs"
       />
     </div>
@@ -31,12 +31,18 @@ const ExerciseCard = (props) => {
 
 ExerciseCard.defaultProps = {
   title: '',
+  set: 0,
+  reps: 0,
+  weight: 0,
   onEdit: () => {},
 };
 
 ExerciseCard.propTypes = {
   title: React.PropTypes.string,
   onEdit: React.PropTypes.func,
+  set: React.PropTypes.number,
+  reps: React.PropTypes.number,
+  weight: React.PropTypes.number,
 };
 
 export default ExerciseCard;

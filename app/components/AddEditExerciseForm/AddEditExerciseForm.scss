@@ -21,6 +21,10 @@
   border-radius: 2px;
   z-index: 100;
 
+  @media screen and (min-width: 375px) {
+    top: -150px;
+  }
+
   .title-container {
     width: 80%;
     margin: 0 auto;
