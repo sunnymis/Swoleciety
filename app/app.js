@@ -15,6 +15,7 @@ ReactDOM.render((
       <IndexRoute component={WeekViewContainer} />
       <Route path="/exercise" component={ExerciseCardContainer} />
     </Route>
+    <Route path="/login" component={Login} />
   </Router>
   ),
   document.getElementById('root'),
