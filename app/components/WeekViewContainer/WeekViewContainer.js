@@ -5,7 +5,7 @@ import 'whatwg-fetch';
 require('./WeekViewContainer.scss');
 
 
-class WeekViewContainer extends React.Component {
+export default class WeekViewContainer extends React.Component {
   constructor() {
     super();
     this.renderDays = this.renderDays.bind(this);
@@ -54,6 +54,3 @@ WeekViewContainer.defaultProps = {
 WeekViewContainer.propTypes = {
 
 };
-
-
-export default WeekViewContainer;

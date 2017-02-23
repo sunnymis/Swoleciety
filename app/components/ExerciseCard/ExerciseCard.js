@@ -8,8 +8,8 @@ const ExerciseCard = (props) => {
     <div className="exercise-card">
       <h1 className="title">{props.title}</h1>
       <div className="icons">
-        <i className="material-icons">mode_edit</i>
-        <i className="material-icons">delete</i>
+        <span onClick={props.onEdit}><i className="material-icons">mode_edit</i></span>
+        <span><i className="material-icons">delete</i></span>
       </div>
 
       <ExerciseDetail
@@ -31,10 +31,12 @@ const ExerciseCard = (props) => {
 
 ExerciseCard.defaultProps = {
   title: '',
+  onEdit: () => {},
 };
 
 ExerciseCard.propTypes = {
   title: React.PropTypes.string,
+  onEdit: React.PropTypes.func,
 };
 
 export default ExerciseCard;

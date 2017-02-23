@@ -24,17 +24,4 @@ describe('<ExerciseCard />', () => {
     expect(wrapper.find('ExerciseDetail').length).toEqual(3);
   });
 
-  it('renders an edit button', () => {
-    const wrapper = shallow(<ExerciseCard />);
-    expect(wrapper
-      .contains(<i className="material-icons">mode_edit</i>))
-    .toBe(true);
-  });
-
-  it('renders an trash button', () => {
-    const wrapper = shallow(<ExerciseCard />);
-    expect(wrapper
-      .contains(<i className="material-icons">delete</i>))
-    .toBe(true);
-  });
 });
