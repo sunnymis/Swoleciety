@@ -11,9 +11,10 @@ module.exports = {
   context: path.resolve(process.cwd(), 'app/'),
   // Here is where the application starts executing and webpack starts bundling
   // [name] will be swoleciety
-  entry: {
-    swoleciety: './app.js',
-  },
+  entry: [
+    'whatwg-fetch',
+    './app.js',
+  ],
   // Where to output your bundle
   output: {
     // Name of the output bundle
