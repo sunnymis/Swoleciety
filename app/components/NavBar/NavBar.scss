@@ -12,7 +12,7 @@
     font-size: 30px;
   }
 
-  h1 {
+  #swoleciety-title {
     display: inline-block;
     width: calc(100% - 30px);
     text-align: center;
@@ -21,5 +21,6 @@
     letter-spacing: 4px;
     font-size: 30px;
     font-weight: 100;
+    color: $white;
   }
 }

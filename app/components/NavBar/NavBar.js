@@ -1,5 +1,6 @@
 import React from 'react';
 import Hamburger from '../Hamburger/Hamburger';
+import { Link } from 'react-router';
 
 require('./NavBar.scss');
 
@@ -7,7 +8,7 @@ const NavBar = () => {
   return (
     <nav className="nav-bar">
       <Hamburger />
-      <h1>Swoleciety</h1>
+      <Link to="/"><h1 id="swoleciety-title">Swoleciety</h1></Link>
     </nav>
   );
 };
