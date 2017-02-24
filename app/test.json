@@ -1,0 +1,202 @@
+{
+  "week": [
+    {
+      "day": "Monday",
+      "title": "Chest",
+      "date": {
+        "month": "JAN",
+        "day": "01"
+      },
+      "exercises": [
+        {
+          "name": "bench",
+          "set": 1,
+          "reps": 5,
+          "weight": 135
+        },
+        {
+          "name": "bench",
+          "set": 2,
+          "reps": 5,
+          "weight": 185
+        },
+        {
+          "name": "bench",
+          "set": 1,
+          "reps": 3,
+          "weight": 225
+        },
+        {
+          "name": "incline bench",
+          "set": 5,
+          "reps": 5,
+          "weight": 135
+        }
+      ]
+    },
+    {
+      "day": "Tuesday",
+      "title": "Shoulder",
+      "date": {
+        "month": "JAN",
+        "day": "02"
+      },
+      "exercises": [
+        {
+          "name": "Overhead Press",
+          "set": 1,
+          "reps": 10,
+          "weight": 65
+        },
+        {
+          "name": "Overhead Press",
+          "set": 2,
+          "reps": 6,
+          "weight": 95
+        },
+        {
+          "name": "bench",
+          "set": 3,
+          "reps": 6,
+          "weight": 95
+        },
+        {
+          "name": "Lateral Raise",
+          "set": 3,
+          "reps": 10,
+          "weight": 15
+        }
+      ]
+    },
+    {
+      "day": "Wednesday",
+      "title": "Back",
+      "date": {
+        "month": "JAN",
+        "day": "03"
+      },
+      "exercises": [
+        {
+          "name": "Overhead Press",
+          "set": 1,
+          "reps": 10,
+          "weight": 65
+        },
+        {
+          "name": "Overhead Press",
+          "set": 2,
+          "reps": 6,
+          "weight": 95
+        },
+        {
+          "name": "bench",
+          "set": 3,
+          "reps": 6,
+          "weight": 95
+        },
+        {
+          "name": "Lateral Raise",
+          "set": 3,
+          "reps": 10,
+          "weight": 15
+        }
+      ]
+    },
+    {
+      "day": "Thursday",
+      "title": "Arms",
+      "date": {
+        "month": "JAN",
+        "day": "04"
+      },
+      "exercises": [
+        {
+          "name": "Barbell Curl",
+          "set": 3,
+          "reps": 10,
+          "weight": 65
+        },
+        {
+          "name": "Tricep Overhead Extension",
+          "set": 3,
+          "reps": 10,
+          "weight": 55
+        },
+        {
+          "name": "Rope Pull Downs",
+          "set": 3,
+          "reps": 12,
+          "weight": 75
+        },
+        {
+          "name": "Concentration Curls",
+          "set": 4,
+          "reps": 10,
+          "weight": 25
+        }
+      ]
+    },
+    {
+      "day": "Friday",
+      "title": "Legs",
+      "date": {
+        "month": "JAN",
+        "day": "05"
+      },
+      "exercises": [
+        {
+          "name": "Squat",
+          "set": 1,
+          "reps": 10,
+          "weight": 135
+        },
+        {
+          "name": "Squat",
+          "set": 2,
+          "reps": 6,
+          "weight": 185
+        },
+        {
+          "name": "Squat",
+          "set": 3,
+          "reps": 6,
+          "weight": 185
+        },
+        {
+          "name": "Squat",
+          "set": 4,
+          "reps": 6,
+          "weight": 185
+        },
+        {
+          "name": "Lunges",
+          "set": 3,
+          "reps": 10,
+          "weight": 35
+        },
+        {
+          "name": "Leg Press",
+          "set": 3,
+          "reps": 12,
+          "weight": 315
+        }
+      ]
+    },
+    {
+      "day": "Saturday",
+      "title": "Carido/Abs",
+      "date": {
+        "month": "JAN",
+        "day": "06"
+      },
+      "exercises": [
+        {
+          "name": "Run",
+          "set": 0,
+          "reps": 0,
+          "weight": 0
+        }
+      ]
+    }
+  ]
+}

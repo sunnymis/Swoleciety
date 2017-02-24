@@ -14,7 +14,7 @@ export default class WeekViewContainer extends React.Component {
     };
   }
   componentDidMount() {
-    fetch('/components/WeekViewContainer/test.json')
+    fetch('/test.json')
       .then((response) => {
         return response.json();
       }).then((json) => {

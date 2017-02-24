@@ -6,7 +6,7 @@ require('./daycard.scss');
 
 const DayCard = (props) => {
   return (
-    <Link to="/exercise">
+    <Link to={`/exercises/${props.day}`}>
       <div className="day-card">
         <div className="day-title">
           <h1>{props.day}</h1>
