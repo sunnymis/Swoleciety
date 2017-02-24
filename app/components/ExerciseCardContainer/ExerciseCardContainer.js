@@ -1,6 +1,7 @@
 import React from 'react';
 import ExerciseCard from '../ExerciseCard/ExerciseCard';
 import AddEditExerciseForm from '../AddEditExerciseForm/AddEditExerciseForm';
+import AddButton from '../AddButton/AddButton';
 import 'whatwg-fetch';
 
 require('./ExerciseCardContainer.scss');
@@ -69,12 +70,12 @@ export default class ExerciseCardContainer extends React.Component {
             onEdit={this.handleOnEdit}
           />
         </div>
-      )
-    })
+      );
+    });
   }
 
   render() {
-    const exercises = this.renderExercises(); 
+    const exercises = this.renderExercises();
     return (
       <div>
         {exercises}
@@ -88,6 +89,7 @@ export default class ExerciseCardContainer extends React.Component {
           /> :
           null
         }
+        <AddButton />
       </div>
 
     );
