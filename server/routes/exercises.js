@@ -2,6 +2,14 @@ const express = require('express');
 
 const router = express.Router();
 
+
+
+/*
+
+require("firebase/auth");
+require("firebase/database");
+ */
+
 router.get('/', (req, res) => {
   console.log('Get /');
   console.log(`Req: ${req}`);
