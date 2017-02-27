@@ -6,26 +6,27 @@ require('./AddEditExerciseForm.scss');
 const AddEditExerciseForm = (props) => {
   return (
     <div>
-      <div className="overlay" onClick={props.onOutsideClick} />
-      <div className="add-edit-form">
-        <div className="title-container">
-          <Input value={props.title} />
-        </div>
-        <div className="details-row">
-          <h2>Set</h2>
-          <Input value={props.set} />
-        </div>
-        <div className="details-row">
-          <h2>Reps</h2>
-          <Input value={props.reps} />
-        </div>
-        <div className="details-row">
-          <h2>Weight</h2>
-          <Input value={props.weight} />
-        </div>
-        <div className="buttons-row">
-          <button className="save">SAVE</button>
-          <button className="cancel" onClick={props.onOutsideClick}>CANCEL</button>
+      <div className="overlay" onClick={props.onOutsideClick}>
+        <div className="add-edit-form">
+          <div className="title-container">
+            <Input value={props.title} />
+          </div>
+          <div className="details-row">
+            <h2>Set</h2>
+            <Input value={props.set} />
+          </div>
+          <div className="details-row">
+            <h2>Reps</h2>
+            <Input value={props.reps} />
+          </div>
+          <div className="details-row">
+            <h2>Weight</h2>
+            <Input value={props.weight} />
+          </div>
+          <div className="buttons-row">
+            <button className="save">SAVE</button>
+            <button className="cancel" onClick={props.onOutsideClick}>CANCEL</button>
+          </div>
         </div>
       </div>
     </div>
