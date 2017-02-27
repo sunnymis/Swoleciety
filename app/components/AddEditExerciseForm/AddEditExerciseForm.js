@@ -3,36 +3,42 @@ import Input from '../Input/Input';
 
 require('./AddEditExerciseForm.scss');
 
-const AddEditExerciseForm = (props) => {
-  return (
-    <div>
-      <div className="overlay" onClick={props.onOutsideClick}>
-        <div className="add-edit-form">
+class AddEditExerciseForm extends React.Component {
+  componentDidMount() {
+    this.InputComponent.focus();
+  }
+
+  render() {
+    return (
+      <div className="overlay">
+        <div className="add-edit-form" onBlur={this.props.onOutsideClick}>
           <div className="title-container">
-            <Input value={props.title} />
+            <Input value={this.props.title} />
           </div>
           <div className="details-row">
             <h2>Set</h2>
-            <Input value={props.set} />
+            <Input
+              value={this.props.set}
+              ref={(input) => { this.InputComponent = input; }}
+            />
           </div>
           <div className="details-row">
             <h2>Reps</h2>
-            <Input value={props.reps} />
+            <Input value={this.props.reps} />
           </div>
           <div className="details-row">
             <h2>Weight</h2>
-            <Input value={props.weight} />
+            <Input value={this.props.weight} />
           </div>
           <div className="buttons-row">
             <button className="save">SAVE</button>
-            <button className="cancel" onClick={props.onOutsideClick}>CANCEL</button>
+            <button className="cancel" onClick={this.props.onOutsideClick}>CANCEL</button>
           </div>
         </div>
       </div>
-    </div>
-
-  );
-};
+    );
+  }
+}
 
 AddEditExerciseForm.defaultProps = {
   title: '',

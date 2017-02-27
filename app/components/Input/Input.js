@@ -2,15 +2,22 @@ import React from 'react';
 
 require('./Input.scss');
 
-const Input = (props) => {
-  return (
-    <input
-      className="input"
-      type={props.type}
-      value={props.value}
-    />
-  );
-};
+class Input extends React.Component {
+  focus() {
+    this.input.focus();
+  }
+
+  render() {
+    return (
+      <input
+        className="input"
+        type={this.props.type}
+        value={this.props.value}
+        ref={(inp) => { this.input = inp; }}
+      />
+    );
+  }
+}
 
 Input.defaultProps = {
   value: '',
