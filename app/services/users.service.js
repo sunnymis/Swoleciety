@@ -1,4 +1,5 @@
 const deepEqual = require('deep-equal');
+
 export default class UserService {
 
   /**
@@ -15,7 +16,7 @@ export default class UserService {
   /**
    * Get a single user
    * @param  {String} userID User's ID
-   * @return {Object} User Object 
+   * @return {Object} User Object
    */
   static getUser(userID) {
     const usersRef = firebase.database().ref(`users/${userID}`);
@@ -39,8 +40,8 @@ export default class UserService {
   /**
    * Gets a single Week for a given user
    * @param  {string} userID User's ID
-   * @param  {string} week  Date formatted as a 6 digit number MMDDYY. 
-   *                        It is always a Sundays date as it is the 
+   * @param  {string} week  Date formatted as a 6 digit number MMDDYY.
+   *                        It is always a Sundays date as it is the
    *                        beginning of the week
    * @return {Object}       Week object containing Date objects for each
    *                        weekday.
@@ -53,15 +54,43 @@ export default class UserService {
   }
 
   /**
-   * Adds a day and title to the the current week for a user
+   * Updates the title of a day
    * @param {string} userID User's ID
-   * @param {string} date   Date formatted as a 6 digit number MMDDYY. 
+   * @param {string} weekOf Date formatted as a 6 digit number MMDDYY.
+   *                        Beginning date of the week
+   * @param {string} date   Date formatted as a 6 digit number MMDDYY.
    * @param {string} name   Name of the days workout
    */
-  static addDay(userID, date, name) {
-    let updates = {};
-    updates[`users/${userID}/weeks/020517/${date}/`] = name;
+  static updateDay(userID, weekOf, date, name) {
+    const updates = {};
+    updates[`users/${userID}/weeks/${weekOf}/${date}/`] = name;
     firebase.database().ref().update(updates);
+  }
+
+  /**
+   * Adds a new day with a title
+   * @param {string} userID User's ID
+   * @param {string} weekOf Date formatted as a 6 digit number MMDDYY.
+   *                        Beginning date of the week
+   * @param {string} date   Date formatted as a 6 digit number MMDDYY.
+   * @param {string} name   Name of the days workout
+   */
+  static addDay(userID, weekOf, date, name) {
+    const ref = `users/${userID}/weeks/${weekOf}/${date}/`;
+    firebase.database().ref(ref).push(name);
+  }
+
+  /**
+   * Removes a day
+   * @param {string} userID User's ID
+   * @param {string} weekOf Date formatted as a 6 digit number MMDDYY.
+   *                        Beginning date of the week
+   * @param {string} date   Date formatted as a 6 digit number MMDDYY.
+   * @param {string} name   Name of the days workout
+   */
+  static deleteDay(userID, weekOf, date) {
+    const ref = `users/${userID}/weeks/${weekOf}/${date}`;
+    firebase.database().ref(ref).remove();
   }
 
   /**
@@ -76,6 +105,13 @@ export default class UserService {
     firebase.database().ref(path).push(exercise);
   }
 
+  /**
+   * Updates an exercise information for a given day
+   * @param  {string} userID      [description]
+   * @param  {string} date        Date formatted as a 6 digit number MMDDYY
+   * @param  {object} oldExercise Exercise Object to be changed
+   * @param  {object} newExercise Exercise Object to change to
+   */
   static updateExercise(userID, date, oldExercise, newExercise) {
     const path = `days/${date}/${userID}`;
     const ref = firebase.database().ref(path);
@@ -83,6 +119,24 @@ export default class UserService {
       Object.keys(snapshot.val()).forEach((ex) => {
         if (deepEqual(snapshot.val()[ex], oldExercise)) {
           firebase.database().ref(`${path}/${ex}`).update(newExercise);
+        }
+      });
+    });
+  }
+
+  /**
+   * Deletes an exercise for a user on a given day
+   * @param  {string} userID      [description]
+   * @param  {string} date        Date formatted as a 6 digit number MMDDYY
+   * @param  {object} exercise    Exercise Object to delete
+   */
+  static deleteExercise(userID, date, exercise) {
+    const path = `days/${date}/${userID}`;
+    const ref = firebase.database().ref(path);
+    ref.once('value', (snapshot) => {
+      Object.keys(snapshot.val()).forEach((ex) => {
+        if (deepEqual(snapshot.val()[ex], exercise)) {
+          firebase.database().ref(`${path}/${ex}`).remove();
         }
       });
     });

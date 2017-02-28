@@ -11,7 +11,7 @@ class AddEditExerciseForm extends React.Component {
   render() {
     return (
       <div className="overlay">
-        <div className="add-edit-form" onBlur={this.props.onOutsideClick}>
+        <div className="add-edit-form" onBlur={(this.props.onOutsideClick)}>
           <div className="title-container">
             <Input value={this.props.title} />
           </div>

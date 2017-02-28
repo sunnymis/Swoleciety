@@ -19,20 +19,37 @@ export default class WeekViewContainer extends React.Component {
     // UserService.getUser('user1');
     // UserService.getSingleWeek('user1', '020517');
     // UserService.getAllWeeks('user1');
-    // UserService.addDay('user1', '021117', 'triceps');
-    // UserService.updateExercise('user1', '022517', 
-    //   {
-    //     name: 'deadlift',
-    //     reps: 10,
-    //     set: 1,
-    //     weight: 315,
-    // },
+     // UserService.updateDay('user1', '020517', '021117', 'glutes');
+     // UserService.addDay('user1','022617', '022817', 'shoulder');
+      UserService.deleteDay('user1', '022617', '022817');
+      // UserService.addExercise('user1','022517', {
+      //   name: 'Farmers Walk',
+      //   set: 999999,
+      //   reps: 10000,
+      //   weight: 304832
+      // });
+    // UserService.updateExercise('user1', '022517',
     // {
     //   name: 'deadlift',
     //   reps: 5,
     //   set: 5,
     //   weight: 495,
+    // },
+    // {
+    //   name: 'OHP',
+    //   reps: 1,
+    //   set: 2,
+    //   weight: 999,
     // });
+    // UserService.deleteExercise('user1', '022517',
+    // {
+    //   name: 'OHP',
+    //   reps: 1,
+    //   set: 2,
+    //   weight: 999,
+    // });
+
+
     fetch('/test.json')
       .then((response) => {
         return response.json();

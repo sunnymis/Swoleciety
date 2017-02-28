@@ -89,7 +89,7 @@ export default class ExerciseCardContainer extends React.Component {
           /> :
           null
         }
-        <AddButton />
+        <AddButton onClick={this.handleOnEdit} />
       </div>
 
     );
