@@ -1,6 +1,7 @@
 import React from 'react';
 import DayCard from '../DayCard/DayCard';
 import UserService from '../../services/users.service';
+import AuthService from '../../services/auth.service';
 import 'whatwg-fetch';
 
 require('./WeekViewContainer.scss');
@@ -15,40 +16,14 @@ export default class WeekViewContainer extends React.Component {
     };
   }
   componentDidMount() {
-    // UserService.getAllUsers();
-    // UserService.getUser('user1');
-    // UserService.getSingleWeek('user1', '020517');
-    // UserService.getAllWeeks('user1');
-     // UserService.updateDay('user1', '020517', '021117', 'glutes');
-     // UserService.addDay('user1','022617', '022817', 'shoulder');
-      UserService.deleteDay('user1', '022617', '022817');
-      // UserService.addExercise('user1','022517', {
-      //   name: 'Farmers Walk',
-      //   set: 999999,
-      //   reps: 10000,
-      //   weight: 304832
-      // });
-    // UserService.updateExercise('user1', '022517',
-    // {
-    //   name: 'deadlift',
-    //   reps: 5,
-    //   set: 5,
-    //   weight: 495,
-    // },
-    // {
-    //   name: 'OHP',
-    //   reps: 1,
-    //   set: 2,
-    //   weight: 999,
+    // AuthService.getCurrentlySignedInUser((user) => {
+    //   console.log('user:', user);
     // });
-    // UserService.deleteExercise('user1', '022517',
-    // {
-    //   name: 'OHP',
-    //   reps: 1,
-    //   set: 2,
-    //   weight: 999,
-    // });
-
+    //  AuthService.signup('test@sunnystestabc.com', '123456');
+    //  AuthService.signin('test@sunnystestabc.com', '123456');
+    AuthService.getCurrentlySignedInUser((user) => {
+      console.log('user:', user);
+    });
 
     fetch('/test.json')
       .then((response) => {
@@ -78,7 +53,12 @@ export default class WeekViewContainer extends React.Component {
     const days = this.renderDays();
     return (
       <div className="week-view-container">
-        {days}
+        <DayCard
+          Link to="/exercise"
+          day={'Monday'}
+          title={'Chest'}
+          date={'02022017'}
+        />
       </div>
     );
   }
