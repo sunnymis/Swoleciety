@@ -1,17 +1,37 @@
 export default class DateService {
 
   static getCurrentWeek() {
-    const today = new Date(Date.now());
-    const todaysDate = today.getDate();
-    const day = today.getDay();
-    const weekStart = new Date(today.setDate(todaysDate - day)).getDate();
-    const thisMonth = today.getMonth() + 1;
-    const thisYear = today.getFullYear().toString().substr(2, 3);
-    let formattedDate = `${thisMonth}${weekStart}${thisYear}`;
-    if (thisMonth < 10) {
+    return this.getWeekStartForDay(new Date(Date.now()));
+  }
+
+  static getWeekStartForDay(day) {
+    let dayToProcess = day;
+    if (day.length === 6) {
+      dayToProcess = this.convertFormattedDateToRealDate(day);
+    } else if (day instanceof Date === false) {
+      console.error('ERROR: getWeekStartForDay argument must be type Date or formatted 6 digit string MMDDYY');
+      return null;
+    }
+    const date = dayToProcess.getDate();
+    const theDay = dayToProcess.getDay();
+    const weekStart = new Date(dayToProcess.setDate(date - theDay)).getDate();
+    const month = dayToProcess.getMonth() + 1;
+    const year = dayToProcess.getFullYear().toString().substr(2, 3);
+    let formattedDate = `${month}${weekStart}${year}`;
+    if (month < 10) {
       formattedDate = `0${formattedDate}`;
     }
     return formattedDate;
+  }
+
+  static getNextWeek(week) {
+    const currentWeek = this.convertFormattedDateToRealDate(week);
+    return new Date(currentWeek.setDate(currentWeek.getDate() + 7));
+  }
+
+  static getPreviousWeek(week) {
+    const currentWeek = this.convertFormattedDateToRealDate(week);
+    return new Date(currentWeek.setDate(currentWeek.getDate() - 7));
   }
 
   static convertFormattedDateToRealDate(formattedDate) {
@@ -31,16 +51,5 @@ export default class DateService {
     }
     return formattedDate;
   }
-
-  static getNextWeek(week) {
-    const currentWeek = this.convertFormattedDateToRealDate(week);
-    return new Date(currentWeek.setDate(currentWeek.getDate() + 7));
-  }
-
-  static getPreviousWeek(week) {
-    const currentWeek = this.convertFormattedDateToRealDate(week);
-    return new Date(currentWeek.setDate(currentWeek.getDate() - 7));
-  }
-
 
 }

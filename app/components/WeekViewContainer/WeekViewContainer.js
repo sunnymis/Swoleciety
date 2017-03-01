@@ -23,6 +23,9 @@ export default class WeekViewContainer extends React.Component {
     console.log('Next Week:', DateService.getNextWeek(DateService.getCurrentWeek()));
     console.log('Prev Week:', DateService.getPreviousWeek(DateService.getCurrentWeek()));
     console.log('Converted from Now:', DateService.convertRealDateToFormattedDate(new Date(Date.now())));
+    console.log('WeekStartForToday:', DateService.getWeekStartForDay(new Date(Date.now())));
+    console.log('WeekStartForTodayLastYear:', DateService.getWeekStartForDay(new Date(2016, 1, 28)));
+    DateService.getWeekStartForDay(1234);
     //  AuthService.signin('test@sunnystestabc.com', '123456');
     //  console.log(AuthService.getCurrentUser());
     AuthService.getCurrentlySignedInUser((user) => {
