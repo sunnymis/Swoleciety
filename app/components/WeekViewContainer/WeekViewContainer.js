@@ -2,6 +2,7 @@ import React from 'react';
 import DayCard from '../DayCard/DayCard';
 import UserService from '../../services/users.service';
 import AuthService from '../../services/auth.service';
+import DateService from '../../services/date.service';
 import 'whatwg-fetch';
 
 require('./WeekViewContainer.scss');
@@ -17,6 +18,11 @@ export default class WeekViewContainer extends React.Component {
   }
 
   componentDidMount() {
+    console.log('Current Week:', DateService.getCurrentWeek());
+    console.log('Coverted from 010117:', DateService.convertFormattedDateToRealDate('010117'));
+    console.log('Next Week:', DateService.getNextWeek(DateService.getCurrentWeek()));
+    console.log('Prev Week:', DateService.getPreviousWeek(DateService.getCurrentWeek()));
+    console.log('Converted from Now:', DateService.convertRealDateToFormattedDate(new Date(Date.now())));
     //  AuthService.signin('test@sunnystestabc.com', '123456');
     //  console.log(AuthService.getCurrentUser());
     AuthService.getCurrentlySignedInUser((user) => {

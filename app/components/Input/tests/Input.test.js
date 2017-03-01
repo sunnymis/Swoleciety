@@ -15,11 +15,6 @@ describe('<Input />', () => {
     expect(wrapper.find('input').length).toBe(1);
   });
 
-  it('displays a value from a value prop', () => {
-    const wrapper = shallow(<Input value="Deadlift" />);
-    expect(wrapper.find('input')).toHaveValue('Deadlift');
-  });
-
   it('renders a password input field from type prop', () => {
     const wrapper = shallow(<Input type="password" />);
     expect(wrapper.find('input').matchesElement(
