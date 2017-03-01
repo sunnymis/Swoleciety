@@ -50,9 +50,9 @@ export default class AuthService {
       .then((result) => {
         retVal.success = result;
         return retVal;
-      }, (err) => { 
+      }, (err) => {
         retVal.error = err;
-        return retVal; 
+        return retVal;
       });
   }
 

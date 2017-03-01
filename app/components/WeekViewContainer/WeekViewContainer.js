@@ -15,26 +15,24 @@ export default class WeekViewContainer extends React.Component {
       weekData: [],
     };
   }
-  componentDidMount() {
-    // AuthService.getCurrentlySignedInUser((user) => {
-    //   console.log('user:', user);
-    // });
-    //  AuthService.signup('test@sunnystestabc.com', '123456');
-    //  AuthService.signin('test@sunnystestabc.com', '123456');
-    AuthService.getCurrentlySignedInUser((user) => {
-      console.log('user:', user);
-    });
 
-    fetch('/test.json')
-      .then((response) => {
-        return response.json();
-      }).then((json) => {
-        this.setState({
-          weekData: json.week,
+  componentDidMount() {
+    //  AuthService.signin('test@sunnystestabc.com', '123456');
+    //  console.log(AuthService.getCurrentUser());
+    AuthService.getCurrentlySignedInUser((user) => {
+      const weekArray = [];
+      UserService.getSingleWeek(user.uid, '022617', (weekObject) => {
+        Object.keys(weekObject).forEach((key) => {
+          weekArray.push({
+            day: [key],
+            name: weekObject[key],
+          });
         });
-      }).catch((ex) => {
-        console.error('parsing failed', ex);
+        this.setState({
+          weekData: weekArray,
+        });
       });
+    });
   }
 
   renderDays() {
@@ -43,22 +41,18 @@ export default class WeekViewContainer extends React.Component {
         <DayCard
           Link to="/exercise"
           day={day.day}
-          title={day.title}
-          date={day.date}
+          title={day.name}
+          date={day.day}
         />
       );
     });
   }
+
   render() {
     const days = this.renderDays();
     return (
       <div className="week-view-container">
-        <DayCard
-          Link to="/exercise"
-          day={'Monday'}
-          title={'Chest'}
-          date={'02022017'}
-        />
+        {days}
       </div>
     );
   }

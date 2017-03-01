@@ -46,10 +46,10 @@ export default class UserService {
    * @return {Object}       Week object containing Date objects for each
    *                        weekday.
    */
-  static getSingleWeek(userID, week) {
+  static getSingleWeek(userID, week, callback) {
     const userWeekRef = firebase.database().ref(`users/${userID}/weeks/${week}`);
     userWeekRef.once('value', (snapshot) => {
-      console.log('Weekdays:', snapshot.val());
+      callback(snapshot.val());
     });
   }
 
@@ -68,6 +68,9 @@ export default class UserService {
   }
 
   /**
+   *
+   * Currently not being used. Use updateDay for adds
+   * 
    * Adds a new day with a title
    * @param {string} userID User's ID
    * @param {string} weekOf Date formatted as a 6 digit number MMDDYY.
@@ -75,10 +78,10 @@ export default class UserService {
    * @param {string} date   Date formatted as a 6 digit number MMDDYY.
    * @param {string} name   Name of the days workout
    */
-  static addDay(userID, weekOf, date, name) {
-    const ref = `users/${userID}/weeks/${weekOf}/${date}/`;
-    firebase.database().ref(ref).push(name);
-  }
+  // static addDay(userID, weekOf, date, name) {
+  //   const ref = `users/${userID}/weeks/${weekOf}/${date}/`; 
+  //   //firebase.database().ref(ref) = name;
+  // }
 
   /**
    * Removes a day
