@@ -31,8 +31,9 @@
   .date-container {
     display: inline-block;
     float: right;
-    position: relative;
-    top: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     right: 20px;
     color: $secondary-color; 
 

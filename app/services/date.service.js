@@ -34,6 +34,22 @@ export default class DateService {
     return new Date(currentWeek.setDate(currentWeek.getDate() - 7));
   }
 
+  static getNextDay(formattedDate) {
+    let day = parseInt(formattedDate.substr(2, 2), 10) + 1;
+    if (day < 10) {
+      day = `0${day}`;
+    }
+    return day;
+  }
+
+  static getPrevDay(formattedDate) {
+    let day = parseInt(formattedDate.substr(2, 2), 10) - 1;
+    if (day < 10) {
+      day = `0${day}`;
+    }
+    return day;
+  }
+
   static getDayFromFormattedDate(formattedDate) {
     const realDate = this.convertFormattedDateToRealDate(formattedDate);
     return this.getDayName(realDate);

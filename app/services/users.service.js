@@ -1,7 +1,9 @@
+import DateService from './date.service';
+
 const deepEqual = require('deep-equal');
 
-export default class UserService {
 
+export default class UserService {
   /**
    * Gets a list of all the users in the database
    * @return {Array} User objects
@@ -70,7 +72,7 @@ export default class UserService {
   /**
    *
    * Currently not being used. Use updateDay for adds
-   * 
+   *
    * Adds a new day with a title
    * @param {string} userID User's ID
    * @param {string} weekOf Date formatted as a 6 digit number MMDDYY.
@@ -79,7 +81,7 @@ export default class UserService {
    * @param {string} name   Name of the days workout
    */
   // static addDay(userID, weekOf, date, name) {
-  //   const ref = `users/${userID}/weeks/${weekOf}/${date}/`; 
+  //   const ref = `users/${userID}/weeks/${weekOf}/${date}/`;
   //   //firebase.database().ref(ref) = name;
   // }
 
@@ -94,6 +96,19 @@ export default class UserService {
   static deleteDay(userID, weekOf, date) {
     const ref = `users/${userID}/weeks/${weekOf}/${date}`;
     firebase.database().ref(ref).remove();
+  }
+
+  static addWeekForUser(userID, week) {
+    const userWeekRef = firebase.database().ref(`users/${userID}/weeks/${week}`);
+    const weekObj = {};
+    let weekDay = week;
+    for (let i = 0; i < 7; i++) {
+      weekObj[weekDay] = '';
+      let nextDay = DateService.getNextDay(weekDay);
+      // Reformat the formattedDate with the next day
+      weekDay = `${weekDay.substr(0,2)}${nextDay}${weekDay.substr(4,2)}`;
+    }
+    userWeekRef.update(weekObj);
   }
 
   /**

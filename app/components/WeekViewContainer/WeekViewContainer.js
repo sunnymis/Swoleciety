@@ -18,12 +18,18 @@ export default class WeekViewContainer extends React.Component {
   }
 
   componentDidMount() {
-    DateService.getWeekStartForDay(1234);
+
     //  AuthService.signin('test@sunnystestabc.com', '123456');
     //  console.log(AuthService.getCurrentUser());
-    AuthService.getCurrentlySignedInUser((user) => {
+    AuthService.getCurrentlySignedInUser((user) => { 
+
       const weekArray = [];
-      UserService.getSingleWeek(user.uid, '022617', (weekObject) => {
+      UserService.getSingleWeek(user.uid, DateService.getCurrentWeek(), (weekObject) => {
+        if (weekObject === null) {
+          UserService.addWeekForUser(user.uid, DateService.getCurrentWeek());
+          return;
+        }
+        console.log(weekObject);
         Object.keys(weekObject).forEach((key) => {
           weekArray.push({
             day: key,
