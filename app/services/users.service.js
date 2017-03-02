@@ -111,6 +111,14 @@ export default class UserService {
     userWeekRef.update(weekObj);
   }
 
+  static getExercises(userID, date, callback) {
+    const path = `days/${date}/${userID}`;
+    const ref = firebase.database().ref(path);
+    ref.once('value', (snapshot) => {
+      callback(snapshot.val());
+    });
+  }
+
   /**
    * Adds an exercise to a specific date for a user
    * @param {string]} userID  User's ID

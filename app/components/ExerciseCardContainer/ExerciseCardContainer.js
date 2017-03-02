@@ -2,6 +2,9 @@ import React from 'react';
 import ExerciseCard from '../ExerciseCard/ExerciseCard';
 import AddEditExerciseForm from '../AddEditExerciseForm/AddEditExerciseForm';
 import AddButton from '../AddButton/AddButton';
+import AuthService from '../../services/auth.service';
+import UserService from '../../services/users.service';
+import DateService from '../../services/date.service';
 import 'whatwg-fetch';
 
 require('./ExerciseCardContainer.scss');
@@ -14,27 +17,28 @@ export default class ExerciseCardContainer extends React.Component {
     this.renderExercises = this.renderExercises.bind(this);
     this.state = {
       showExerciseEdit: false,
-      dailyExercises: {
-        name: '',
-        title: '',
-        date: {},
-        exercises: [],
-      },
+      dailyExercises: [],
       selectedExercise: {
         name: '',
         set: 0,
         reps: 0,
         weight: 0,
-      }
+      },
     };
   }
 
   componentDidMount() {
-    // if (weekday.day === this.props.params.day) {
-    //   this.setState({
-    //     dailyExercises: weekday,
-    //   }, () => console.log(this.state.dailyExercises));
-    // }
+    AuthService.getCurrentlySignedInUser((user) => {
+      UserService.getExercises(user.uid, this.props.params.day, (exercises) => {
+        const dailyExercisesArray = [];
+        Object.keys(exercises).forEach((ex) => {
+          dailyExercisesArray.push(exercises[ex]);
+        });
+        this.setState({
+          dailyExercises: dailyExercisesArray,
+        });
+      });
+    });
   }
 
   handleOnEdit(exerciseDetails) {
@@ -50,7 +54,7 @@ export default class ExerciseCardContainer extends React.Component {
   }
 
   renderExercises() {
-    return this.state.dailyExercises.exercises.map((ex) => {
+    return this.state.dailyExercises.map((ex) => {
       return (
         <div>
           <ExerciseCard
