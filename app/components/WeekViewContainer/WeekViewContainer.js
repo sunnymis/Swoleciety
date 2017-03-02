@@ -18,13 +18,6 @@ export default class WeekViewContainer extends React.Component {
   }
 
   componentDidMount() {
-    console.log('Current Week:', DateService.getCurrentWeek());
-    console.log('Coverted from 010117:', DateService.convertFormattedDateToRealDate('010117'));
-    console.log('Next Week:', DateService.getNextWeek(DateService.getCurrentWeek()));
-    console.log('Prev Week:', DateService.getPreviousWeek(DateService.getCurrentWeek()));
-    console.log('Converted from Now:', DateService.convertRealDateToFormattedDate(new Date(Date.now())));
-    console.log('WeekStartForToday:', DateService.getWeekStartForDay(new Date(Date.now())));
-    console.log('WeekStartForTodayLastYear:', DateService.getWeekStartForDay(new Date(2016, 1, 28)));
     DateService.getWeekStartForDay(1234);
     //  AuthService.signin('test@sunnystestabc.com', '123456');
     //  console.log(AuthService.getCurrentUser());
@@ -33,7 +26,7 @@ export default class WeekViewContainer extends React.Component {
       UserService.getSingleWeek(user.uid, '022617', (weekObject) => {
         Object.keys(weekObject).forEach((key) => {
           weekArray.push({
-            day: [key],
+            day: key,
             name: weekObject[key],
           });
         });
@@ -45,13 +38,16 @@ export default class WeekViewContainer extends React.Component {
   }
 
   renderDays() {
-    return this.state.weekData.map((day) => {
+    return this.state.weekData.map((weekday) => {
       return (
         <DayCard
           Link to="/exercise"
-          day={day.day}
-          title={day.name}
-          date={day.day}
+          day={DateService.getDayFromFormattedDate(weekday.day)}
+          title={weekday.name}
+          date={{
+            month: DateService.getMonthFromFormattedDate(weekday.day).substr(0, 3),
+            day: weekday.day.substr(2, 2),
+          }}
         />
       );
     });

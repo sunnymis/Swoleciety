@@ -34,6 +34,28 @@ export default class DateService {
     return new Date(currentWeek.setDate(currentWeek.getDate() - 7));
   }
 
+  static getDayFromFormattedDate(formattedDate) {
+    const realDate = this.convertFormattedDateToRealDate(formattedDate);
+    return this.getDayName(realDate);
+  }
+
+  static getMonthFromFormattedDate(formattedDate) {
+    const realDate = this.convertFormattedDateToRealDate(formattedDate);
+    return this.getMonthName(realDate);
+  }
+
+  static getDayName(date) {
+    const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday',
+      'Thursday', 'Friday', 'Saturday'];
+    return weekdays[date.getDay()];
+  }
+
+  static getMonthName(date) {
+    const months = ['January', 'February', 'March', 'April', 'May', 'June',
+      'July', 'August', 'September', 'October', 'November', 'December'];
+    return months[date.getMonth()];
+  }
+
   static convertFormattedDateToRealDate(formattedDate) {
     const month = parseInt(formattedDate.substr(0, 2), 10) - 1;
     const date = formattedDate.substr(2, 2);
