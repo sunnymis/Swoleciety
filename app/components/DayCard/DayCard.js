@@ -6,7 +6,7 @@ require('./daycard.scss');
 
 const DayCard = (props) => {
   return (
-    <Link to={`/exercises/${props.day}`}>
+    <Link to={`/exercises/${props.formattedDate}`}>
       <div className="day-card">
         <div className="day-title">
           <h1>{props.day}</h1>
@@ -28,6 +28,7 @@ DayCard.propTypes = {
   day: React.PropTypes.string.isRequired,
   title: React.PropTypes.string.isRequired,
   date: React.PropTypes.object.isRequired,
+  formattedDate: React.PropTypes.string,
 };
 
 

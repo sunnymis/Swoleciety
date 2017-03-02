@@ -21,15 +21,16 @@ export default class WeekViewContainer extends React.Component {
 
     //  AuthService.signin('test@sunnystestabc.com', '123456');
     //  console.log(AuthService.getCurrentUser());
-    AuthService.getCurrentlySignedInUser((user) => { 
+    AuthService.getCurrentlySignedInUser((user) => {
 
       const weekArray = [];
       UserService.getSingleWeek(user.uid, DateService.getCurrentWeek(), (weekObject) => {
+        // There is data in database for this week so add an empty week
         if (weekObject === null) {
           UserService.addWeekForUser(user.uid, DateService.getCurrentWeek());
           return;
         }
-        console.log(weekObject);
+        // Retrieve information from each day
         Object.keys(weekObject).forEach((key) => {
           weekArray.push({
             day: key,
@@ -47,7 +48,7 @@ export default class WeekViewContainer extends React.Component {
     return this.state.weekData.map((weekday) => {
       return (
         <DayCard
-          Link to="/exercise"
+          formattedDate={weekday.day}
           day={DateService.getDayFromFormattedDate(weekday.day)}
           title={weekday.name}
           date={{

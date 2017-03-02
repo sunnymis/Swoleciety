@@ -30,20 +30,11 @@ export default class ExerciseCardContainer extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/test.json')
-      .then((response) => {        
-        return response.json();
-      }).then((json) => {
-        json.week.forEach((weekday) => {
-          if (weekday.day === this.props.params.day) {
-            this.setState({
-              dailyExercises: weekday,
-            }, () => console.log(this.state.dailyExercises));
-          }
-        });
-      }).catch((ex) => {
-        console.error('parsing failed', ex);
-      });
+    // if (weekday.day === this.props.params.day) {
+    //   this.setState({
+    //     dailyExercises: weekday,
+    //   }, () => console.log(this.state.dailyExercises));
+    // }
   }
 
   handleOnEdit(exerciseDetails) {
