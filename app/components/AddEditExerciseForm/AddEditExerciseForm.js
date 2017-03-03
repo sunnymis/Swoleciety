@@ -43,7 +43,7 @@ class AddEditExerciseForm extends React.Component {
         <div className="add-edit-form" onBlur={(this.props.onOutsideClick)}>
           <div className="name-container">
             <Input
-              value={this.props.name}
+              value={this.props.exerciseDetails.name}
               name='name'
               ref={(input) => { this.InputComponent = input; }}
               onChange={(e) => { this.props.onDataChange(e); }}
