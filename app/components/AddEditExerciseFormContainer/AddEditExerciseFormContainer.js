@@ -1,5 +1,7 @@
 import React from 'react';
 import AddEditExerciseForm from '../AddEditExerciseForm/AddEditExerciseForm';
+import UserService from '../../services/users.service';
+import DateService from '../../services/date.service';
 
 require('./AddEditExerciseFormContainer.scss');
 
@@ -10,6 +12,7 @@ class AddEditExerciseFormContainer extends React.Component {
     this.handleOnBlur = this.handleOnBlur.bind(this);
     this.handleOnCancel = this.handleOnCancel.bind(this);
     this.handleOnSave = this.handleOnSave.bind(this);
+    this.handleOnDataChange = this.handleOnDataChange.bind(this);
     this.state = {
 
     }
@@ -32,12 +35,16 @@ class AddEditExerciseFormContainer extends React.Component {
   }
 
   handleOnDataChange(e) {
-    console.log(e.target);
-    
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
   }
 
   handleOnSave() {
-
+    const paths = location.hash.split('/'); 
+    const day = paths[paths.length-1];
+    const weekStart = DateService.getWeekStartForDay(day);
+    console.log(weekStart);
   }
 
   handleOnCancel() {

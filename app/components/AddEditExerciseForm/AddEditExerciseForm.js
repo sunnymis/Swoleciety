@@ -17,15 +17,15 @@ class AddEditExerciseForm extends React.Component {
       return `${word.charAt(0).toUpperCase()}${word.slice(1)}`;
     }
 
-    return Object.keys(exercise).map((detail) => {
+    return Object.keys(exercise.details).map((detail) => {
       return (
         <div>
-          { detail !== 'name' ?
+          { detail !== 'name' && detail !== 'key' ?
             <div className="details-row">
               <h2>{capitalizeWord(detail)}</h2>
               <Input
-                name={capitalizeWord(detail)}
-                value={exercise.set}
+                name={detail}
+                value={exercise.details[detail]}
                 onChange={(e) => { this.props.onDataChange(e); }}
               />
             </div>
@@ -43,7 +43,7 @@ class AddEditExerciseForm extends React.Component {
         <div className="add-edit-form" onBlur={(this.props.onOutsideClick)}>
           <div className="name-container">
             <Input
-              value={this.props.exerciseDetails.name}
+              value={this.props.exerciseDetails.details.name}
               name='name'
               ref={(input) => { this.InputComponent = input; }}
               onChange={(e) => { this.props.onDataChange(e); }}

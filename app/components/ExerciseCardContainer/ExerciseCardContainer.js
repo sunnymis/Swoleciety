@@ -33,7 +33,8 @@ export default class ExerciseCardContainer extends React.Component {
       UserService.getExercises(user.uid, this.props.params.day, (exercises) => {
         const dailyExercisesArray = [];
         Object.keys(exercises).forEach((ex) => {
-          dailyExercisesArray.push(exercises[ex]);
+          const exerciseObject = Object.assign({}, exercises[ex], { key: ex });
+          dailyExercisesArray.push(exerciseObject);
         });
         this.setState({
           dailyExercises: dailyExercisesArray,
@@ -45,17 +46,17 @@ export default class ExerciseCardContainer extends React.Component {
   handleOnEdit(exerciseDetails) {
     this.setState({
       showExerciseEdit: !this.state.showExerciseEdit,
-      selectedExercise: {
-        name: exerciseDetails.name,
-        set: exerciseDetails.set,
-        reps: exerciseDetails.reps,
-        weight: exerciseDetails.weight,
-      },
+      selectedExercise: exerciseDetails,
+      // selectedExercise: {
+      //   name: exerciseDetails.name,
+      //   set: exerciseDetails.set,
+      //   reps: exerciseDetails.reps,
+      //   weight: exerciseDetails.weight,
+      // },
     });
   }
 
   handleOnBlur(open) {
-    console.log("?");
     if (open == false) {
       this.setState({
         showExerciseEdit: false,
@@ -68,10 +69,7 @@ export default class ExerciseCardContainer extends React.Component {
       return (
         <div>
           <ExerciseCard
-            name={ex.name}
-            set={ex.set}
-            reps={ex.reps}
-            weight={ex.weight}
+            details={ex}
             onEdit={this.handleOnEdit}
           />
         </div>
