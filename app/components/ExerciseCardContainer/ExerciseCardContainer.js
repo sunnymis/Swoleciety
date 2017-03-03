@@ -1,6 +1,6 @@
 import React from 'react';
 import ExerciseCard from '../ExerciseCard/ExerciseCard';
-import AddEditExerciseForm from '../AddEditExerciseForm/AddEditExerciseForm';
+import AddEditExerciseFormContainer from '../AddEditExerciseFormContainer/AddEditExerciseFormContainer';
 import AddButton from '../AddButton/AddButton';
 import AuthService from '../../services/auth.service';
 import UserService from '../../services/users.service';
@@ -54,20 +54,13 @@ export default class ExerciseCardContainer extends React.Component {
     });
   }
 
-  handleOnBlur(e) {
-    /*
-      Newly focused AddEdit isn't focused as the blur event occurs
-      This solution solves this issue:
-      https://gist.github.com/pstoica/4323d3e6e37e8a23dd59
-     */
-    const currentTarget = e.currentTarget;
-    setTimeout(() => {
-      if (!currentTarget.contains(document.activeElement)) {
-        this.setState({
-          showExerciseEdit: false,
-        });
-      }
-    }, 0);
+  handleOnBlur(open) {
+    console.log("?");
+    if (open == false) {
+      this.setState({
+        showExerciseEdit: false,
+      })
+    }
   }
 
   renderExercises() {
@@ -92,12 +85,9 @@ export default class ExerciseCardContainer extends React.Component {
       <div>
         {exercises}
         {this.state.showExerciseEdit ?
-          <AddEditExerciseForm
-            name={this.state.selectedExercise.name}
-            set={this.state.selectedExercise.set}
-            reps={this.state.selectedExercise.reps}
-            weight={this.state.selectedExercise.weight}
-            onOutsideClick={this.handleOnBlur}
+          <AddEditExerciseFormContainer
+            onBlur={this.handleOnBlur}
+            selectedExercise={this.state.selectedExercise}
           /> :
           null
         }
