@@ -7,32 +7,51 @@ class AddEditExerciseForm extends React.Component {
 
   componentDidMount() {
     this.InputComponent.focus();
+    this.renderDetails = this.renderDetails.bind(this);
+  }
+
+  renderDetails() {
+    const exercise = this.props.exerciseDetails;
+
+    function capitalizeWord(word) {
+      return `${word.charAt(0).toUpperCase()}${word.slice(1)}`;
+    }
+
+    return Object.keys(exercise).map((detail) => {
+      return (
+        <div>
+          { detail !== 'name' ?
+            <div className="details-row">
+              <h2>{capitalizeWord(detail)}</h2>
+              <Input
+                name={capitalizeWord(detail)}
+                value={exercise.set}
+                onChange={(e) => { this.props.onDataChange(e); }}
+              />
+            </div>
+            : null
+          }
+        </div>
+      );
+    });
   }
 
   render() {
+    const details = this.renderDetails();
     return (
       <div className="overlay">
         <div className="add-edit-form" onBlur={(this.props.onOutsideClick)}>
           <div className="name-container">
-            <Input 
-              value={this.props.name}
-              ref={(input) => { this.InputComponent = input; }}
-            />
-          </div>
-          <div className="details-row">
-            <h2>Set</h2>
             <Input
-              value={this.props.set}
+              value={this.props.name}
+              name='name'
+              ref={(input) => { this.InputComponent = input; }}
+              onChange={(e) => { this.props.onDataChange(e); }}
             />
           </div>
-          <div className="details-row">
-            <h2>Reps</h2>
-            <Input value={this.props.reps} />
-          </div>
-          <div className="details-row">
-            <h2>Weight</h2>
-            <Input value={this.props.weight} />
-          </div>
+
+          {details}
+
           <div className="buttons-row">
             <button
               className="save"
@@ -45,27 +64,22 @@ class AddEditExerciseForm extends React.Component {
       </div>
     );
   }
-  
-};
+}
 
 AddEditExerciseForm.defaultProps = {
-  name: '',
-  set: 0,
-  reps: 0,
-  weight: 0,
+  exerciseDetails: {},
   onOutsideClick: () => {},
   onSave: () => {},
   onCancel: () => {},
+  onDataChange: () => {},
 };
 
 AddEditExerciseForm.propTypes = {
-  name: React.PropTypes.string,
-  set: React.PropTypes.number,
-  reps: React.PropTypes.number,
-  weight: React.PropTypes.number,
+  exerciseDetails: React.PropTypes.object,
   onOutsideClick: React.PropTypes.func,
   onSave: React.PropTypes.func,
   onCancel: React.PropTypes.func,
+  onDataChange: React.PropTypes.func,
 };
 
 export default AddEditExerciseForm;

@@ -12,9 +12,10 @@ class Input extends React.Component {
       <input
         className="input"
         type={this.props.type}
+        name={this.props.name}
         placeholder={this.props.placeholder}
         defaultValue={this.props.value}
-        onChange={this.props.onChange}
+        onChange={(e) => { this.props.onChange(e); }}
         ref={(inp) => { this.input = inp; }}
       />
     );
@@ -24,6 +25,7 @@ class Input extends React.Component {
 Input.defaultProps = {
   value: '',
   type: 'text',
+  name: '',
   placeholder: '',
   onChange: () => {},
 };
@@ -34,6 +36,7 @@ Input.propTypes = {
     React.PropTypes.number,
   ]),
   type: React.PropTypes.string,
+  name: React.PropTypes.string,
   placeholder: React.PropTypes.string,
   onChange: React.PropTypes.func,
 };
