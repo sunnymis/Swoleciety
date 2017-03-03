@@ -12,6 +12,7 @@ class Input extends React.Component {
       <input
         className="input"
         type={this.props.type}
+        placeholder={this.props.placeholder}
         defaultValue={this.props.value}
         onChange={this.props.onChange}
         ref={(inp) => { this.input = inp; }}
@@ -23,6 +24,7 @@ class Input extends React.Component {
 Input.defaultProps = {
   value: '',
   type: 'text',
+  placeholder: '',
   onChange: () => {},
 };
 
@@ -32,6 +34,7 @@ Input.propTypes = {
     React.PropTypes.number,
   ]),
   type: React.PropTypes.string,
+  placeholder: React.PropTypes.string,
   onChange: React.PropTypes.func,
 };
 

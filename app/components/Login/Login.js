@@ -56,14 +56,17 @@ export default class Login extends React.Component {
         </div>
         <div className="form">
           <i className="material-icons person">person</i>
-          <Input onChange={this.handleOnUsernameChange} />
+          <Input
+            placeholder="Username"
+            onChange={this.handleOnUsernameChange} />
           <i className="material-icons">lock</i>
-          <Input 
+          <Input
+            placeholder="Password"
             type="password"
             onChange={this.handleOnPasswordChange}
           />
-          <button 
-            type="button" 
+          <button
+            type="button"
             className="signin"
             onClick={this.onSignIn}>
             Sign In
@@ -71,7 +74,7 @@ export default class Login extends React.Component {
         </div>
         <p className="signup">Don&#39;t have an account?<span>Sign up!</span></p>
       </div>
-    );  
+    );
   }
 };
 

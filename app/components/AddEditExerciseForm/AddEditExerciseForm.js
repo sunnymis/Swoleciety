@@ -39,13 +39,14 @@ class AddEditExerciseForm extends React.Component {
               onClick={this.props.onSave}
             >SAVE
             </button>
-            <button className="cancel" onClick={this.props.onOutsideClick}>CANCEL</button>
+            <button className="cancel" onClick={this.props.onCancel}>CANCEL</button>
           </div>
         </div>
       </div>
     );
   }
-}
+  
+};
 
 AddEditExerciseForm.defaultProps = {
   name: '',
@@ -54,6 +55,7 @@ AddEditExerciseForm.defaultProps = {
   weight: 0,
   onOutsideClick: () => {},
   onSave: () => {},
+  onCancel: () => {},
 };
 
 AddEditExerciseForm.propTypes = {
@@ -63,6 +65,7 @@ AddEditExerciseForm.propTypes = {
   weight: React.PropTypes.number,
   onOutsideClick: React.PropTypes.func,
   onSave: React.PropTypes.func,
+  onCancel: React.PropTypes.func,
 };
 
 export default AddEditExerciseForm;
