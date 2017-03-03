@@ -14,6 +14,7 @@ export default class ExerciseCardContainer extends React.Component {
   constructor() {
     super();
     this.handleOnEdit = this.handleOnEdit.bind(this);
+    this.handleOnBlur = this.handleOnBlur.bind(this);
     this.renderExercises = this.renderExercises.bind(this);
     this.state = {
       showExerciseEdit: false,
@@ -45,7 +46,7 @@ export default class ExerciseCardContainer extends React.Component {
     this.setState({
       showExerciseEdit: !this.state.showExerciseEdit,
       selectedExercise: {
-        name: exerciseDetails.title,
+        name: exerciseDetails.name,
         set: exerciseDetails.set,
         reps: exerciseDetails.reps,
         weight: exerciseDetails.weight,
@@ -53,12 +54,28 @@ export default class ExerciseCardContainer extends React.Component {
     });
   }
 
+  handleOnBlur(e) {
+    /*
+      Newly focused AddEdit isn't focused as the blur event occurs
+      This solution solves this issue:
+      https://gist.github.com/pstoica/4323d3e6e37e8a23dd59
+     */
+    const currentTarget = e.currentTarget;
+    setTimeout(() => {
+      if (!currentTarget.contains(document.activeElement)) {
+        this.setState({
+          showExerciseEdit: false,
+        });
+      }
+    }, 0);
+  }
+
   renderExercises() {
     return this.state.dailyExercises.map((ex) => {
       return (
         <div>
           <ExerciseCard
-            title={ex.name}
+            name={ex.name}
             set={ex.set}
             reps={ex.reps}
             weight={ex.weight}
@@ -76,11 +93,11 @@ export default class ExerciseCardContainer extends React.Component {
         {exercises}
         {this.state.showExerciseEdit ?
           <AddEditExerciseForm
-            title={this.state.selectedExercise.name}
+            name={this.state.selectedExercise.name}
             set={this.state.selectedExercise.set}
             reps={this.state.selectedExercise.reps}
             weight={this.state.selectedExercise.weight}
-            onOutsideClick={this.handleOnEdit}
+            onOutsideClick={this.handleOnBlur}
           /> :
           null
         }

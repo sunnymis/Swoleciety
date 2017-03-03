@@ -6,7 +6,7 @@ require('./ExerciseCard.scss');
 const ExerciseCard = (props) => {
   return (
     <div className="exercise-card">
-      <h1 className="title">{props.title}</h1>
+      <h1 className="name">{props.name}</h1>
       <div className="icons">
         <span onClick={() => props.onEdit(props)}><i className="material-icons">mode_edit</i></span>
         <span><i className="material-icons">delete</i></span>
@@ -30,7 +30,7 @@ const ExerciseCard = (props) => {
 };
 
 ExerciseCard.defaultProps = {
-  title: '',
+  name: '',
   set: 0,
   reps: 0,
   weight: 0,
@@ -38,7 +38,7 @@ ExerciseCard.defaultProps = {
 };
 
 ExerciseCard.propTypes = {
-  title: React.PropTypes.string,
+  name: React.PropTypes.string,
   onEdit: React.PropTypes.func,
   set: React.PropTypes.number,
   reps: React.PropTypes.number,

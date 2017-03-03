@@ -12,8 +12,8 @@ class AddEditExerciseForm extends React.Component {
     return (
       <div className="overlay">
         <div className="add-edit-form" onBlur={(this.props.onOutsideClick)}>
-          <div className="title-container">
-            <Input value={this.props.title} />
+          <div className="name-container">
+            <Input value={this.props.name} />
           </div>
           <div className="details-row">
             <h2>Set</h2>
@@ -41,7 +41,7 @@ class AddEditExerciseForm extends React.Component {
 }
 
 AddEditExerciseForm.defaultProps = {
-  title: '',
+  name: '',
   set: 0,
   reps: 0,
   weight: 0,
@@ -49,7 +49,7 @@ AddEditExerciseForm.defaultProps = {
 };
 
 AddEditExerciseForm.propTypes = {
-  title: React.PropTypes.string,
+  name: React.PropTypes.string,
   set: React.PropTypes.number,
   reps: React.PropTypes.number,
   weight: React.PropTypes.number,

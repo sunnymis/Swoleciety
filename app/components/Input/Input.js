@@ -12,6 +12,7 @@ class Input extends React.Component {
       <input
         className="input"
         type={this.props.type}
+        defaultValue={this.props.value}
         onChange={this.props.onChange}
         ref={(inp) => { this.input = inp; }}
       />
