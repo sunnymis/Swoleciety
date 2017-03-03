@@ -13,10 +13,10 @@ describe('<ExerciseCard />', () => {
     expect(wrapper.find('div')).toBePresent();
   });
 
-  it('renders a title', () => {
-    const wrapper = shallow(<ExerciseCard title="Deadlift"/>);
-    expect(wrapper.find('.title')).toBePresent();
-    expect(wrapper.find('.title')).toHaveText('Deadlift');
+  it('renders a name', () => {
+    const wrapper = shallow(<ExerciseCard name="Deadlift"/>);
+    expect(wrapper.find('.name')).toBePresent();
+    expect(wrapper.find('.name')).toHaveText('Deadlift');
   });
 
   it('renders three ExerciseDetail components', () => {

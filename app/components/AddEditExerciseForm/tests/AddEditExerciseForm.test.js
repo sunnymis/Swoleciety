@@ -14,14 +14,14 @@ describe('<AddEditExerciseForm />', () => {
   });
 
   it('renders four Input Components', () => {
-    const wrapper = shallow(<AddEditExerciseForm title="Deadlift" />);
+    const wrapper = shallow(<AddEditExerciseForm name="Deadlift" />);
     expect(wrapper.find('Input').length).toBe(4);
   });
 
-  it('sends title to first input', () => {
+  it('sends name to first input', () => {
     const wrapper = shallow(
       <AddEditExerciseForm
-        title="Deadlift"
+        name="Deadlift"
       />);
     expect(wrapper.find('Input').at(0).props().value).toBe('Deadlift');
   });
@@ -29,7 +29,7 @@ describe('<AddEditExerciseForm />', () => {
   it('sends set to second input', () => {
     const wrapper = shallow(
       <AddEditExerciseForm
-        title="Deadlift"
+        name="Deadlift"
         set={2}
       />);
     expect(wrapper.find('Input').at(1).props().value).toBe(2);
@@ -38,7 +38,7 @@ describe('<AddEditExerciseForm />', () => {
   it('sends reps to third input', () => {
     const wrapper = shallow(
       <AddEditExerciseForm
-        title="Deadlift"
+        name="Deadlift"
         reps={5}
       />);
     expect(wrapper.find('Input').at(2).props().value).toBe(5);
@@ -47,7 +47,7 @@ describe('<AddEditExerciseForm />', () => {
   it('sends weight to fourth input', () => {
     const wrapper = shallow(
       <AddEditExerciseForm
-        title="Deadlift"
+        name="Deadlift"
         weight={500}
       />);
     expect(wrapper.find('Input').at(3).props().value).toBe(500);
