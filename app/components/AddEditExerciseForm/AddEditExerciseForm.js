@@ -44,7 +44,7 @@ class AddEditExerciseForm extends React.Component {
           <div className="name-container">
             <Input
               value={this.props.exerciseDetails.details.name}
-              name='name'
+              name="name"
               ref={(input) => { this.InputComponent = input; }}
               onChange={(e) => { this.props.onDataChange(e); }}
             />
@@ -52,6 +52,18 @@ class AddEditExerciseForm extends React.Component {
 
           {details}
 
+          <div className="details-row">
+            <Input
+              name="field"     
+              placeholder="e.g Set, Reps, Wt"
+              onChange={(e) => { this.props.onNewEntryChange(e); }}
+            />
+            <Input
+              name="value"
+              placeholder="100"
+              onChange={(e) => { this.props.onNewEntryChange(e); }}
+            />
+          </div>
           <div className="buttons-row">
             <button
               className="save"
@@ -72,6 +84,7 @@ AddEditExerciseForm.defaultProps = {
   onSave: () => {},
   onCancel: () => {},
   onDataChange: () => {},
+  onNewEntryChange: () => {},
 };
 
 AddEditExerciseForm.propTypes = {
@@ -80,6 +93,7 @@ AddEditExerciseForm.propTypes = {
   onSave: React.PropTypes.func,
   onCancel: React.PropTypes.func,
   onDataChange: React.PropTypes.func,
+  onNewEntryChange: React.PropTypes.func,
 };
 
 export default AddEditExerciseForm;
