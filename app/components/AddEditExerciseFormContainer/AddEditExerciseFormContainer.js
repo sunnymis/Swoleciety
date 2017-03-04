@@ -1,6 +1,7 @@
 import React from 'react';
 import AddEditExerciseForm from '../AddEditExerciseForm/AddEditExerciseForm';
 import UserService from '../../services/users.service';
+import AuthService from '../../services/auth.service';
 import DateService from '../../services/date.service';
 
 require('./AddEditExerciseFormContainer.scss');
@@ -43,8 +44,11 @@ class AddEditExerciseFormContainer extends React.Component {
   handleOnSave() {
     const paths = location.hash.split('/'); 
     const day = paths[paths.length-1];
-    const weekStart = DateService.getWeekStartForDay(day);
-    console.log(weekStart);
+    const key = this.props.selectedExercise.details.key; 
+    const modifiedExercise = this.state; 
+    AuthService.getCurrentlySignedInUser((user) => {
+      UserService.updateExerciseByKey(user.uid, day, key, modifiedExercise);
+    });
   }
 
   handleOnCancel() {

@@ -151,6 +151,19 @@ export default class UserService {
   }
 
   /**
+   * Updates an exercise information for a given day
+   * @param  {string} userID      [description]
+   * @param  {string} date        Date formatted as a 6 digit number MMDDYY
+   * @param  {object} oldExercise Exercise Object to be changed
+   * @param  {object} newExercise Exercise Object to change to
+   */
+  static updateExerciseByKey(userID, date, key, newExercise) {
+    const path = `days/${date}/${userID}/${key}`;
+    const ref = firebase.database().ref(path);
+    ref.update(newExercise);
+  }
+
+  /**
    * Deletes an exercise for a user on a given day
    * @param  {string} userID      [description]
    * @param  {string} date        Date formatted as a 6 digit number MMDDYY
