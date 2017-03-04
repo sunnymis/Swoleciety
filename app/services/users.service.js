@@ -114,7 +114,7 @@ export default class UserService {
   static getExercises(userID, date, callback) {
     const path = `days/${date}/${userID}`;
     const ref = firebase.database().ref(path);
-    ref.once('value', (snapshot) => {
+    ref.on('value', (snapshot) => {
       callback(snapshot.val());
     });
   }

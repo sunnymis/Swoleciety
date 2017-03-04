@@ -54,16 +54,17 @@ class AddEditExerciseFormContainer extends React.Component {
   handleOnSave() {
     const paths = window.location.hash.split('/');
     const day = paths[paths.length - 1];
-    if (this.state.newEntry) {
-      AuthService.getCurrentlySignedInUser((user) => {
+    const key = this.props.selectedExercise.details.key;
+    const modifiedExercise = this.state;
+    AuthService.getCurrentlySignedInUser((user) => {
+      if (this.state.newEntry) {
         UserService.addExercise(user.uid, day, {
           name: this.state.name,
           [this.state.newEntry.field.toLowerCase()]: this.state.newEntry.value,
         });
-      }); 
-    }
-    AuthService.getCurrentlySignedInUser((user) => {
-      UserService.updateExerciseByKey(user.uid, day, key, modifiedExercise);
+      } else {
+        UserService.updateExerciseByKey(user.uid, day, key, modifiedExercise);
+      }
     });
   }
 
