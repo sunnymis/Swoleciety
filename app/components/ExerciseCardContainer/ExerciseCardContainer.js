@@ -98,7 +98,7 @@ export default class ExerciseCardContainer extends React.Component {
   render() {
     const exercises = this.renderExercises();
     return (
-      <div>
+      <div className="exercise-card-container">
         {exercises}
         {this.state.showExerciseEdit ?
           <AddEditExerciseFormContainer
@@ -107,7 +107,11 @@ export default class ExerciseCardContainer extends React.Component {
           /> :
           null
         }
-        <AddButton onClick={this.handleOnAdd} />
+        <div className="add-button-container">
+          <AddButton 
+            size="medium"
+            onClick={this.handleOnAdd} />
+        </div>
       </div>
 
     );

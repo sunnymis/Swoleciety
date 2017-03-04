@@ -1,4 +1,10 @@
 @import '../../style/colors';
 
-.ExerciseCardContainer {
+.exercise-card-container {
+  .add-button-container {
+    position: relative;
+    top: 40px;
+    right: 20px;
+    float: right;
+  }
 }

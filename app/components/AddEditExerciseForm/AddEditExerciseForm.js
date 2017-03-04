@@ -1,5 +1,6 @@
 import React from 'react';
 import Input from '../Input/Input';
+import AddButton from '../AddButton/AddButton';
 
 require('./AddEditExerciseForm.scss');
 
@@ -63,6 +64,9 @@ class AddEditExerciseForm extends React.Component {
               placeholder="100"
               onChange={(e) => { this.props.onNewEntryChange(e); }}
             />
+            <div className="add-new">
+              <AddButton size="small"/>
+            </div>
           </div>
           <div className="buttons-row">
             <button

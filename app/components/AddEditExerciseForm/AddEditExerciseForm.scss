@@ -52,7 +52,8 @@
     }
 
     &.new-entry {
-      :first-child {
+      margin-bottom: 50px;
+      input:first-child {
         position: relative;
         left: 10%;
         @include placeholder {
@@ -60,10 +61,19 @@
         }
       }
 
-      :last-child {
+      :nth-child(2) {
         position: relative;
         left: 30%;
       }
+    
+      .add-new {
+        float: right;
+        position: relative;
+        right: 35px;
+        top: 50px;
+        margin-top: 10px;
+      }
+
     }
   }
 
