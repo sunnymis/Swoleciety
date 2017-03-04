@@ -14,6 +14,7 @@ export default class ExerciseCardContainer extends React.Component {
   constructor() {
     super();
     this.handleOnEdit = this.handleOnEdit.bind(this);
+    this.handleOnDelete = this.handleOnDelete.bind(this);
     this.handleOnBlur = this.handleOnBlur.bind(this);
     this.renderExercises = this.renderExercises.bind(this);
     this.state = {
@@ -56,11 +57,20 @@ export default class ExerciseCardContainer extends React.Component {
     });
   }
 
+  handleOnDelete(exerciseDetails) {
+    AuthService.getCurrentlySignedInUser((user) => {
+      const paths = window.location.hash.split('/');
+      const day = paths[paths.length - 1];
+      const key = exerciseDetails.details.key;
+      UserService.deleteExercise(user.uid, day, key);
+    });
+  }
+
   handleOnBlur(open) {
-    if (open == false) {
+    if (open === false) {
       this.setState({
         showExerciseEdit: false,
-      })
+      });
     }
   }
 
@@ -71,6 +81,7 @@ export default class ExerciseCardContainer extends React.Component {
           <ExerciseCard
             details={ex}
             onEdit={this.handleOnEdit}
+            onDelete={this.handleOnDelete}
           />
         </div>
       );

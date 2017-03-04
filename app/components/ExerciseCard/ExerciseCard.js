@@ -8,8 +8,12 @@ const ExerciseCard = (props) => {
     <div className="exercise-card">
       <h1 className="name">{props.details.name}</h1>
       <div className="icons">
-        <span onClick={() => props.onEdit(props)}><i className="material-icons">mode_edit</i></span>
-        <span><i className="material-icons">delete</i></span>
+        <span onClick={() => { props.onEdit(props); }}>
+          <i className="material-icons">mode_edit</i>
+        </span>
+        <span onClick={() => { props.onDelete(props); }}>
+          <i className="material-icons">delete</i>
+        </span>
       </div>
 
       <ExerciseDetail
@@ -32,11 +36,13 @@ const ExerciseCard = (props) => {
 ExerciseCard.defaultProps = {
   details: {},
   onEdit: () => {},
+  onDelete: () => {},
 };
 
 ExerciseCard.propTypes = {
   details: React.PropTypes.object,
   onEdit: React.PropTypes.func,
+  onDelete: React.PropTypes.func,
 };
 
 export default ExerciseCard;

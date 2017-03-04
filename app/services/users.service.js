@@ -167,17 +167,11 @@ export default class UserService {
    * Deletes an exercise for a user on a given day
    * @param  {string} userID      [description]
    * @param  {string} date        Date formatted as a 6 digit number MMDDYY
-   * @param  {object} exercise    Exercise Object to delete
+   * @param  {string} key         Key for the Exercise to delete
    */
-  static deleteExercise(userID, date, exercise) {
-    const path = `days/${date}/${userID}`;
+  static deleteExercise(userID, date, key) {
+    const path = `days/${date}/${userID}/${key}`;
     const ref = firebase.database().ref(path);
-    ref.once('value', (snapshot) => {
-      Object.keys(snapshot.val()).forEach((ex) => {
-        if (deepEqual(snapshot.val()[ex], exercise)) {
-          firebase.database().ref(`${path}/${ex}`).remove();
-        }
-      });
-    });
+    ref.remove();
   }
 }
