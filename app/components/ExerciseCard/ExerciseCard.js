@@ -3,34 +3,47 @@ import ExerciseDetail from '../ExerciseDetail/ExerciseDetail';
 
 require('./ExerciseCard.scss');
 
-const ExerciseCard = (props) => {
-  return (
-    <div className="exercise-card">
-      <h1 className="name">{props.details.name}</h1>
-      <div className="icons">
-        <span onClick={() => { props.onEdit(props); }}>
-          <i className="material-icons">mode_edit</i>
-        </span>
-        <span onClick={() => { props.onDelete(props); }}>
-          <i className="material-icons">delete</i>
-        </span>
-      </div>
+class ExerciseCard extends React.Component {
 
-      <ExerciseDetail
-        type="Set"
-        value={props.details.set}
-      />
-      <ExerciseDetail
-        type="Reps"
-        value={props.details.reps}
-      />
-      <ExerciseDetail
-        type="Weight"
-        value={props.details.weight}
-        units="lbs"
-      />
-    </div>
-  );
+  constructor() {
+    super();
+    this.renderDetails = this.renderDetails.bind(this);
+  }
+
+  renderDetails() {
+    return Object.keys(this.props.details).map((detail) => {
+      console.log(detail);
+      if (detail !== 'name' && detail !== 'key') {
+        return (
+          <ExerciseDetail
+            type={detail}
+            value={this.props.details[detail]}
+          />
+        );
+      } else {
+        return null; 
+      }
+    });
+  }
+
+  render() {
+    return (
+      <div className="exercise-card">
+        <h1 className="name">{this.props.details.name}</h1>
+        <div className="icons">
+          <span onClick={() => {this.props.onEdit(props); }}>
+            <i className="material-icons">mode_edit</i>
+          </span>
+          <span onClick={() => {this.props.onDelete(props); }}>
+            <i className="material-icons">delete</i>
+          </span>
+        </div>
+        <div className="details-container">
+          {this.renderDetails()}
+        </div>
+      </div>
+    );
+  }
 };
 
 ExerciseCard.defaultProps = {
