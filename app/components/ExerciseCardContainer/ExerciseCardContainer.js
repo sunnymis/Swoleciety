@@ -16,15 +16,13 @@ export default class ExerciseCardContainer extends React.Component {
     this.handleOnEdit = this.handleOnEdit.bind(this);
     this.handleOnDelete = this.handleOnDelete.bind(this);
     this.handleOnBlur = this.handleOnBlur.bind(this);
+    this.handleOnAdd = this.handleOnAdd.bind(this);
     this.renderExercises = this.renderExercises.bind(this);
     this.state = {
       showExerciseEdit: false,
       dailyExercises: [],
       selectedExercise: {
-        name: '',
-        set: 0,
-        reps: 0,
-        weight: 0,
+        details: {}
       },
     };
   }
@@ -70,8 +68,17 @@ export default class ExerciseCardContainer extends React.Component {
     if (open === false) {
       this.setState({
         showExerciseEdit: false,
+        selectedExercise: {
+          details: {},
+        },
       });
     }
+  }
+
+  handleOnAdd() {
+    this.setState({
+      showExerciseEdit: true,
+    });
   }
 
   renderExercises() {
@@ -100,7 +107,7 @@ export default class ExerciseCardContainer extends React.Component {
           /> :
           null
         }
-        <AddButton onClick={this.handleOnEdit} />
+        <AddButton onClick={this.handleOnAdd} />
       </div>
 
     );
