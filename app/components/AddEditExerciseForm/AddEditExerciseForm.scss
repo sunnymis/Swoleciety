@@ -1,4 +1,10 @@
 @import '../../style/colors';
+@mixin placeholder {
+    &::-webkit-input-placeholder {@content}
+    &:-moz-placeholder           {@content}
+    &::-moz-placeholder          {@content}
+    &:-ms-input-placeholder      {@content}  
+}
 
 .overlay {
   position: fixed;
@@ -42,9 +48,25 @@
     .input {
       width: 30%;
       display: inline-block;
-      font-size: 24px;
+      font-size: 24px;      
+    }
+
+    &.new-entry {
+      :first-child {
+        position: relative;
+        left: 10%;
+        @include placeholder {
+          font-size: 16px;
+        }
+      }
+
+      :last-child {
+        position: relative;
+        left: 30%;
+      }
     }
   }
+
 
   .buttons-row {
     padding: 30px;

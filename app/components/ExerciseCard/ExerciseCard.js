@@ -31,10 +31,10 @@ class ExerciseCard extends React.Component {
       <div className="exercise-card">
         <h1 className="name">{this.props.details.name}</h1>
         <div className="icons">
-          <span onClick={() => {this.props.onEdit(props); }}>
+          <span onClick={() => {this.props.onEdit(this.props); }}>
             <i className="material-icons">mode_edit</i>
           </span>
-          <span onClick={() => {this.props.onDelete(props); }}>
+          <span onClick={() => {this.props.onDelete(this.props); }}>
             <i className="material-icons">delete</i>
           </span>
         </div>

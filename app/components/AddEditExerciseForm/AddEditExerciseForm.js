@@ -52,7 +52,7 @@ class AddEditExerciseForm extends React.Component {
 
           {details}
 
-          <div className="details-row">
+          <div className="details-row new-entry">
             <Input
               name="field"     
               placeholder="e.g Set, Reps, Wt"
