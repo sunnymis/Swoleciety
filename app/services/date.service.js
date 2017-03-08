@@ -14,9 +14,12 @@ export default class DateService {
     }
     const date = dayToProcess.getDate();
     const theDay = dayToProcess.getDay();
-    const weekStart = new Date(dayToProcess.setDate(date - theDay)).getDate();
+    let weekStart = new Date(dayToProcess.setDate(date - theDay)).getDate();
     const month = dayToProcess.getMonth() + 1;
     const year = dayToProcess.getFullYear().toString().substr(2, 3);
+    if (weekStart < 10) {
+      weekStart = `0${weekStart}`;
+    }
     let formattedDate = `${month}${weekStart}${year}`;
     if (month < 10) {
       formattedDate = `0${formattedDate}`;
