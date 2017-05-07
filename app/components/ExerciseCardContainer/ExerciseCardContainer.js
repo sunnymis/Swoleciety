@@ -11,8 +11,8 @@ require('./ExerciseCardContainer.scss');
 
 export default class ExerciseCardContainer extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.handleOnEdit = this.handleOnEdit.bind(this);
     this.handleOnDelete = this.handleOnDelete.bind(this);
     this.handleOnBlur = this.handleOnBlur.bind(this);
@@ -29,15 +29,18 @@ export default class ExerciseCardContainer extends React.Component {
 
   componentDidMount() {
     AuthService.getCurrentlySignedInUser((user) => {
-      UserService.getExercises(user.uid, this.props.params.day, (exercises) => {
-        const dailyExercisesArray = [];
-        Object.keys(exercises).forEach((ex) => {
-          const exerciseObject = Object.assign({}, exercises[ex], { key: ex });
-          dailyExercisesArray.push(exerciseObject);
-        });
-        this.setState({
-          dailyExercises: dailyExercisesArray,
-        });
+      console.log(this.props);
+      UserService.getExercises(user.uid, this.props.match.params.day, (exercises) => {
+        if (exercises) {
+          const dailyExercisesArray = [];
+          Object.keys(exercises).forEach((ex) => {
+            const exerciseObject = Object.assign({}, exercises[ex], { key: ex });
+            dailyExercisesArray.push(exerciseObject);
+          });
+          this.setState({
+            dailyExercises: dailyExercisesArray,
+          });
+        }
       });
     });
   }
@@ -102,13 +105,14 @@ export default class ExerciseCardContainer extends React.Component {
         {exercises}
         {this.state.showExerciseEdit ?
           <AddEditExerciseFormContainer
+            {...this.props}
             onBlur={this.handleOnBlur}
             selectedExercise={this.state.selectedExercise}
           /> :
           null
         }
         <div className="add-button-container">
-          <AddButton 
+          <AddButton
             size="medium"
             onClick={this.handleOnAdd} />
         </div>

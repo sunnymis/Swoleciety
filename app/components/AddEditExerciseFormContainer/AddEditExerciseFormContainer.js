@@ -8,8 +8,8 @@ require('./AddEditExerciseFormContainer.scss');
 
 class AddEditExerciseFormContainer extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.handleOnBlur = this.handleOnBlur.bind(this);
     this.handleOnCancel = this.handleOnCancel.bind(this);
     this.handleOnSave = this.handleOnSave.bind(this);
@@ -28,8 +28,8 @@ class AddEditExerciseFormContainer extends React.Component {
       https://gist.github.com/pstoica/4323d3e6e37e8a23dd59
      */
     const currentTarget = e.currentTarget;
-//    console.log(currentTarget);
- //   console.log(document.activeElement);
+    //    console.log(currentTarget);
+    //   console.log(document.activeElement);
     setTimeout(() => {
       if (!currentTarget.contains(document.activeElement)) {
         this.props.onBlur(false);
@@ -52,12 +52,13 @@ class AddEditExerciseFormContainer extends React.Component {
   }
 
   handleOnSave() {
-    const paths = window.location.hash.split('/');
-    const day = paths[paths.length - 1];
+    const day = this.props.match.params.day;
     const key = this.props.selectedExercise.details.key;
     const modifiedExercise = this.state;
+    console.log('PROPS', this.props);
     AuthService.getCurrentlySignedInUser((user) => {
       if (this.state.newEntry) {
+        console.log(user.uid, day, this.state);
         UserService.addExercise(user.uid, day, {
           name: this.state.name,
           [this.state.newEntry.field.toLowerCase()]: this.state.newEntry.value,
@@ -89,7 +90,7 @@ class AddEditExerciseFormContainer extends React.Component {
 }
 
 AddEditExerciseFormContainer.defaultProps = {
-  onBlur: () => {},
+  onBlur: () => { },
   selectedExercise: {},
 };
 

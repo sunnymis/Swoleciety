@@ -35,7 +35,7 @@ export default class UserService {
   static getAllWeeks(userID) {
     const userWeekRef = firebase.database().ref(`users/${userID}/weeks`);
     userWeekRef.once('value', (snapshot) => {
-        console.log('All weeks', snapshot.val());
+      console.log('All weeks', snapshot.val());
     });
   }
 
@@ -106,7 +106,7 @@ export default class UserService {
       weekObj[weekDay] = '';
       let nextDay = DateService.getNextDay(weekDay);
       // Reformat the formattedDate with the next day
-      weekDay = `${weekDay.substr(0,2)}${nextDay}${weekDay.substr(4,2)}`;
+      weekDay = `${weekDay.substr(0, 2)}${nextDay}${weekDay.substr(4, 2)}`;
     }
     userWeekRef.update(weekObj);
   }
@@ -115,6 +115,7 @@ export default class UserService {
     const path = `days/${date}/${userID}`;
     const ref = firebase.database().ref(path);
     ref.on('value', (snapshot) => {
+      console.log('snapshot', snapshot.val());
       callback(snapshot.val());
     });
   }
@@ -128,6 +129,7 @@ export default class UserService {
    */
   static addExercise(userID, date, exercise) {
     const path = `days/${date}/${userID}`;
+    console.log(path, exercise);
     firebase.database().ref(path).push(exercise);
   }
 

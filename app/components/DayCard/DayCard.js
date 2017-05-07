@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 
 require('./daycard.scss');
 
@@ -16,18 +16,18 @@ DayCard.propTypes = {
 
 function DayCard(props) {
   return (
-    //<Link to={`/exercises/${props.formattedDate}`}>
-    <div className="day-card">
-      <div className="day-title">
-        <h1>{props.day}</h1>
-        <p className="title">{props.title}</p>
+    <Link to={`/exercises/${props.formattedDate}`}>
+      <div className="day-card">
+        <div className="day-title">
+          <h1>{props.day}</h1>
+          <p className="title">{props.title}</p>
+        </div>
+        <div className="date-container">
+          <p className="month">{props.date.month}</p>
+          <p className="day">{props.date.day}</p>
+        </div>
       </div>
-      <div className="date-container">
-        <p className="month">{props.date.month}</p>
-        <p className="day">{props.date.day}</p>
-      </div>
-    </div>
-    //</Link>
+    </Link>
   );
 };
 

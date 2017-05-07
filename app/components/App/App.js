@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import NavBar from '../NavBar/NavBar';
 import Login from '../Login/Login';
 import WeekViewContainer from '../WeekViewContainer/WeekViewContainer';
+import ExerciseCardContainer from '../ExerciseCardContainer/ExerciseCardContainer';
 import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom';
 import AuthService from '../../services/auth.service';
 require('./App.scss');
@@ -45,6 +46,7 @@ export default class App extends Component {
               user ? <WeekViewContainer user={user} /> : <Redirect to="/login" />
             )} />
 
+            <Route path="/exercises/:day" component={ExerciseCardContainer} />
 
           </div>
         </Router>

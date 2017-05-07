@@ -6,6 +6,10 @@ require('./AddEditExerciseForm.scss');
 
 class AddEditExerciseForm extends React.Component {
 
+  constructor(props) {
+    super(props);
+  }
+
   componentDidMount() {
     this.InputComponent.focus();
     this.renderDetails = this.renderDetails.bind(this);
@@ -21,7 +25,7 @@ class AddEditExerciseForm extends React.Component {
     return Object.keys(exercise.details).map((detail) => {
       return (
         <div>
-          { detail !== 'name' && detail !== 'key' ?
+          {detail !== 'name' && detail !== 'key' ?
             <div className="details-row">
               <h2>{capitalizeWord(detail)}</h2>
               <Input
@@ -55,7 +59,7 @@ class AddEditExerciseForm extends React.Component {
 
           <div className="details-row new-entry">
             <Input
-              name="field"     
+              name="field"
               placeholder="e.g Set, Reps, Wt"
               onChange={(e) => { this.props.onNewEntryChange(e); }}
             />
@@ -65,7 +69,7 @@ class AddEditExerciseForm extends React.Component {
               onChange={(e) => { this.props.onNewEntryChange(e); }}
             />
             <div className="add-new">
-              <AddButton size="small"/>
+              <AddButton size="small" />
             </div>
           </div>
           <div className="buttons-row">
@@ -84,11 +88,11 @@ class AddEditExerciseForm extends React.Component {
 
 AddEditExerciseForm.defaultProps = {
   exerciseDetails: {},
-  onOutsideClick: () => {},
-  onSave: () => {},
-  onCancel: () => {},
-  onDataChange: () => {},
-  onNewEntryChange: () => {},
+  onOutsideClick: () => { },
+  onSave: () => { },
+  onCancel: () => { },
+  onDataChange: () => { },
+  onNewEntryChange: () => { },
 };
 
 AddEditExerciseForm.propTypes = {
