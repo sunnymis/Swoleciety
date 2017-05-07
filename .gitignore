@@ -5,3 +5,4 @@ node_modules
 coverage
 app/firebaseConfig.js
 server/serviceAcctKey.json
+.vscode

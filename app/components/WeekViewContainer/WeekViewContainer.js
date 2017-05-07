@@ -18,7 +18,6 @@ export default class WeekViewContainer extends React.Component {
   }
 
   componentDidMount() {
-
     //  AuthService.signin('test@sunnystestabc.com', '123456');
     //  console.log(AuthService.getCurrentUser());
     AuthService.getCurrentlySignedInUser((user) => {

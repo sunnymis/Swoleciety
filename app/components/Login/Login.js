@@ -1,7 +1,7 @@
 import React from 'react';
 import Input from '../Input/Input';
 import AuthService from '../../services/auth.service';
-import { browserHistory } from 'react-router';
+
 
 require('./Login.scss');
 
@@ -20,20 +20,19 @@ export default class Login extends React.Component {
     };
   }
 
-
-
-
-
-
   onSignIn() {
     AuthService.signin(this.state.username, this.state.password).then((auth) => {
       if (auth.success) {
-        this.context.router.push('/');
-      } 
+        console.log('signed in', auth);
+      }
       if (auth.error) {
         console.log('ERROR:', auth.error);
       }
     })
+  }
+
+  onSignOut() {
+    AuthService.signout();
   }
 
   handleOnUsernameChange(event) {
@@ -73,6 +72,7 @@ export default class Login extends React.Component {
           </button>
         </div>
         <p className="signup">Don&#39;t have an account?<span>Sign up!</span></p>
+        <button onClick={this.onSignOut}>Sign Out</button>
       </div>
     );
   }
@@ -84,7 +84,5 @@ Login.defaultProps = {
 Login.propTypes = {
 };
 
-Login.contextTypes = {
-  router: React.PropTypes.object,
-};
+
 

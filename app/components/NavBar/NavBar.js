@@ -1,6 +1,6 @@
 import React from 'react';
 import Hamburger from '../Hamburger/Hamburger';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 
 require('./NavBar.scss');
 
