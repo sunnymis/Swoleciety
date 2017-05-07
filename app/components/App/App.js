@@ -25,39 +25,34 @@ export default class App extends Component {
     const { user } = this.state;
     console.log(user);
     return (
-      <Router>
-        <div>
-          <NavBar />
-          <Link to="/login">Login</Link>
-          <Link to="/exercises">exercises</Link>
+      user === undefined ? <h1>Loading...</h1> :
+        <Router>
+          <div>
+            <NavBar />
+            <Link to="/">Home</Link>
+            <Link to="/login">Login</Link>
+            <Link to="/exercises">exercises</Link>
 
-          <Route path="/login" component={Login} />
-          <Route path="/exercises" render={() => (
-            user ? <WeekViewContainer /> : <Redirect to="/login" />
-          )} />
+            <Route exact path="/login" render={() => (
+              user ? <Redirect to="/exercises" /> : <Login />
+            )} />
+
+            <Route exact path="/" render={() => (
+              user ? <WeekViewContainer user={user} /> : <Redirect to="/login" />
+            )} />
+
+            <Route exact path="/exercises" render={() => (
+              user ? <WeekViewContainer user={user} /> : <Redirect to="/login" />
+            )} />
 
 
-
-        </div>
-      </Router>
+          </div>
+        </Router>
     );
   }
 }
 /*
 
 
-
-<Route exact path="/login" render={() => (
-            user ? <WeekViewContainer /> : <Login />
-          )} />
-          <Route path="/" render={() => (
-            user ? <WeekViewContainer /> : <Redirect to="/login" />
-          )} />
-
-          
-
-          <Route path="/exercises" render={() => (
-            user !== null ? <WeekViewContainer /> :
-              <Redirect to="/login" />
-          )} />
+        
 */

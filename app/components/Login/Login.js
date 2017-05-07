@@ -17,13 +17,16 @@ export default class Login extends React.Component {
     this.state = {
       username: '',
       password: '',
+      loggedIn: false
     };
   }
 
   onSignIn() {
     AuthService.signin(this.state.username, this.state.password).then((auth) => {
       if (auth.success) {
-        console.log('signed in', auth);
+        this.setState({
+          loggedIn: true
+        });
       }
       if (auth.error) {
         console.log('ERROR:', auth.error);

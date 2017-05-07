@@ -63,6 +63,7 @@ export default class WeekViewContainer extends React.Component {
     const days = this.renderDays();
     return (
       <div className="week-view-container">
+        <h1>{this.props.user.email}</h1>
         {days}
       </div>
     );
