@@ -1,25 +1,26 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 
 require('./AddButton.scss');
 
 const AddButton = (props) => {
   return (
-    <div 
-      className={`add-button ${props.size}`} 
-      onClick={() => {props.onClick({})}}>
+    <div
+      className={`add-button ${props.size}`}
+      onClick={() => { props.onClick({}) }}>
       <i className="material-icons">add</i>
     </div>
   );
 };
 
 AddButton.defaultProps = {
-  onClick: () => {},
-  size: 'small',
+  onClick: () => { },
 };
+
 
 AddButton.propTypes = {
-  onClick: React.PropTypes.func,
-  size: React.PropTypes.string,
+  onClick: PropTypes.func,
+  size: PropTypes.string,
 };
-
 export default AddButton;

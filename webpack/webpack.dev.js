@@ -5,7 +5,6 @@
 const path = require('path');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
-
 module.exports = {
   // This is the base directory for resolving entry, loaders etc.
   context: path.resolve(process.cwd(), 'app/'),

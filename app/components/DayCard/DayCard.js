@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 require('./daycard.scss');
 
@@ -7,10 +8,10 @@ DayCard.defaultProps = {
 };
 
 DayCard.propTypes = {
-  day: React.PropTypes.string.isRequired,
-  title: React.PropTypes.string.isRequired,
-  date: React.PropTypes.object.isRequired,
-  formattedDate: React.PropTypes.string,
+  day: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  date: PropTypes.object.isRequired,
+  formattedDate: PropTypes.string,
 };
 
 

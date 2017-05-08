@@ -29,7 +29,6 @@ export default class ExerciseCardContainer extends React.Component {
 
   componentDidMount() {
     AuthService.getCurrentlySignedInUser((user) => {
-      console.log(this.props);
       UserService.getExercises(user.uid, this.props.match.params.day, (exercises) => {
         if (exercises) {
           const dailyExercisesArray = [];
@@ -85,9 +84,9 @@ export default class ExerciseCardContainer extends React.Component {
   }
 
   renderExercises() {
-    return this.state.dailyExercises.map((ex) => {
+    return this.state.dailyExercises.map((ex, index) => {
       return (
-        <div>
+        <div key={index}>
           <ExerciseCard
             details={ex}
             onEdit={this.handleOnEdit}
@@ -113,7 +112,7 @@ export default class ExerciseCardContainer extends React.Component {
         }
         <div className="add-button-container">
           <AddButton
-            size="medium"
+            size="large"
             onClick={this.handleOnAdd} />
         </div>
       </div>

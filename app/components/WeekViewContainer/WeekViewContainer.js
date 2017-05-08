@@ -44,9 +44,10 @@ export default class WeekViewContainer extends React.Component {
   }
 
   renderDays() {
-    return this.state.weekData.map((weekday) => {
+    return this.state.weekData.map((weekday, index) => {
       return (
         <DayCard
+          key={index}
           formattedDate={weekday.day}
           day={DateService.getDayFromFormattedDate(weekday.day)}
           title={weekday.name}
@@ -63,7 +64,6 @@ export default class WeekViewContainer extends React.Component {
     const days = this.renderDays();
     return (
       <div className="week-view-container">
-        <h1>{this.props.user.email}</h1>
         {days}
       </div>
     );

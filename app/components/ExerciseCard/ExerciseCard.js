@@ -11,13 +11,13 @@ class ExerciseCard extends React.Component {
   }
 
   renderDetails() {
-    return Object.keys(this.props.details).map((detail) => {
-      console.log(detail);
+    return Object.keys(this.props.details).map((detail, index) => {
       if (detail !== 'name' && detail !== 'key') {
         return (
           <ExerciseDetail
+            key={index}
             type={detail}
-            value={this.props.details[detail]}
+            value={+this.props.details[detail]}
           />
         );
       } else {
