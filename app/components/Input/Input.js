@@ -1,9 +1,30 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 require('./Input.scss');
 
 class Input extends React.Component {
-  focus() {
+
+  static defaultProps = {
+    value: '',
+    type: 'text',
+    name: '',
+    placeholder: '',
+    onChange: () => { },
+  };
+
+  static propTypes = {
+    value: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+    ]),
+    type: PropTypes.string,
+    name: PropTypes.string,
+    placeholder: PropTypes.string,
+    onChange: PropTypes.func,
+  };
+
+  focus = () => {
     this.input.focus();
   }
 
@@ -21,24 +42,5 @@ class Input extends React.Component {
     );
   }
 }
-
-Input.defaultProps = {
-  value: '',
-  type: 'text',
-  name: '',
-  placeholder: '',
-  onChange: () => {},
-};
-
-Input.propTypes = {
-  value: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.number,
-  ]),
-  type: React.PropTypes.string,
-  name: React.PropTypes.string,
-  placeholder: React.PropTypes.string,
-  onChange: React.PropTypes.func,
-};
 
 export default Input;

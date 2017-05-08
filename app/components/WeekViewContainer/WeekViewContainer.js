@@ -9,19 +9,20 @@ require('./WeekViewContainer.scss');
 
 
 export default class WeekViewContainer extends React.Component {
+
   constructor() {
     super();
-    this.renderDays = this.renderDays.bind(this);
     this.state = {
       weekData: [],
     };
   }
 
+  static defaultProps = {};
+  static propTypes = {};
+
   componentDidMount() {
     //  AuthService.signin('test@sunnystestabc.com', '123456');
-    //  console.log(AuthService.getCurrentUser());
     AuthService.getCurrentlySignedInUser((user) => {
-
       const weekArray = [];
       UserService.getSingleWeek(user.uid, DateService.getCurrentWeek(), (weekObject) => {
         // There is data in database for this week so add an empty week
@@ -43,7 +44,7 @@ export default class WeekViewContainer extends React.Component {
     });
   }
 
-  renderDays() {
+  renderDays = () => {
     return this.state.weekData.map((weekday, index) => {
       return (
         <DayCard
@@ -68,11 +69,5 @@ export default class WeekViewContainer extends React.Component {
       </div>
     );
   }
+
 }
-
-WeekViewContainer.defaultProps = {
-};
-
-WeekViewContainer.propTypes = {
-
-};

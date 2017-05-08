@@ -7,21 +7,19 @@ require('./Login.scss');
 
 export default class Login extends React.Component {
 
-
-
   constructor() {
     super();
-    this.onSignIn = this.onSignIn.bind(this);
-    this.handleOnUsernameChange = this.handleOnUsernameChange.bind(this);
-    this.handleOnPasswordChange = this.handleOnPasswordChange.bind(this);
     this.state = {
       username: '',
       password: '',
       loggedIn: false
     };
   }
+  static defaultProps = {};
+  static propTypes = {};
 
-  onSignIn() {
+
+  onSignIn = () => {
     AuthService.signin(this.state.username, this.state.password).then((auth) => {
       if (auth.success) {
         this.setState({
@@ -34,17 +32,17 @@ export default class Login extends React.Component {
     })
   }
 
-  onSignOut() {
+  onSignOut = () => {
     AuthService.signout();
   }
 
-  handleOnUsernameChange(event) {
+  handleOnUsernameChange = (event) => {
     this.setState({
       username: event.target.value,
     });
   };
 
-  handleOnPasswordChange(event) {
+  handleOnPasswordChange = (event) => {
     this.setState({
       password: event.target.value,
     });
@@ -81,11 +79,6 @@ export default class Login extends React.Component {
   }
 };
 
-Login.defaultProps = {
-};
-
-Login.propTypes = {
-};
 
 
 

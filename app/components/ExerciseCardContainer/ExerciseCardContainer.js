@@ -5,19 +5,13 @@ import AddButton from '../AddButton/AddButton';
 import AuthService from '../../services/auth.service';
 import UserService from '../../services/users.service';
 import DateService from '../../services/date.service';
-import 'whatwg-fetch';
 
 require('./ExerciseCardContainer.scss');
 
 export default class ExerciseCardContainer extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.handleOnEdit = this.handleOnEdit.bind(this);
-    this.handleOnDelete = this.handleOnDelete.bind(this);
-    this.handleOnBlur = this.handleOnBlur.bind(this);
-    this.handleOnAdd = this.handleOnAdd.bind(this);
-    this.renderExercises = this.renderExercises.bind(this);
+  constructor() {
+    super();
     this.state = {
       showExerciseEdit: false,
       dailyExercises: [],
@@ -26,6 +20,10 @@ export default class ExerciseCardContainer extends React.Component {
       },
     };
   }
+
+  static defaultProps = {};
+  static propTypes = {};
+
 
   componentDidMount() {
     AuthService.getCurrentlySignedInUser((user) => {
@@ -44,20 +42,14 @@ export default class ExerciseCardContainer extends React.Component {
     });
   }
 
-  handleOnEdit(exerciseDetails) {
+  handleOnEdit = (exerciseDetails) => {
     this.setState({
       showExerciseEdit: !this.state.showExerciseEdit,
       selectedExercise: exerciseDetails,
-      // selectedExercise: {
-      //   name: exerciseDetails.name,
-      //   set: exerciseDetails.set,
-      //   reps: exerciseDetails.reps,
-      //   weight: exerciseDetails.weight,
-      // },
     });
   }
 
-  handleOnDelete(exerciseDetails) {
+  handleOnDelete = (exerciseDetails) => {
     AuthService.getCurrentlySignedInUser((user) => {
       const paths = window.location.hash.split('/');
       const day = paths[paths.length - 1];
@@ -66,7 +58,7 @@ export default class ExerciseCardContainer extends React.Component {
     });
   }
 
-  handleOnBlur(open) {
+  handleOnBlur = (open) => {
     if (open === false) {
       this.setState({
         showExerciseEdit: false,
@@ -77,13 +69,13 @@ export default class ExerciseCardContainer extends React.Component {
     }
   }
 
-  handleOnAdd() {
+  handleOnAdd = () => {
     this.setState({
       showExerciseEdit: true,
     });
   }
 
-  renderExercises() {
+  renderExercises = () => {
     return this.state.dailyExercises.map((ex, index) => {
       return (
         <div key={index}>
@@ -120,12 +112,3 @@ export default class ExerciseCardContainer extends React.Component {
     );
   }
 }
-
-ExerciseCardContainer.defaultProps = {
-};
-
-ExerciseCardContainer.propTypes = {
-};
-/*
-
- */

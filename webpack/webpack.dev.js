@@ -74,7 +74,7 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/,
         options: {
-          presets: ['babel-preset-es2015', 'babel-preset-react'],
+          presets: ['babel-preset-stage-0', 'babel-preset-react'],
         },
       },
       {

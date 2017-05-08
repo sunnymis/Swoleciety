@@ -2,7 +2,7 @@ import React from 'react';
 
 require('./Hamburger.scss');
 
-const Hamburger = () => {
+function Hamburger() {
   return (
     <span className="hamburger">&#9776;</span>
   );

@@ -8,10 +8,10 @@ require('./NavBar.scss');
 
 export default class NavBar extends React.Component {
 
-  constructor() {
-    super();
-  }
-  onSignIn() {
+  static defaultProps = {};
+  static propTypes = {};
+
+  onSignIn = () => {
     AuthService.signin(this.state.username, this.state.password).then((auth) => {
       if (auth.success) {
         this.setState({
@@ -19,12 +19,12 @@ export default class NavBar extends React.Component {
         });
       }
       if (auth.error) {
-        console.log('ERROR:', auth.error);
+        console.error('ERROR:', auth.error);
       }
     })
   }
 
-  onSignOut() {
+  onSignOut = () => {
     AuthService.signout();
   }
 
@@ -38,11 +38,5 @@ export default class NavBar extends React.Component {
       </nav>
     );
   }
-};
-
-NavBar.defaultProps = {
-};
-
-NavBar.propTypes = {
 };
 

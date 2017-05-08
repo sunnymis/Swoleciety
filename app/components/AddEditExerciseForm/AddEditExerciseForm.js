@@ -1,13 +1,29 @@
 import React from 'react';
 import Input from '../Input/Input';
 import AddButton from '../AddButton/AddButton';
+import PropTypes from 'prop-types';
 
 require('./AddEditExerciseForm.scss');
 
 class AddEditExerciseForm extends React.Component {
 
-  constructor(props) {
-    super(props);
+  static defaultProps = {
+    exerciseDetails: {},
+    onOutsideClick: () => { },
+    onSave: () => { },
+    onCancel: () => { },
+    onDataChange: () => { },
+    onNewEntryChange: () => { },
+  };
+
+
+  static propTypes = {
+    exerciseDetails: PropTypes.object,
+    onOutsideClick: PropTypes.func,
+    onSave: PropTypes.func,
+    onCancel: PropTypes.func,
+    onDataChange: PropTypes.func,
+    onNewEntryChange: PropTypes.func,
   }
 
   componentDidMount() {
@@ -86,22 +102,7 @@ class AddEditExerciseForm extends React.Component {
   }
 }
 
-AddEditExerciseForm.defaultProps = {
-  exerciseDetails: {},
-  onOutsideClick: () => { },
-  onSave: () => { },
-  onCancel: () => { },
-  onDataChange: () => { },
-  onNewEntryChange: () => { },
-};
 
-AddEditExerciseForm.propTypes = {
-  exerciseDetails: React.PropTypes.object,
-  onOutsideClick: React.PropTypes.func,
-  onSave: React.PropTypes.func,
-  onCancel: React.PropTypes.func,
-  onDataChange: React.PropTypes.func,
-  onNewEntryChange: React.PropTypes.func,
-};
+
 
 export default AddEditExerciseForm;

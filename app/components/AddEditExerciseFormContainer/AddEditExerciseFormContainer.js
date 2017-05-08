@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import AddEditExerciseForm from '../AddEditExerciseForm/AddEditExerciseForm';
 import UserService from '../../services/users.service';
 import AuthService from '../../services/auth.service';
@@ -8,19 +9,17 @@ require('./AddEditExerciseFormContainer.scss');
 
 class AddEditExerciseFormContainer extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.handleOnBlur = this.handleOnBlur.bind(this);
-    this.handleOnCancel = this.handleOnCancel.bind(this);
-    this.handleOnSave = this.handleOnSave.bind(this);
-    this.handleOnDataChange = this.handleOnDataChange.bind(this);
-    this.handleOnNewEntryChange = this.handleOnNewEntryChange.bind(this);
-    this.state = {
+  static defaultProps = {
+    onBlur: () => { },
+    selectedExercise: {},
+  };
 
-    }
-  }
+  static propTypes = {
+    onBlur: PropTypes.func,
+    selectedExercise: PropTypes.object,
+  };
 
-  handleOnBlur(e) {
+  handleOnBlur = (e) => {
     this.setState({});
     /*
       Newly focused AddEdit isn't focused as the blur event occurs
@@ -28,8 +27,6 @@ class AddEditExerciseFormContainer extends React.Component {
       https://gist.github.com/pstoica/4323d3e6e37e8a23dd59
      */
     const currentTarget = e.currentTarget;
-    //    console.log(currentTarget);
-    //   console.log(document.activeElement);
     setTimeout(() => {
       if (!currentTarget.contains(document.activeElement)) {
         this.props.onBlur(false);
@@ -37,13 +34,13 @@ class AddEditExerciseFormContainer extends React.Component {
     }, 0);
   }
 
-  handleOnDataChange(e) {
+  handleOnDataChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
     });
   }
 
-  handleOnNewEntryChange(e) {
+  handleOnNewEntryChange = (e) => {
     const newEntry = (this.state.newEntry) ? this.state.newEntry : {};
     newEntry[e.target.name] = e.target.value;
     this.setState({
@@ -51,14 +48,13 @@ class AddEditExerciseFormContainer extends React.Component {
     });
   }
 
-  handleOnSave() {
+  handleOnSave = () => {
     const day = this.props.match.params.day;
     const key = this.props.selectedExercise.details.key;
     const modifiedExercise = this.state;
-    console.log('PROPS', this.props);
+
     AuthService.getCurrentlySignedInUser((user) => {
       if (this.state.newEntry) {
-        console.log(user.uid, day, this.state);
         UserService.addExercise(user.uid, day, {
           name: this.state.name,
           [this.state.newEntry.field.toLowerCase()]: this.state.newEntry.value,
@@ -69,7 +65,7 @@ class AddEditExerciseFormContainer extends React.Component {
     });
   }
 
-  handleOnCancel() {
+  handleOnCancel = () => {
     this.props.onBlur(false);
   }
 
@@ -89,14 +85,5 @@ class AddEditExerciseFormContainer extends React.Component {
   }
 }
 
-AddEditExerciseFormContainer.defaultProps = {
-  onBlur: () => { },
-  selectedExercise: {},
-};
-
-AddEditExerciseFormContainer.propTypes = {
-  onBlur: React.PropTypes.func,
-  selectedExercise: React.PropTypes.Object,
-};
 
 export default AddEditExerciseFormContainer;

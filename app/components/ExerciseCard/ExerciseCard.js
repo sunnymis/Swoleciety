@@ -1,16 +1,24 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ExerciseDetail from '../ExerciseDetail/ExerciseDetail';
 
 require('./ExerciseCard.scss');
 
 class ExerciseCard extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.renderDetails = this.renderDetails.bind(this);
-  }
+  static defaultProps = {
+    details: {},
+    onEdit: () => { },
+    onDelete: () => { },
+  };
 
-  renderDetails() {
+  static propTypes = {
+    details: PropTypes.object,
+    onEdit: PropTypes.func,
+    onDelete: PropTypes.func,
+  };
+
+  renderDetails = () => {
     return Object.keys(this.props.details).map((detail, index) => {
       if (detail !== 'name' && detail !== 'key') {
         return (
@@ -44,18 +52,6 @@ class ExerciseCard extends React.Component {
       </div>
     );
   }
-};
-
-ExerciseCard.defaultProps = {
-  details: {},
-  onEdit: () => { },
-  onDelete: () => { },
-};
-
-ExerciseCard.propTypes = {
-  details: React.PropTypes.object,
-  onEdit: React.PropTypes.func,
-  onDelete: React.PropTypes.func,
 };
 
 export default ExerciseCard;
