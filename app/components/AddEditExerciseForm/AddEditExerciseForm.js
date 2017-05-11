@@ -57,6 +57,23 @@ class AddEditExerciseForm extends React.Component {
     });
   }
 
+  renderEmptyDetailRow() {
+    return (
+      <div>
+        <Input
+          name="field"
+          placeholder="e.g Set, Reps, Wt"
+          onChange={(e) => { this.props.onNewEntryChange(e); }}
+        />
+        <Input
+          name="value"
+          placeholder="100"
+          onChange={(e) => { this.props.onNewEntryChange(e); }}
+        />
+      </div>
+    )
+  }
+
   render() {
     const details = this.renderDetails();
     return (

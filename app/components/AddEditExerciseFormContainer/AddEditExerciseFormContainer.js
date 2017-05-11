@@ -12,11 +12,13 @@ class AddEditExerciseFormContainer extends React.Component {
   static defaultProps = {
     onBlur: () => { },
     selectedExercise: {},
+    isEditting: false
   };
 
   static propTypes = {
     onBlur: PropTypes.func,
     selectedExercise: PropTypes.object,
+    isEditting: PropTypes.bool
   };
 
   handleOnBlur = (e) => {
@@ -51,16 +53,17 @@ class AddEditExerciseFormContainer extends React.Component {
   handleOnSave = () => {
     const day = this.props.match.params.day;
     const key = this.props.selectedExercise.details.key;
-    const modifiedExercise = this.state;
+    const modifiedExercise = {};
+    modifiedExercise[this.state.newEntry.field] = this.state.newEntry.value;
 
     AuthService.getCurrentlySignedInUser((user) => {
-      if (this.state.newEntry) {
+      if (this.props.selectedExercise.details) {
+        UserService.updateExerciseByKey(user.uid, day, key, modifiedExercise);
+      } else {
         UserService.addExercise(user.uid, day, {
-          name: this.state.name,
+          name: this.props.selectedExercise.details.name,
           [this.state.newEntry.field.toLowerCase()]: this.state.newEntry.value,
         });
-      } else {
-        UserService.updateExerciseByKey(user.uid, day, key, modifiedExercise);
       }
     });
   }
